@@ -44,25 +44,7 @@ LobotomySchedule
 	FixedRespawnWaveTime Yes
 	CanBotsAttackWhileInSpawnRoom No
 
-	Advanced 1
-
-	// server, please download my shit.
-	PrecacheSound "oz_terror_sfx/tranquility.mp3"  
-	PrecacheSound "oz_terror_sfx/starfallcaster1.mp3"  
-	PrecacheSound "oz_terror_sfx/warstompbirth1.wav"  
-	PrecacheSound "oz_terror_sfx/thunderclapcaster.mp3"  
-	PrecacheSound "oz_terror_sfx/howlofterror.mp3"  
-	PrecacheSound "oz_terror_sfx/keimou_in.mp3"  
-	PrecacheSound "oz_terror_sfx/keimou_out.mp3"  
-
-	PrecacheGeneric "materials/oz_terror_overlays/break_announcement_overlay.vtf"  
-	PrecacheGeneric "materials/oz_terror_overlays/break1_announcement.vmt"  
-	PrecacheGeneric "materials/oz_terror_overlays/break2_announcement.vmt"  
-	PrecacheGeneric "materials/oz_terror_overlays/bomb_reset_timer_overlay.vtf"  
-	PrecacheGeneric "materials/oz_terror_overlays/bomb_resets_40_sec.vmt"  
-	PrecacheGeneric "materials/oz_terror_overlays/bomb_resets_45_sec.vmt"  
-
-	PrecacheModel "models/props_mvm/indicator/indicator_circle_long.mdl"  
+	Advanced 1 
 
 	Templates
 	{
