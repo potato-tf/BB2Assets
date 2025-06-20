@@ -504,7 +504,7 @@ WaveSchedule
 		WaveSpawn
 		{
 			Name	wave2a
-			TotalCurrency 100
+			TotalCurrency 50
 			TotalCount	30
 			MaxActive 	6
 			SpawnCount	2
@@ -517,6 +517,38 @@ WaveSchedule
 				TFBot
 				{
 					Template			T_TFBot_Demoman_Knight
+				}					
+		}		
+		
+		WaveSpawn
+		{
+			Name	wave2a
+			TotalCurrency 50
+			TotalCount	30
+			MaxActive 	1
+			SpawnCount	1
+			WaitBeforeStarting	0.5
+			WaitBetweenSpawns 	3.5
+			Where	spawnbot
+			Support 1
+			
+
+				TFBot
+				{
+					Class Demoman
+					Skill	Easy
+					Item	"TF_WEAPON_PISTOL"
+					Item	"Reggaelator"
+					WeaponRestrictions	SecondaryOnly
+					Name	"Glock Demo"
+					ClassIcon		scout_pistol_nys
+					Scale	1.5
+					Health	500
+					CharacterAttributes
+					{
+						"Hand Scale" 3
+						
+					}	
 				}					
 		}		
 		
@@ -612,7 +644,7 @@ WaveSchedule
 			
 			Tank
 			{
-				Health	15000
+				Health	18000
 				Name	tankboss
 				Speed	75
 				StartingPathTrackNode	"tank_path_b_1"
@@ -644,7 +676,7 @@ WaveSchedule
 			
 			Tank
 			{
-				Health	15000
+				Health	18000
 				Name	tankboss
 				Speed	75
 				StartingPathTrackNode	"tank_path_a_1"
@@ -1048,7 +1080,7 @@ WaveSchedule
 			
 			Tank
 			{
-				Health	18000
+				Health	25000
 				Name	tankboss
 				Speed	75
 				StartingPathTrackNode	"tank_path_b_1"
@@ -1124,9 +1156,9 @@ WaveSchedule
 			TotalCurrency 200
 			TotalCount	36
 			MaxActive 	12
-			SpawnCount	6
+			SpawnCount	3
 			WaitBeforeStarting	6.5
-			WaitBetweenSpawns 	12
+			WaitBetweenSpawns 	3
 			Where	spawnbot_center
 			Support 1
 			//Squad
@@ -1263,7 +1295,7 @@ WaveSchedule
 				TFBot	
 				{
 					Template	T_TFBot_Soldier_Extended_Concheror
-					//Attributes	AlwaysCrit
+					Attributes	AlwaysCrit
 				}
 			}	
 		}	
@@ -1289,7 +1321,8 @@ WaveSchedule
 					Skill Hard
 					Health 3000
 					Attributes	MiniBoss
-
+					Attributes AlwaysCrit
+					
 					ItemAttributes
 					{
 						ItemName	"The Huntsman"
@@ -1813,7 +1846,7 @@ WaveSchedule
 				Attributes MiniBoss
 				Attributes UseBossHealthBar
 				Attributes	AlwaysCrit
-				UseMeleeThreatPrioritization 1  
+				UseMeleeThreatPrioritization 1 [$SIGSEGV]
 				
 				ItemAttributes
 				{
