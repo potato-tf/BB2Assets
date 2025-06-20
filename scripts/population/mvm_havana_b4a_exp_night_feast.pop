@@ -9,7 +9,7 @@
 #base robot_standard.pop
 #base robot_giant.pop
 
-// #base custom_weapon_spadmin.pop
+//#base custom_weapon_spadmin.pop
 //#base custom_robot_spec_redux.pop
 //#base custom_robot_spec_redux_raf.pop
 
@@ -1396,7 +1396,7 @@ WaveSchedule // 事实上这里可以是任何内容
         }
         Explanation
         {
-            Line "{6b798e}>Each wave of this mission has a forced bombpath."
+            Line "{ecd452}>Each wave of this mission has a forced bombpath."
         }
         InitWaveOutput
 		{
@@ -1407,7 +1407,7 @@ WaveSchedule // 事实上这里可以是任何内容
 				EntFire(`bombpath_choose_relay`, `Kill`)
 				EntFire(`bombpath_clearall_relay`, `Trigger`)
 				EntFire(`bombpath_1_upper_relay`, `Trigger`) // 设置该回合路线
-				//ClientPrint(null,3,`\x086b798eFF>Each wave of this mission has a Forced bombpath.`) // 8位颜色代码，最后2位为透明度(FF即不透明) - 在这个任务中，每回合的炸弹路线是固定的。
+				//ClientPrint(null,3,`\x08ecd452FF>Each wave of this mission has a Forced bombpath.`) // 8位颜色代码，最后2位为透明度(FF即不透明) - 在这个任务中，每回合的炸弹路线是固定的。
                 IncludeScript(`havana_minor_fix`, getroottable())
             "
         }
@@ -1935,7 +1935,7 @@ WaveSchedule // 事实上这里可以是任何内容
         }
         Explanation
         {
-            Line "{6b798e}>Combat tanks are here! They're weaponized but can't deploy bombs, and they'll patrolling around the map."
+            Line "{ecd452}>Combat tanks are here! They're weaponized but can't deploy bombs, and they'll patrolling around the map."
         }
         InitWaveOutput
 		{
@@ -1946,7 +1946,7 @@ WaveSchedule // 事实上这里可以是任何内容
 				EntFire(`bombpath_choose_relay`, `Kill`)
 				EntFire(`bombpath_clearall_relay`, `Trigger`)
 				EntFire(`bombpath_2_relay`, `Trigger`) // 设置该回合路线
-                //ClientPrint(null,3,`\x086b798eFF>Combat tanks are here! They're weaponized but can't deploy bombs, and they'll patrolling around the map.`) // 战斗坦克来了！不会部署炸弹，但搭载有强力的武器的它们会在地图上巡逻。
+                //ClientPrint(null,3,`\x08ecd452FF>Combat tanks are here! They're weaponized but can't deploy bombs, and they'll patrolling around the map.`) // 战斗坦克来了！不会部署炸弹，但搭载有强力的武器的它们会在地图上巡逻。
                 IncludeScript(`tankextensions_main`, getroottable())
                 IncludeScript(`tankextensions/combattank`, getroottable())
                 IncludeScript(`tankextensions/combattank_weapons/minigun`, getroottable())
@@ -2018,7 +2018,7 @@ WaveSchedule // 事实上这里可以是任何内容
             WaitBeforeStarting 10
             WaitBetweenSpawns 10
         
-            TotalCurrency 50
+            TotalCurrency 30
 
             Support 1
         
@@ -2250,7 +2250,7 @@ WaveSchedule // 事实上这里可以是任何内容
         }
         WaveSpawn
         {
-            Name "3c-giant"
+            Name "3c"
             Where spawnbot
             TotalCount 4
             MaxActive 4
@@ -2271,6 +2271,28 @@ WaveSchedule // 事实上这里可以是任何内容
                 { 
                     Template T_TFBot_Medic_kritz
                 }
+            }
+        }
+
+        WaveSpawn
+        {
+            Name "3support-final"
+            Where spawnbot
+            TotalCount 30
+            MaxActive 3
+            SpawnCount 1
+            WaitBeforeStarting 10
+            WaitBetweenSpawns 2
+            WaitForAllSpawned "3c"
+        
+            TotalCurrency 20
+
+            Support 1
+        
+            TFBot
+            { 
+                Template T_TFBot_Pyro_combo_flarepush
+                //Action Mobber
             }
         }
     }
@@ -2638,7 +2660,7 @@ WaveSchedule // 事实上这里可以是任何内容
         SpawnTemplate Queue_and_Slow
         Explanation
         {
-            Line "{6b798e}>A Behemoth is lurking outside of the harbour ... Don't let it step into the base!"
+            Line "{ecd452}>A Behemoth is lurking outside of the harbour ... Don't let it step into the base!"
         }
         InitWaveOutput
 		{
@@ -2649,7 +2671,7 @@ WaveSchedule // 事实上这里可以是任何内容
 				EntFire(`bombpath_choose_relay`, `Kill`)
 				EntFire(`bombpath_clearall_relay`, `Trigger`)
 				EntFire(`bombpath_1_relay`, `Trigger`) // 设置该回合路线
-                //ClientPrint(null,3,`\x086b798eFF>A Behemoth is lurking outside of the harbour ... Don't let it step into the base!`) // 一辆战争巨兽正在哈瓦那的港口外徘徊...别让它踏进基地！
+                //ClientPrint(null,3,`\x08ecd452FF>A Behemoth is lurking outside of the harbour ... Don't let it step into the base!`) // 一辆战争巨兽正在哈瓦那的港口外徘徊...别让它踏进基地！
                 IncludeScript(`tankextensions_main`, getroottable())
                 IncludeScript(`tankextensions/combattank`, getroottable())
                 IncludeScript(`tankextensions/combattank_weapons/minigun`, getroottable())
@@ -4057,3 +4079,8 @@ WaveSchedule // 事实上这里可以是任何内容
 //
 // Decoration.
 // Shrank the head scale of giant bowmen to 0.7.
+//
+// -Beta Update 1-
+//
+// Changed the text colour to increase visibility.
+// W3 - Added support bomb carrier pyros after all mainwave robots spawned (Yes this is totally not a buff).
