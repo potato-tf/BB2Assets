@@ -5225,52 +5225,53 @@ population
 		}
 		WaveSpawn
 		{
+			Support 1
 		    Squad
 		    {
 		        TFBot
 		        {
 		            ClassIcon soldier_homing_direct_burst_giant
-		            Support 1
+		           
 		        }
 		        TFBot
 		        {
 		            ClassIcon pyro_neon_giant
-		            Support 1
+		           
 		        }
 			TFBot
 		        {
 		            ClassIcon soldier_airstrike
-		            Support 1
+		           
 		        }
 			TFBot
 		        {
 		            ClassIcon trash_meme
-		            Support 1
+		            
 		        }
 			TFBot
 		        {
 		            ClassIcon soldier_conch_burstfire_yoovy
-		            Support 1
+		            
 		        }
 			TFBot
 		        {
 		            ClassIcon soldier_rocketrain_giant
-		            Support 1
+		           
 		        }
 			TFBot
 		        {
 		            ClassIcon soldier_spammer
-		            Support 1
+		            
 		        }
 			TFBot
 		        {
 		            ClassIcon heavy_shotgun_burst_lite
-		            Support 1
+		            
 		        }
 			TFBot
 		        {
 		            ClassIcon soldier_nuke2
-		            Support 1
+		        
 		        }
 		    }
 		}
