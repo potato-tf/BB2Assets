@@ -504,23 +504,26 @@ WaveSchedule
 			}
 		}
 
-		T_TFBot_Giant_Demoman_aga
+		T_TFBot_Demoman_Persian
 		{
 			Class				Demoman
-			Name				"Giant Demoman"
-			ClassIcon			demo_giant
-			Skill				Expert
-			Health				3300
-			WeaponRestrictions	PrimaryOnly
-			Attributes			HoldFireUntilFullReload
-			Attributes			MiniBoss
+			ClassIcon			demoknight_persian_nys
+			Skill				Hard
+			Item				"Sultan's Ceremonial"
+			Item				"Ali Baba's Wee Booties"
+			Item				"The Persian Persuader"
+			Item				"The Splendid Screen"
+
+			ItemAttributes
+			{
+				ItemName					"The Splendid Screen"
+				"Attack not cancel charge"	1
+			}
+			WeaponRestrictions	MeleeOnly
 
 			CharacterAttributes
 			{
-				"move speed bonus"					0.5
-				"damage force reduction"			0.5
-				"airblast vulnerability multiplier"	0.5
-				"override footstep sound set"		4
+				"critboost on kill"	3
 			}
 		}
 	}
@@ -1403,7 +1406,8 @@ WaveSchedule
 
 			TFBot
 			{
-				Template	T_TFBot_Giant_Demoman_aga
+				Template	T_TFBot_Giant_Demoman
+				ClassIcon demo_spammer 
 			}
 		}
 
@@ -1964,17 +1968,17 @@ WaveSchedule
 
 				TFBot
 				{
-					Template	T_TFBot_Medic_QuickUber
+					Template	T_TFBot_Medic
 				}
 
 				TFBot
 				{
-					Template	T_TFBot_Medic_QuickUber
+					Template	T_TFBot_Medic
 				}
 
 				TFBot
 				{
-					Template	T_TFBot_Medic_QuickUber
+					Template	T_TFBot_Medic
 				}
 			}
 		}
@@ -2034,7 +2038,7 @@ WaveSchedule
 
 			TFBot
 			{
-				Template	T_TFBot_Demoman_Knight
+				Template	T_TFBot_Demoman_Persian
 			}
 		}
 	}
@@ -2491,8 +2495,8 @@ WaveSchedule
 			Name				w5_4
 			WaitForAllDead		W5_3
 			Where				spawnbot_right
-			TotalCount			4
-			MaxActive			4
+			TotalCount			6
+			MaxActive			6
 			SpawnCount			1
 			WaitBeforeStarting	0
 			WaitBetweenSpawns	30
