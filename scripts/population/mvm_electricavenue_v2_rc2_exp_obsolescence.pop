@@ -5088,6 +5088,49 @@ population
 		}
 		WaveSpawn
 		{
+			Support 1
+		    Squad
+		    {
+		        TFBot
+		        {
+		            ClassIcon soldier_homing_direct_burst_giant
+		        }
+		        TFBot
+		        {
+		            ClassIcon pyro_neon_giant
+		        }
+				TFBot
+		        {
+		            ClassIcon soldier_airstrike
+		        }
+				TFBot
+		        {
+		            ClassIcon trash_meme
+		        }
+				TFBot
+		        {
+		            ClassIcon soldier_conch_burstfire_yoovy
+		        }
+				TFBot
+		        {
+		            ClassIcon soldier_rocketrain_giant
+		        }
+				TFBot
+		        {
+		            ClassIcon soldier_spammer
+		        }
+				TFBot
+		        {
+		            ClassIcon heavy_shotgun_burst_lite
+		        }
+				TFBot
+		        {
+		            ClassIcon soldier_nuke2
+		        }
+		    }
+		}
+		WaveSpawn
+		{
 			Name	Main1
 			TotalCurrency	100
 			TotalCount	1
