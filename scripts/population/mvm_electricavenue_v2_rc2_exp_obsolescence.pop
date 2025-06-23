@@ -1607,9 +1607,10 @@ population
 			ChangeAttributes
 			{
 				Name ubergeneratortutorial
-				Delay 25
+				Delay 0
 				Repeats 1
 				Cooldown 9999
+				IfHealthBelow 110000
 			}
 			ChangeAttributes
 			{
