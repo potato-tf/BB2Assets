@@ -196,14 +196,14 @@ WaveSchedule
 			{
 				Target "dispenser"
 				Action "RunScriptCode"
-				Param "SetPropInt(self, `m_takedamage`, 0)"
+				Param "NetProps.SetPropInt(self, `m_takedamage`, 0)"
 				Delay 1
             }
 			OnSpawnOutput
 			{
 				Target "dispenser"
 				Action "RunScriptCode"
-				Param "SetPropInt(self, `m_iObjectType`, 3)"
+				Param "NetProps.SetPropInt(self, `m_iObjectType`, 3)"
 				Delay 1
 			}
 			obj_dispenser
@@ -814,8 +814,8 @@ WaveSchedule
 				"lunchbox adds minicrits" 3
 				"ubercharge rate bonus" 200
 				"heal rate bonus" 10
-				"medigun blast resist deployed" 0.75
-				"medigun blast resist passive" 0.75
+				"medigun blast resist deployed" 1
+				"medigun blast resist passive" 1
 				"medigun charge is resists" 4
 				"dmg from melee increased" 20
 			}

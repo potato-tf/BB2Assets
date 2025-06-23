@@ -12,7 +12,7 @@ WaveSchedule
 	FixedRespawnWaveTime	no
 	Advanced	1
 	
-	//SpawnTemplate "Ubertank"     
+	//SpawnTemplate "Ubertank"    [$SIGSEGV]
 	
 	
 	//PointTemplates
@@ -599,7 +599,7 @@ WaveSchedule
 			Spawncount 5
 			Maxactive 5
 			WaitBetweenSpawns 10
-			WaitBeforeStarting 27
+			WaitBeforeStarting 25
 			Squad
 			{
 				TFBot
@@ -635,7 +635,7 @@ WaveSchedule
 			Spawncount 5
 			Maxactive 5
 			WaitBetweenSpawns 10
-			WaitBeforeStarting 47
+			WaitBeforeStarting 45
 			
 			Squad
 			{
@@ -932,7 +932,7 @@ WaveSchedule
 				Item "Armored Authority"
 				Item "The Gunboats"
 				Tag bot_giant
-				RocketCustomParticle	flare_glow  
+				RocketCustomParticle	flare_glow [$SIGSEGV]
 				ItemAttributes
 				{
 					ItemName "Armored Authority"
@@ -1357,7 +1357,7 @@ WaveSchedule
 				WeaponRestrictions PrimaryOnly
 				Attributes SpawnWithFullCharge
 				Item "The Concheror"
-				RocketCustomParticle	flare_glow  
+				RocketCustomParticle	flare_glow [$SIGSEGV]
 				ItemAttributes
 				{
 					ItemName "The Original"
@@ -1459,10 +1459,10 @@ WaveSchedule
 			Name 7aa
 			Where spawnbot
 			TotalCurrency 300
-			Totalcount 81
+			Totalcount 91
 			Spawncount 1
 			Maxactive 13
-			WaitBeforeStarting 16
+			WaitBeforeStarting 17
 			WaitBetweenSpawns 0.1
 			RandomChoice
 			{
@@ -1483,13 +1483,13 @@ WaveSchedule
 		WaveSpawn
 		{
 			Name 7ab
-			Where spawnbot
+			Where spawnbot_mission_sniper
 			TotalCurrency 50
 			Totalcount 6
 			Spawncount 2
 			Maxactive 4
-			WaitBeforeStarting 25
-			WaitBetweenSpawns 13
+			WaitBeforeStarting 16
+			WaitBetweenSpawns 12
 			Squad
 			{
 				TFBot
@@ -1520,7 +1520,7 @@ WaveSchedule
 				Item "Armored Authority"
 				Item "The Gunboats"
 				Tag bot_giant
-				RocketCustomParticle	flare_glow  
+				RocketCustomParticle	flare_glow [$SIGSEGV]
 				ItemAttributes
 				{
 					ItemName "Armored Authority"
@@ -1545,11 +1545,11 @@ WaveSchedule
 			Where spawnbot
 			WaitForAllSpawned 7sex
 			TotalCurrency 100
-			Totalcount 20
+			Totalcount 30
 			Spawncount 10
 			Maxactive 14
 			WaitBeforeStarting 10
-			WaitBetweenSpawns 35
+			WaitBetweenSpawns 30
 			RandomChoice
 			{
 				TFBot
@@ -1577,6 +1577,20 @@ WaveSchedule
 					{
 						"Airblast Disabled" 1
 					}
+				}
+				TFBot
+				{
+					Class Heavyweapons
+					Skill Easy
+					Attributes Aggressive
+					Tag special_main_left
+				}
+				TFBot
+				{
+					Class Heavyweapons
+					Skill Easy
+					Attributes Aggressive
+					Tag special_main_right
 				}
 			}
 		}
@@ -1745,7 +1759,7 @@ WaveSchedule
 				Param	"
 				EntFire(`ubertank*`,`CallScriptFunction`,`ToggleUber`)
 				//EntFire(`ubertank*`,`SetSpeed`,`75`)
-				ClientPrint(null,3,`\x0799CCFFThe Uber-Tank is now vulnerable with 32k (32000) HP!`)
+				ClientPrint(null,3,`\x0799CCFFThe Uber-Tank is now vulnerable with 35k (35000) HP!`)
 				"
 			}
 			TFBot
@@ -1756,7 +1770,7 @@ WaveSchedule
 				Class Demoman
 				Name "Tavish Prime"
 				ClassIcon demo_bomber
-				Health 40000
+				Health 42500
 				Scale 1.9
 				Skill Expert
 				Attributes MiniBoss
@@ -1823,7 +1837,7 @@ WaveSchedule
 				{
 					Tank
 					{
-						Health					32000
+						Health					35000
 						Speed					75
 						Name					ubertank|0|-1
 						Skin					1

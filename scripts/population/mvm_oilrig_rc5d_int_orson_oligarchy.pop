@@ -2161,6 +2161,9 @@ WaveSchedule
 						// "generate rage on heal"		1
 						// Attempt to make it not a level 2 shield. don't think it worked. 0 didn't stop the shield either.
 						// Thinking about it, absolutely could use vscript to delete the shield somehow, not sure how though. Nor do I really care when I can just put the banner on the gsolly.
+						"bot medic uber health threshold" 1
+						"bot medic uber deploy delay duration" 6000
+						//^ Day 3 of beta this guy suddenly got uber when shot and ended up with infinite uber once, can't recreate it but this should stop it from mattering.
 					}
 				}
 			}

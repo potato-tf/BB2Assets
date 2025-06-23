@@ -93,7 +93,7 @@ WaveSchedule
 		BeginAtWave 4
 		RunForThisManyWaves 4
 
-		CooldownTime 45
+		CooldownTime 55
 
 		TFBot
 		{
@@ -104,11 +104,11 @@ WaveSchedule
 	{
 		Objective Spy
 
-		InitialCooldown 30
+		InitialCooldown 40
 		Where spawnbot
 		BeginAtWave 1
 		RunForThisManyWaves 2
-		CooldownTime 65
+		CooldownTime 75
 		DesiredCount 2
 
 		TFBot
@@ -160,9 +160,9 @@ WaveSchedule
 			TotalCurrency 100
 			TotalCount 24
 			MaxActive 6
-			SpawnCount 1
+			SpawnCount 2
 			WaitBeforeStarting 0
-			WaitBetweenSpawns 3
+			WaitBetweenSpawns 4.5
 			TFBot
 			{
 				Class Pyro
@@ -181,9 +181,9 @@ WaveSchedule
 			TotalCurrency 100
 			TotalCount 32
 			MaxActive 8
-			SpawnCount 1
+			SpawnCount 2
 			WaitBeforeStarting 0
-			WaitBetweenSpawns 2.5
+			WaitBetweenSpawns 3.5
 			TFBot
 			{
 				Class Soldier

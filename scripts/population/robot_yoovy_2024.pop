@@ -565,7 +565,7 @@ WaveSchedule
 			{
 				ItemName "The C.A.P.P.E.R"
 				"reload time decreased" -1
-				"clip size bonus" 99999
+				"clip size bonus" 11
 				"damage penalty" 0.5
 			}
 
@@ -1432,7 +1432,7 @@ WaveSchedule
         {
             //TFBot
             Class Soldier
-            Name "Lead Leach"
+            Name "Lead Leech"
             ClassIcon soldier_blackbox
             Attributes HoldFireUntilFullReload
 
@@ -7358,7 +7358,7 @@ WaveSchedule
         {
             //TFBot
             Class Medic
-            Name "Ãœber Medic"
+            Name "Über Medic"
             ClassIcon medic_uber
             Attributes SpawnWithFullCharge
 
@@ -7382,7 +7382,7 @@ WaveSchedule
         {
 			//TFBot
 			Class Medic
-			Name "Quick-Ãœber Medic"
+			Name "Quick-Über Medic"
 			ClassIcon medic_uber
 			Attributes SpawnWithFullCharge
 
@@ -7407,7 +7407,7 @@ WaveSchedule
         {
 			//TFBot
 			Class Medic
-			Name "Quick-Ãœber Medic"
+			Name "Quick-Über Medic"
 			ClassIcon medic_uber
 			Attributes SpawnWithFullCharge
 
@@ -7428,7 +7428,7 @@ WaveSchedule
         {
             //TFBot
             Class Medic
-            Name "Long-Ãœber Medic"
+            Name "Long-Über Medic"
             ClassIcon medic_uber
             Attributes SpawnWithFullCharge
 
@@ -7457,7 +7457,7 @@ WaveSchedule
         {
             //TFBot
             Class Medic
-            Name "Long-Ãœber Medic"
+            Name "Long-Über Medic"
             ClassIcon medic_uber
             Attributes SpawnWithFullCharge
 
@@ -7570,7 +7570,7 @@ WaveSchedule
         {
             //TFBot
             Class Medic
-            Name "Ãœber Shield Medic"
+            Name "Über Shield Medic"
             ClassIcon medic_shield_uber
             Attributes SpawnWithFullCharge
             Attributes ProjectileShield
@@ -7601,7 +7601,7 @@ WaveSchedule
         {
             //TFBot
             Class Medic
-            Name "Quick-Ãœber Shield Medic"
+            Name "Quick-Über Shield Medic"
             ClassIcon medic_shield_uber
             Attributes SpawnWithFullCharge
             Attributes ProjectileShield
@@ -7634,7 +7634,7 @@ WaveSchedule
         {
             //TFBot
             Class Medic
-            Name "Long-Ãœber Shield Medic"
+            Name "Long-Über Shield Medic"
             ClassIcon medic_shield_uber
             Attributes SpawnWithFullCharge
             Attributes ProjectileShield
@@ -7669,7 +7669,7 @@ WaveSchedule
         {
             //TFBot
             Class Medic
-            Name "Long-Ãœber Shield Medic"
+            Name "Long-Über Shield Medic"
             ClassIcon medic_shield_uber
             Attributes SpawnWithFullCharge
             Attributes ProjectileShield
@@ -8063,7 +8063,7 @@ WaveSchedule
             {
                 ItemName "The Huntsman"
                 "killstreak idleeffect" 1
-                "reload time decreased" 0.6
+                "fire rate bonus" 0.6
                 "damage penalty" 0.71 //85 Max Damage, same as Pre-Huntsman fix
             }
 
@@ -8547,7 +8547,7 @@ WaveSchedule
 
             //Rafmod
             
-            SpawnTemplate "cryo_bot"
+            
             CustomEyeParticle "killstreak_t4_lvl1"
             ItemColor
             {
@@ -8600,7 +8600,7 @@ WaveSchedule
 
             //Rafmod
             
-            SpawnTemplate "cryo_bot"
+            
             CustomEyeParticle "killstreak_t4_lvl1"
             ItemColor
             {
@@ -8925,7 +8925,7 @@ WaveSchedule
 
             //Rafmod
             
-            SpawnTemplate "cryo_bot"
+            
             CustomEyeParticle "killstreak_t4_lvl1"
             ItemColor
             {
@@ -8967,7 +8967,7 @@ WaveSchedule
 
             //Rafmod
             
-            SpawnTemplate "cryo_bot"
+            
             CustomEyeParticle "killstreak_t4_lvl1"
             ItemColor
             {
@@ -9038,7 +9038,7 @@ WaveSchedule
 
             //Rafmod
             
-            SpawnTemplate "cryo_bot"
+            
             CustomEyeParticle "killstreak_t4_lvl1"
             ItemColor
             {
@@ -9091,7 +9091,7 @@ WaveSchedule
 
             //Rafmod
             
-            SpawnTemplate "cryo_bot"
+            
             CustomEyeParticle "killstreak_t4_lvl1"
             ItemColor
             {
@@ -9141,7 +9141,7 @@ WaveSchedule
 
             //Rafmod
             
-            SpawnTemplate "cryo_bot"
+            
             CustomEyeParticle "killstreak_t4_lvl1"
             ItemColor
             {
@@ -9184,7 +9184,7 @@ WaveSchedule
 
             //Rafmod
             
-            SpawnTemplate "cryo_bot"
+            
             CustomEyeParticle "killstreak_t4_lvl1"
             ItemColor
             {

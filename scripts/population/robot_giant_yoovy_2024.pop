@@ -1953,7 +1953,7 @@ WaveSchedule
 		{
 			//TFBot
 			Class Soldier
-			Name "Giant Lead Leach"
+			Name "Giant Lead Leech"
 			Health 4200
 			ClassIcon soldier_blackbox_giant
 			Attributes HoldFireUntilFullReload
@@ -2835,7 +2835,7 @@ WaveSchedule
             //TFBot
             Class Soldier
             Health 3800
-            Name "Giant Burst CHarged Soldier"
+            Name "Giant Burst Charged Soldier"
             ClassIcon soldier_crit_burstfire_giant
             Attributes HoldFireUntilFullReload
             Attributes AlwaysCrit
@@ -3671,6 +3671,7 @@ WaveSchedule
             {
                 ItemName "The Slo-Poke"
                 "particle effect use head origin" 1
+                "particle effect vertical offset" 3
                 "attach particle effect" 296 //Sapped (BLU)
                 "set item tint RGB" 2829099
             }
@@ -9747,7 +9748,7 @@ WaveSchedule
             //TFBot
             Class Medic
             Health 4500
-            Name "Giant Ãœber Medic"
+            Name "Giant Über Medic"
             ClassIcon medic_uber_giant
             Attributes SpawnWithFullCharge
             Attributes MiniBoss
@@ -9788,7 +9789,7 @@ WaveSchedule
             //TFBot
             Class Medic
             Health 4500
-            Name "Giant Quick-Ãœber Medic"
+            Name "Giant Quick-Über Medic"
             ClassIcon medic_uber_giant
             Attributes SpawnWithFullCharge
             Attributes MiniBoss
@@ -9831,7 +9832,7 @@ WaveSchedule
             //TFBot
             Class Medic
             Health 4500
-            Name "Giant Quick-Ãœber Medic"
+            Name "Giant Quick-Über Medic"
             ClassIcon medic_uber_giant
             Attributes SpawnWithFullCharge
             Attributes MiniBoss
@@ -9870,7 +9871,7 @@ WaveSchedule
             //TFBot
             Class Medic
             Health 4500
-            Name "Giant Long-Ãœber Medic"
+            Name "Giant Long-Über Medic"
             ClassIcon medic_uber_giant
             Attributes SpawnWithFullCharge
             Attributes MiniBoss
@@ -9916,7 +9917,7 @@ WaveSchedule
             //TFBot
             Class Medic
             Health 4500
-            Name "Giant Long-Ãœber Medic"
+            Name "Giant Long-Über Medic"
             ClassIcon medic_uber_giant
             Attributes SpawnWithFullCharge
             Attributes MiniBoss
@@ -10043,7 +10044,7 @@ WaveSchedule
             //TFBot
             Class Medic
             Health 4500
-            Name "Giant Ãœber Shield Medic"
+            Name "Giant Über Shield Medic"
             ClassIcon medic_shield_uber_giant
             Attributes SpawnWithFullCharge
             Attributes ProjectileShield
@@ -10087,7 +10088,7 @@ WaveSchedule
             //TFBot
             Class Medic
             Health 4500
-            Name "Giant Quick-Ãœber Shield Medic"
+            Name "Giant Quick-Über Shield Medic"
             ClassIcon medic_shield_uber_giant
             Attributes SpawnWithFullCharge
             Attributes ProjectileShield
@@ -10133,7 +10134,7 @@ WaveSchedule
             //TFBot
             Class Medic
             Health 4500
-            Name "Giant Long-Ãœber Shield Medic"
+            Name "Giant Long-Über Shield Medic"
             ClassIcon medic_shield_uber_giant
             Attributes SpawnWithFullCharge
             Attributes ProjectileShield
@@ -10182,7 +10183,7 @@ WaveSchedule
             //TFBot
             Class Medic
             Health 4500
-            Name "Giant Long-Ãœber Shield Medic"
+            Name "Giant Long-Über Shield Medic"
             ClassIcon medic_shield_uber_giant
             Attributes SpawnWithFullCharge
             Attributes ProjectileShield
@@ -10606,7 +10607,7 @@ WaveSchedule
 
             //Rafmod
             
-            SpawnTemplate "cryo_bot"
+            
             CustomEyeParticle "killstreak_t4_lvl1"
             ItemColor
             {
@@ -10689,7 +10690,7 @@ WaveSchedule
 
             //Rafmod
             
-            SpawnTemplate "cryo_bot"
+            
             CustomEyeParticle "killstreak_t4_lvl1"
             ItemColor
             {
@@ -10753,7 +10754,7 @@ WaveSchedule
 
             //Rafmod
             
-            SpawnTemplate "cryo_bot"
+            
             CustomEyeParticle "killstreak_t4_lvl1"
             ItemColor
             {
@@ -10803,7 +10804,7 @@ WaveSchedule
 
             //Rafmod
             
-            SpawnTemplate "cryo_bot"
+            
             CustomEyeParticle "killstreak_t4_lvl1"
             ItemColor
             {
@@ -11199,7 +11200,7 @@ WaveSchedule
 
             //Rafmod
             
-            SpawnTemplate "cryo_bot"
+            
             CustomEyeParticle "killstreak_t4_lvl1"
             ItemColor
             {
@@ -11295,7 +11296,7 @@ WaveSchedule
 
             //Rafmod
             
-            SpawnTemplate "cryo_bot"
+            
             CustomEyeParticle "killstreak_t4_lvl1"
             ItemColor
             {
@@ -11354,7 +11355,7 @@ WaveSchedule
 
             //Rafmod
             
-            SpawnTemplate "cryo_bot"
+            
             CustomEyeParticle "killstreak_t4_lvl1"
             ItemColor
             {

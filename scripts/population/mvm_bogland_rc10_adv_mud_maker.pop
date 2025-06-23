@@ -1726,7 +1726,7 @@ population
 		{
     		Target "gamerules"
     		Action "RunScriptCode"
-    		Param "ClientPrint(null,3,`\x07F1C232Red Headquarters \x078FCE00: \x07FF3F3FALERT! \x07FF3F3 Field Marshal Mechanus\x078FCE00 and his \x07FF3F3FRight Hand Deadlock\x078FCE00 are here. \x078FCE00Deadlock is known for suprising his enemys. \x07FF3F3 SO WATCH OUT!`)"
+    		Param "ClientPrint(null,3,`\x07F1C232Red Headquarters \x078FCE00: \x07FF3F3FALERT! \x07FF3F3 Field Marshal Mechanus\x078FCE00 and his \x07FF3F3FRight Hand Deadlock\x078FCE00 are here. \x078FCE00Deadlock is known for surprising his enemies. \x07FF3F3 SO WATCH OUT!`)"
 		}
 		DoneOutput
 		{

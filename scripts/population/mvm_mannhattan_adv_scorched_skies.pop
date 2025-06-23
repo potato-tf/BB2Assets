@@ -446,7 +446,7 @@ custom_mvm_hell
 				"teamnum" "2"
 				"automaterialize" "1"
 			}
-			item_ammopack_medium
+			item_ammopack_full
 			{
 				"origin" "855 -2032 -235"
 				"teamnum" "2"
@@ -2974,6 +2974,7 @@ custom_mvm_hell
 				TFBot
 				{
 					Template YoovyBot_Giant_Medic_QF_Regen
+					Tag bot_squad_member
 					Name "Giant Regen Medic"
 					Attributes SpawnWithFullCharge //AI Medics with full charge for whatever dumb reason stick closer to their patient than AI Medics with no charge :/
 					CharacterAttributes
@@ -3645,6 +3646,7 @@ custom_mvm_hell
 				TFBot
 				{
 					Template YoovyBot_Giant_Medic_QF_Regen
+					Tag bot_squad_member
 					Name "Giant Regen Medic"
 					Attributes SpawnWithFullCharge //AI Medics with full charge for whatever dumb reason stick closer to their patient than AI Medics with no charge :/
 					CharacterAttributes

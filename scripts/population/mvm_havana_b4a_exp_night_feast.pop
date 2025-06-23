@@ -2701,6 +2701,7 @@ WaveSchedule // 事实上这里可以是任何内容
 				    model = `models/props_mvm/robot_spawnpoint.mdl`
                     DefaultAnim = `idle`
 				    skin = 2
+				    disableshadows = 1
 			    })
 			"
 		}

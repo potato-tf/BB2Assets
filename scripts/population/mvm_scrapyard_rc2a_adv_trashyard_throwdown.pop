@@ -157,6 +157,7 @@ MyBallsItch.Anyways,DidYouKnowThisBlockCanBeAnything?EvenSillyStatementsLike'MyB
 			}
 			CharacterAttributes
 			{
+				"increased jump height" 1.5
 				"move speed bonus" 0.5
 				//"health regen" 50
 				"airblast vulnerability multiplier" 0.5
@@ -985,7 +986,7 @@ MyBallsItch.Anyways,DidYouKnowThisBlockCanBeAnything?EvenSillyStatementsLike'MyB
 		{
 			Name 4a
 			Where spawnbot
-			TotalCount 5
+			TotalCount 4
 			SpawnCount 1
 			WaitBeforeStarting 3
 			WaitBetweenSpawns 10
@@ -1142,7 +1143,7 @@ MyBallsItch.Anyways,DidYouKnowThisBlockCanBeAnything?EvenSillyStatementsLike'MyB
 			TotalCurrency 25
 			WaitForAllSpawned 4b
 			MaxActive 6
-			Support Limited
+			Support 1
 			TFBot
 			{
 				Class Soldier

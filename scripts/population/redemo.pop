@@ -19,7 +19,13 @@ WaveSchedule
 	//{
 		//"stickybomb fizzle time" 10
 	//}
-	
+
+	PrecacheModel "models/workshop/weapons/c_models/c_bouncing_betty/c_bouncing_betty.mdl" [$SIGSEGV]
+	PrecacheSound "weapons/the_bouncing_betty_shoot.wav" [$SIGSEGV]
+	PrecacheSound "weapons/the_bouncing_betty_shoot_low.wav" [$SIGSEGV]
+	PrecacheSound "weapons/the_bouncing_betty_shoot_crit.wav" [$SIGSEGV]
+	PrecacheSound "weapons/the_bouncing_betty_shoot_crit_low.wav" [$SIGSEGV]
+
 	CustomWeapon
 	{
 		"The Bouncing Betty (Primary)" // Thanks from Ian-hunter

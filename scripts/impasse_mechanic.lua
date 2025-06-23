@@ -396,7 +396,10 @@ function VoteForEncore()
         timer.Simple(3, function()
 
             if encoreYes < encoreNo then
-
+				-- Fix W5 completion tracking.
+				FireEvent("mvm_wave_complete", {
+					advanced = true
+				})
                 ents.FindByName("pop_point"):AcceptInput("$JumpToWave", 7)
             elseif encoreYes > encoreNo then
 
@@ -418,6 +421,10 @@ function VoteForEncore()
                         ents.FindByName("fadeToEncore"):AcceptInput("Trigger")
 
                         timer.Simple(9, function()
+							-- Fix W5 completion tracking.
+							FireEvent("mvm_wave_complete", {
+								advanced = true
+							})
                             ents.FindByName("pop_point"):AcceptInput("$JumpToWave", 7)
                         end)
                     end)
@@ -431,6 +438,10 @@ function VoteForEncore()
                         player:PlaySoundToSelf('ui/hint.wav')
                     end
                     timer.Simple(1.22, function()
+						-- Fix W5 completion tracking.
+						FireEvent("mvm_wave_complete", {
+							advanced = true
+						})
                         ents.FindByName("pop_point"):AcceptInput("$JumpToWave", 7)
                     end)
                 end

@@ -201,12 +201,12 @@ WaveSchedule
 	}
 	//Recreation of judging restricts to be used for the live version of this mission
 	//in accordance with project sieve/tamis/zaru (enable when accepted)
-	ClassLimit  
-	{
-		Medic	0
-	}
-	DisallowUpgrade	"ubercharge"	  
-	DisallowUpgrade	"critboost"	 
+	//ClassLimit
+	//{
+	//	Medic	0
+	//}
+	//DisallowUpgrade	"ubercharge"
+	//DisallowUpgrade	"critboost"
 	DisallowUpgrade	  
 	{
 		Upgrade "fire rate bonus"

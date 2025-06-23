@@ -31,6 +31,13 @@ WaveSchedule
     PrecacheSound reaching_for_a_finality.mp3
     PrecacheSound tank_park.mp3
     PrecacheSound tank_startup.mp3
+    PrecacheSound "the_asparagus_beyond_the_obscure.mp3"
+    PrecacheSound "t-error_on_the_dance_floor.mp3"
+    PrecacheSound "sky_fall_trigger.mp3"
+    PrecacheSound "hard-struck.mp3"
+    PrecacheSound "yet_here_we_are_at_an_impasse.mp3"
+    PrecacheSound "encore_vote_process.mp3"
+    PrecacheSound "break_expectations.mp3"
     // PrecacheSound "eisoptrophobia.wav"
     PrecacheModel                                   models/props_mvm/indicator/indicator_circle_long.mdl
     PrecacheModel                                   models/pauling/items/spytech_phone.mdl
