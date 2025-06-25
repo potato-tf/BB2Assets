@@ -491,10 +491,6 @@ ShiveringSlumber
 			MaxVisionRange 2000
 			SpawnTemplate mercury_logic
 			SpawnTemplate boss_mercury_death
-			WeaponResist
-			{
-				"TF_WEAPON_MINIGUN" 0.7
-			}
 			ItemAttributes
 			{
 				ItemName "upgradeable tf_weapon_grenadelauncher"
@@ -560,7 +556,7 @@ ShiveringSlumber
 					}
 					FireInput
 					{
-						Delay 9
+						Delay 12
 						Target MercuryLaunchers
 						Action PickRandomShuffle
 						Repeats 999
@@ -582,7 +578,7 @@ ShiveringSlumber
 					{
 						Target MercuryLaunchers
 						Action PickRandomShuffle
-						Delay 9
+						Delay 12
 						Repeats 999
 						Cooldown 15
 					}
@@ -611,7 +607,7 @@ ShiveringSlumber
 					{
 						Target MercuryLaunchers
 						Action PickRandomShuffle
-						Delay 9
+						Delay 12
 						Cooldown 15
 						Repeats 999
 					}
@@ -650,7 +646,7 @@ ShiveringSlumber
 					{
 						Target MercuryLaunchers
 						Action PickRandomShuffle
-						Delay 9
+						Delay 12
 						Cooldown 15
 						Repeats 999
 					}
@@ -1730,7 +1726,7 @@ ShiveringSlumber
 			MaxActive 8
 			Where spawnbot
 			WaitBeforeStarting 0
-			WaitBetweenSpawns 7
+			WaitBetweenSpawns 7.5
 			StartDisabled 1
 			Support 1
 			TotalCurrency 300
@@ -1771,7 +1767,7 @@ ShiveringSlumber
 			MaxActive 8
 			Where flankers
 			WaitBeforeStarting 0
-			WaitBetweenSpawns 7
+			WaitBetweenSpawns 7.5
 			TotalCurrency 300
 			Support 1
 			StartDisabled 1
@@ -1811,7 +1807,7 @@ ShiveringSlumber
 			MaxActive 2
 			Where spawnbot_boss
 			WaitBeforeStarting 0
-			WaitBetweenSpawns 18
+			WaitBetweenSpawns 20
 			Support 1
 			TotalCurrency 200
 			StartDisabled 1
