@@ -2153,7 +2153,7 @@ WaveSchedule
 			Name "wave04a"
 			Where spawnbot
 
-			TotalCount 20
+			TotalCount 28
 			MaxActive  7
 			SpawnCount 4
 			TotalCurrency 75

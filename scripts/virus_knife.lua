@@ -352,7 +352,7 @@ function virusKnifeKill(damage, activator, caller)
 				return
 			end
 			
-			if timeLeft <= 0 or inWave == false then
+			if timeLeft <= 0 or inWave == false or owner:IsValid() == false then
 				timer.Stop(logicLoop)
 				--print("we're done, we either ran out of time or the wave ended")
 				botSpawn:Suicide()	
@@ -448,7 +448,7 @@ function cloneSpawn(activator)
 	
 		logicLoop = timer.Create(0.2, function()
 
-			if botSpawn:IsAlive() == false or botSpawn.m_szNetname ~= "Clone (" .. owner.m_szNetname .. ")" then
+			if botSpawn:IsAlive() == false or botSpawn.m_szNetname ~= "Clone (" .. owner.m_szNetname .. ")" or owner:IsValid() == false then
 				timer.Stop(logicLoop)
 				--print("we're done, we either died or aren't a clone anymore")
 				owner.m_flHypeMeter = owner.m_flHypeMeter - 1

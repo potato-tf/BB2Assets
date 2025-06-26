@@ -24,6 +24,7 @@ WaveSchedule
 	PrecacheSound "metal_popper_giant_mode_active_3.mp3"
 	PrecacheSound "metal_popper_giant_mode_active_4.mp3"
 	PrecacheSound "metal_popper_giant_mode_active_5.mp3"
+	PrecacheSound "abby_pryor_clone_drone_in_the_hyperdome_ost_kata_theme.mp3"
 	PrecacheSound "shrapnelgun_fire.mp3"
 	PrecacheModel "models/bots/sniper_boss/bot_sniper_boss.mdl"
 	PrecacheModel "models/bots/demo_boss/bot_demo_boss_gibby.mdl"
