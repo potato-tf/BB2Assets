@@ -520,12 +520,12 @@ WaveSchedule
 		{
 			Name "W3_A1_Scouts"
 			Where spawnbot_invasion
-			TotalCount 3
+			TotalCount 2
 			SpawnCount 1
 			MaxActive 2
 			WaitForAllSpawned "W3_A1"
 			WaitBetweenSpawns 30
-			WaitBeforeStarting 20
+			WaitBeforeStarting 30
 			TotalCurrency 100
 			
 			TFBot{ 
@@ -573,7 +573,7 @@ WaveSchedule
 
 			Tank
 			{
-				Health 12500					
+				Health 10000					
 				Speed 75							
 				Name "TankBoss"
 				StartingPathTrackNode "boss_path_0_1"
@@ -594,7 +594,7 @@ WaveSchedule
             Target    wave_start_relay
             Action    RunScriptCode
             Param    "
-            ClientPrint(null,3,`\x0799CCFFTank deployed with 12.5k (12500) HP!`)
+            ClientPrint(null,3,`\x0799CCFFTank deployed with 10k (10000) HP!`)
             "
             }
 		}
@@ -615,7 +615,7 @@ WaveSchedule
 
 			Tank
 			{
-				Health 12500							
+				Health 10000							
 				Speed 75							
 				Name "TankBoss"
 				StartingPathTrackNode "boss_path_0_1"
@@ -636,7 +636,7 @@ WaveSchedule
                 Target    wave_start_relay
                 Action    RunScriptCode
                 Param    "
-                ClientPrint(null,3,`\x0799CCFFTank deployed with 12.5k (12500) HP!`)
+                ClientPrint(null,3,`\x0799CCFFTank deployed with 10k (10000) HP!`)
                 "
             }
 		}
@@ -1214,7 +1214,7 @@ WaveSchedule
 
 			Tank
 			{
-				Health 14000					
+				Health 16000					
 				Speed 75							
 				Name "TankBoss"
 				StartingPathTrackNode "boss_path_0_1"
@@ -1235,7 +1235,7 @@ WaveSchedule
             Target    wave_start_relay
             Action    RunScriptCode
             Param    "
-             ClientPrint(null,3,`\x0799CCFFTank deployed with 14k (14000) HP!`)
+             ClientPrint(null,3,`\x0799CCFFTank deployed with 16k (16000) HP!`)
             "
             }
 		}
@@ -1346,7 +1346,7 @@ WaveSchedule
 
 			Tank
 			{
-				Health 14000					
+				Health 16000					
 				Speed 75							
 				Name "TankBoss"
 				StartingPathTrackNode "boss_path_0_1"
@@ -1368,7 +1368,7 @@ WaveSchedule
                 Target    wave_start_relay
                 Action    RunScriptCode
                 Param    "
-                ClientPrint(null,3,`\x0799CCFFTank deployed with 14k (14000) HP!`)
+                ClientPrint(null,3,`\x0799CCFFTank deployed with 16k (16000) HP!`)
                 "
             }	
 		}
@@ -1514,7 +1514,7 @@ WaveSchedule
 			TotalCount 28
 			SpawnCount 4
 			MaxActive 4
-			WaitBeforeStarting 10
+			WaitBeforeStarting 5
 			WaitForAllSpawned "W5_C1_Boss2"
 			WaitBetweenSpawns 20
 			TotalCurrency 100

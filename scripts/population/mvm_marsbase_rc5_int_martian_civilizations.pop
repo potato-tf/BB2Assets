@@ -23,47 +23,6 @@ WaveSchedule
 	
 	TextPrintTime 0
 	
-	//DisallowUpgrade "explode_on_ignite"
-	
-	//MaxRedPlayers 4 // restrict, will remove after pass all 3
-	
-	//ClassLimit // restrict, will remove after pass all 3
-	//{
-	//	Medic 0
-	//}
-	
-	//PlayerAttributes  
-	//{
-	//	Soldier
-	//	{
-	//		"min respawn time" 9
-	//	}
-	//	Demoman
-	//	{
-	//		"min respawn time" 9
-	//	}
-	//	Heavyweapons
-	//	{
-	//		"min respawn time" 9
-	//	}
-	//	Engi
-	//	{
-	//		"min respawn time" 9
-	//	}
-	//	Medic
-	//	{
-	//		"min respawn time" 15
-	//	}
-	//	Sniper
-	//	{
-	//		"min respawn time" 9
-	//	}
-	//	Spy
-	//	{
-	//		"min respawn time" 9
-	//	}
-	//}
-	
 	Templates
 	{
 		T_TFBot_Scout_Soda_Popper
@@ -689,7 +648,6 @@ WaveSchedule
 			Skill Expert
 			Health 4500
 			Attributes MiniBoss
-			Attributes IgnoreEnemies
 			Attributes SpawnWithFullCharge
 			Item "Medi Gun"
 			WeaponRestrictions SecondaryOnly
@@ -775,6 +733,7 @@ WaveSchedule
 				"override footstep sound set" 3
 				"cancel falling damage" 1
 				"blast dmg to self increased" 0
+				"attach particle effect" 3034
 			}
 		}
 	}
@@ -951,7 +910,7 @@ WaveSchedule
 			"
 		}
 		
-		Explanation    //Dispayed once the wave is initialized
+		Explanation [$SIGSEGV]  //Dispayed once the wave is initialized
 		{
 			Line "{white}..."
 			Line "{white}..."
@@ -1037,7 +996,6 @@ WaveSchedule
 				TFBot
 				{
 					Template T_TFBot_Medic_QuickUber
-					Attributes IgnoreEnemies
 					Name "Quick-Uber Medic"
 					CharacterAttributes
 					{
@@ -1093,7 +1051,6 @@ WaveSchedule
 				TFBot
 				{
 					Template T_TFBot_Medic_QuickUber
-					Attributes IgnoreEnemies
 					Name "Quick-Uber Medic"
 					CharacterAttributes
 					{
@@ -1149,7 +1106,6 @@ WaveSchedule
 				TFBot
 				{
 					Template T_TFBot_Medic_QuickUber
-					Attributes IgnoreEnemies
 					Name "Quick-Uber Medic"
 					CharacterAttributes
 					{
@@ -1159,7 +1115,6 @@ WaveSchedule
 				TFBot
 				{
 					Template T_TFBot_Medic_QuickUber
-					Attributes IgnoreEnemies
 					Name "Quick-Uber Medic"
 					CharacterAttributes
 					{
@@ -1169,7 +1124,6 @@ WaveSchedule
 				TFBot
 				{
 					Template T_TFBot_Medic_QuickUber
-					Attributes IgnoreEnemies
 					Name "Quick-Uber Medic"
 					CharacterAttributes
 					{
@@ -1276,7 +1230,6 @@ WaveSchedule
 				TFBot
 				{
 					Template T_TFBot_Medic_BigHeal
-					Attributes IgnoreEnemies
 					Name "Big-Heal Medic"
 					CharacterAttributes
 					{
@@ -1286,7 +1239,6 @@ WaveSchedule
 				TFBot
 				{
 					Template T_TFBot_Medic_BigHeal
-					Attributes IgnoreEnemies
 					Name "Big-Heal Medic"
 					CharacterAttributes
 					{
@@ -1296,7 +1248,6 @@ WaveSchedule
 				TFBot
 				{
 					Template T_TFBot_Medic_BigHeal
-					Attributes IgnoreEnemies
 					Name "Big-Heal Medic"
 					CharacterAttributes
 					{
@@ -1333,7 +1284,6 @@ WaveSchedule
 				TFBot
 				{
 					Template T_TFBot_Medic_BigHeal
-					Attributes IgnoreEnemies
 					Name "Big-Heal Medic"
 					CharacterAttributes
 					{
@@ -1343,7 +1293,6 @@ WaveSchedule
 				TFBot
 				{
 					Template T_TFBot_Medic_BigHeal
-					Attributes IgnoreEnemies
 					Name "Big-Heal Medic"
 					CharacterAttributes
 					{
@@ -1353,7 +1302,6 @@ WaveSchedule
 				TFBot
 				{
 					Template T_TFBot_Medic_BigHeal
-					Attributes IgnoreEnemies
 					Name "Big-Heal Medic"
 					CharacterAttributes
 					{
@@ -1437,7 +1385,6 @@ WaveSchedule
 				TFBot
 				{
 					Template T_TFBot_Medic_BigHeal
-					Attributes IgnoreEnemies
 					Name "Big-Heal Medic"
 					CharacterAttributes
 					{
@@ -1447,7 +1394,6 @@ WaveSchedule
 				TFBot
 				{
 					Template T_TFBot_Medic_BigHeal
-					Attributes IgnoreEnemies
 					Name "Big-Heal Medic"
 					CharacterAttributes
 					{
@@ -1457,7 +1403,6 @@ WaveSchedule
 				TFBot
 				{
 					Template T_TFBot_Medic_BigHeal
-					Attributes IgnoreEnemies
 					Name "Big-Heal Medic"
 					CharacterAttributes
 					{
@@ -1489,7 +1434,6 @@ WaveSchedule
 				TFBot
 				{
 					Template T_TFBot_Medic_BigHeal
-					Attributes IgnoreEnemies
 					Name "Big-Heal Medic"
 					CharacterAttributes
 					{
@@ -1499,7 +1443,6 @@ WaveSchedule
 				TFBot
 				{
 					Template T_TFBot_Medic_BigHeal
-					Attributes IgnoreEnemies
 					Name "Big-Heal Medic"
 					CharacterAttributes
 					{
@@ -1508,8 +1451,7 @@ WaveSchedule
 				}
 				TFBot
 				{
-					Template T_TFBot_Medic_BigHeal
-					Attributes IgnoreEnemies
+					Template T_TFBot_Medic_BigHeal 
 					Name "Big-Heal Medic"
 					CharacterAttributes
 					{
@@ -1738,7 +1680,6 @@ WaveSchedule
 				TFBot
 				{
 					Template T_TFBot_Medic_QuickUber
-					Attributes IgnoreEnemies
 					Name "Quick-Uber Medic"
 					CharacterAttributes
 					{
@@ -1748,7 +1689,6 @@ WaveSchedule
 				TFBot
 				{
 					Template T_TFBot_Medic_QuickUber
-					Attributes IgnoreEnemies
 					Name "Quick-Uber Medic"
 					CharacterAttributes
 					{
@@ -1758,7 +1698,6 @@ WaveSchedule
 				TFBot
 				{
 					Template T_TFBot_Medic_QuickUber
-					Attributes IgnoreEnemies
 					Name "Quick-Uber Medic"
 					CharacterAttributes
 					{
@@ -1767,8 +1706,7 @@ WaveSchedule
 				}
 				TFBot
 				{
-					Template T_TFBot_Medic_QuickUber
-					Attributes IgnoreEnemies
+					Template T_TFBot_Medic_QuickUber    
 					Name "Quick-Uber Medic"
 					CharacterAttributes
 					{
@@ -2274,7 +2212,6 @@ WaveSchedule
 				TFBot
 				{
 					Template T_TFBot_Medic_QuickUber
-					Attributes IgnoreEnemies
 					Name "Quick-Uber Medic"
 					CharacterAttributes
 					{
@@ -2283,8 +2220,7 @@ WaveSchedule
 				}
 				TFBot
 				{
-					Template T_TFBot_Medic_QuickUber
-					Attributes IgnoreEnemies
+					Template T_TFBot_Medic_QuickUber    
 					Name "Quick-Uber Medic"
 					CharacterAttributes
 					{
@@ -2417,7 +2353,10 @@ WaveSchedule
 				Action RunScriptCode
 				Param 
 				"
-					ClientPrint(null,3,`\x0799CCFFTank deployed with 30000 HP!`)
+					ClientPrint(null,3,`\x0799CCFFTank deployed with (2000)*(A) HP!`)
+					ClientPrint(null,3,`\x0799CCFFFind A from 3A³ - 8A - 10000 = 5`)
+					ClientPrint(null,3,`\x0799CCFFA must be Positive Integer`)
+					ClientPrint(null,3,`\x0799CCFFHints: use depress cubic formula (A³ + pA + q = 0) to solved it!`)
 				"
 			}
 			

@@ -280,7 +280,7 @@ WaveSchedule
 			MaxVisionRange 450
 			Item "The Dragon's Fury"
 			Item "PY-40 Incinibot"
-			ItemColor   //Set item color
+			ItemColor [$SIGSEGV] //Set item color
 			{
 				ItemName "PY-40 Incinibot"
 				Red 50
@@ -351,7 +351,7 @@ WaveSchedule
 
 
 			}
-				FireWeapon    //Periodically fires weapon
+				FireWeapon [$SIGSEGV]  //Periodically fires weapon
                 {
                     Delay 0.1 //Time before the first fire input starts (Default: 10)
                     Cooldown 1.5 //Time between each fire input (Default: 10)
@@ -416,7 +416,7 @@ WaveSchedule
 		T_TFBot_Giant_Sniper_Huntsman
 		{
 			Class Sniper
-			Name "Giant Bowman"
+			Name "Giant Penetrating Bowman"
 			Skill Expert
 			ClassIcon sniper_bow_multi_penetrator
 			Health 2000
@@ -486,7 +486,7 @@ WaveSchedule
 			WeaponRestrictions PrimaryOnly
 			Attributes MiniBoss
 			Item "PY-40 Incinibot"
-			ItemColor   //Set item color
+			ItemColor [$SIGSEGV] //Set item color
 			{
 				ItemName "PY-40 Incinibot"
 				Red 50
@@ -510,7 +510,7 @@ WaveSchedule
 		T_TFBot_Large_Soldier_RocketShotgun
 		{
 			Class Soldier
-			ClassIcon soldier_blackbox
+			ClassIcon soldier_blackbox_armored_seel
 			Item "The Black Box"
 			Name "Large Black Box Soldier"
 			WeaponRestrictions PrimaryOnly
@@ -1754,7 +1754,7 @@ WaveSchedule
 				Item "The Flare Gun"
 				Item "The Dragon's Fury"
 				Item "PY-40 Incinibot"
-				ItemColor   //Set item color
+				ItemColor [$SIGSEGV] //Set item color
 				{
 					ItemName "PY-40 Incinibot"
 					Red 50
@@ -2097,6 +2097,7 @@ WaveSchedule
 					Class Pyro
 					Item "The Homewrecker"
 					Name "Homewreaker Pyro"
+					WeaponRestrictions MeleeOnly
 					ClassIcon	pyro_homewrecker_lite
 				}
 				TFBot

@@ -7,7 +7,7 @@
 WaveSchedule
 {
 	StartingCurrency	700
-	RespawnWaveTime	6
+	RespawnWaveTime	5
 	CanBotsAttackWhileInSpawnRoom	no
 	FixedRespawnWaveTime	No
 	AddSentryBusterWhenDamageDealtExceeds	3000
@@ -16,14 +16,14 @@ WaveSchedule
 	//robotlimit 50
 	//AllowExtraBotSlots 1
 	
-	PrecacheModel "models/bots/boss_bot/boss_blimp.mdl"				    
-	PrecacheModel "models/bots/boss_bot/boss_blimp_damage1.mdl"         
-	PrecacheModel "models/bots/boss_bot/boss_blimp_damage2.mdl"         
-	PrecacheModel "models/bots/boss_bot/boss_blimp_damage3.mdl"         
-	PrecacheModel "models/bots/boss_bot/boss_blimp_explode.mdl"         
-	PrecacheModel "models/bots/boss_bot/boss_blimp_pure.mdl"            
+	PrecacheModel "models/bots/boss_bot/boss_blimp.mdl"				   [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/boss_blimp_damage1.mdl"        [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/boss_blimp_damage2.mdl"        [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/boss_blimp_damage3.mdl"        [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/boss_blimp_explode.mdl"        [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/boss_blimp_pure.mdl"           [$SIGSEGV]
 	
-	ExtraTankPath   //blimp
+	ExtraTankPath [$SIGSEGV] //blimp
     {
         Name blimp
         
@@ -37,7 +37,7 @@ WaveSchedule
 		Node "-465 1444 190" 
 		Node "-225 1444 190"
     }
-	ExtraTankPath   //blimp
+	ExtraTankPath [$SIGSEGV] //blimp
     {
         Name fixthing
         
@@ -253,31 +253,31 @@ WaveSchedule
 	}
 	SpawnTemplate blimpportals
 	SpawnTemplate annotations
-	SpawnTemplate  
+	SpawnTemplate [$SIGSEGV]
 	{
 		Name   "blimpfix1"
 		Origin "-4000 -2400 300"
 		Angles "0 90 0"
 	}
-	SpawnTemplate  
+	SpawnTemplate [$SIGSEGV]
 	{
 		Name   "blimpfix2"
 		Origin "-4000 -2400 300"
 		Angles "0 90 0"
 	}
-	SpawnTemplate  
+	SpawnTemplate [$SIGSEGV]
 	{
 		Name   "blimpfix3"
 		Origin "-4000 -2400 300"
 		Angles "0 90 0"
 	}
-	SpawnTemplate  
+	SpawnTemplate [$SIGSEGV]
 	{
 		Name   "blimpfix4"
 		Origin "-4000 -2400 300"
 		Angles "0 90 0"
 	}
-	SpawnTemplate  
+	SpawnTemplate [$SIGSEGV]
 	{
 		Name   "blimpfix5"
 		Origin "-4000 -2400 300"
@@ -330,6 +330,73 @@ WaveSchedule
 						"damage force reduction" 0.7
 						"airblast vulnerability multiplier" 0.7
 						"override footstep sound set" 5
+					}
+				}
+			}
+		}
+		T_TFGateBot_Giant_Heavyweapons_Brass
+		{
+			Class Heavyweapons
+			Name "Giant Brass Beast Heavy"
+			Health 5000
+			ClassIcon heavy_brass_nys
+			EventChangeAttributes
+			{
+				Default
+				{
+					BehaviorModifiers push			// having these will cause bots to run towards gates
+					Attributes IgnoreFlag			// having these will cause bots to run towards gates
+					Tag nav_prefer_gate1_flank 		// having these will cause bots to run towards gates
+					Tag bot_gatebot 				// having these will cause bots to run towards gates
+					Item "MvM GateBot Light Heavy"
+					Skill Expert
+					WeaponRestrictions PrimaryOnly
+					MaxVisionRange 1200
+					Attributes MiniBoss
+					Item "The Brass Beast"
+					Item "Mad Mask"
+					Tag bot_giant
+					ItemAttributes
+					{
+						ItemName "The Brass Beast"
+						"damage bonus" 1.8
+						"minigun spinup time increased" 2
+					}
+					CharacterAttributes
+					{
+						"move speed bonus"	0.45
+						"damage force reduction" 0.15
+						"airblast vulnerability multiplier" 0.15
+						"override footstep sound set" 2
+					}
+				}
+				RevertGateBotsBehavior
+				{
+					Item "MvM GateBot Light Heavy"
+					ItemAttributes               // turn off light hat
+					{
+						ItemName "MvM GateBot Light Heavy"
+						"item style override" 1
+					}
+					Skill Expert
+					WeaponRestrictions PrimaryOnly
+					MaxVisionRange 1200
+					Attributes MiniBoss
+					Item "The Brass Beast"
+					Item "Mad Mask"
+					Tag bot_giant
+					ItemAttributes
+					{
+						ItemName "The Brass Beast"
+						"damage bonus" 1.8
+						"minigun spinup time increased" 2
+					}
+					CharacterAttributes
+					{
+						"move speed bonus"	0.45
+						"damage force reduction" 0.15
+						"airblast vulnerability multiplier" 0.15
+						"override footstep sound set" 2
 					}
 				}
 			}
@@ -1071,14 +1138,22 @@ WaveSchedule
         TFBot
 		{
 			Template T_TFBot_Sniper
-			Skill Hard
+			Item "The Machina"
+			Name "Machina Razorback Sniper"
+			Item "The Razorback"
+			Skill Expert
+			CharacterAttributes
+			{
+				"SRifle Charge rate increased" 0.8
+				"projectile penetration" 1
+			}
         }
 	}
 	Mission
 	{
 		Objective Engineer  
 
-		InitialCooldown 40
+		InitialCooldown 0
 		Where spawnbot_upper0
 		Where spawnbot_main1
 		Where spawnbot_upper2
@@ -1167,12 +1242,13 @@ WaveSchedule
 			TotalCount 2
 			SpawnCount 1
 			MaxActive 2 
-			WaitBeforeStarting 10
-			WaitBetweenSpawns 15
+			WaitBeforeStarting 8
+			WaitBetweenSpawns 20
 			
 			TFBot
 			{
 				Template T_TFBot_Giant_Scout_Baseball_Armored
+				Attributes AlwaysCrit
 				Tag bot_giant
 			}
 		}
@@ -1184,7 +1260,7 @@ WaveSchedule
 			Where spawnbot_main1
 			Where spawnbot_upper2
 			TotalCurrency 100
-			TotalCount 16
+			TotalCount 20
 			SpawnCount 4
 			MaxActive 8
 			WaitBeforeStarting 2
@@ -1199,7 +1275,7 @@ WaveSchedule
 		WaveSpawn
 		{
 			
-			Name 1ab
+			Name 1ac
 			Where spawnbot_main0
 			Where spawnbot_main1
 			Where spawnbot_upper2
@@ -1207,7 +1283,7 @@ WaveSchedule
 			TotalCount 10
 			SpawnCount 5
 			MaxActive 10
-			WaitBeforeStarting 11
+			WaitBeforeStarting 9
 			WaitBetweenSpawns 15
 			RandomSpawn 1
 			
@@ -1242,7 +1318,7 @@ WaveSchedule
 			SpawnCount 1
 			MaxActive 1
 			WaitBeforeStarting 10
-			WaitBetweenSpawns 45
+			WaitBetweenSpawns 10
 			RandomSpawn 1
 			
 			Support 1
@@ -1263,9 +1339,9 @@ WaveSchedule
 			Where spawnbot_upper2
 			WaitForAllDead 1ab
 			TotalCurrency 100
-			TotalCount 16
-			SpawnCount 4
-			MaxActive 9
+			TotalCount 25
+			SpawnCount 5
+			MaxActive 11
 			WaitBeforeStarting 0
 			WaitBetweenSpawns 10
 			RandomChoice
@@ -1335,7 +1411,7 @@ WaveSchedule
 			Where spawnbot_main2
 			WaitForAllDead 1ba
 			TotalCurrency 75
-			TotalCount 15
+			TotalCount 20
 			SpawnCount 5
 			MaxActive 15
 			WaitBeforeStarting 0
@@ -1463,8 +1539,8 @@ WaveSchedule
 			Where spawnbot_main1
 			Where spawnbot_upper2
 			TotalCurrency 50
-			TotalCount 36
-			SpawnCount 9
+			TotalCount 50
+			SpawnCount 10
 			MaxActive 12
 			WaitBeforeStarting 0
 			WaitBetweenSpawns 12
@@ -1508,11 +1584,11 @@ WaveSchedule
 			Where spawnbot_main1
 			Where spawnbot_upper2
 			TotalCurrency 50
-			TotalCount 2
+			TotalCount 3
 			SpawnCount 1
 			MaxActive 2
 			WaitBeforeStarting 0
-			WaitBetweenSpawns 20
+			WaitBetweenSpawns 15
 			TFBot
 			{
 				Template T_TFGateBot_Giant_Heavyweapons_Deflector
@@ -1529,7 +1605,7 @@ WaveSchedule
 			TotalCount 6
 			SpawnCount 3
 			MaxActive 4
-			WaitBeforeStarting 15
+			WaitBeforeStarting 10
 			WaitBetweenSpawns 20
 			Squad
 			{
@@ -1588,17 +1664,17 @@ WaveSchedule
             {
                 Health 12000
 				Speed 100
-				DisableSmokestack 1  
+				DisableSmokestack 1 [$SIGSEGV]
                 Classicon blimp2_lite
-                Skin 1  
-                MaxTurnRate 30  
-                Model "models/bots/boss_bot/boss_blimp.mdl"  
-                Gravity 0  
-                DisableTracks 1  
-				ReplaceModelCollisions 1  
-				DisableChildModels 1  
-                EngineLoopSound "npc\combine_gunship\dropship_engine_distant_loop1.wav"  
-                PingSound "npc\combine_gunship\ping_search.wav"  
+                Skin 1 [$SIGSEGV]
+                MaxTurnRate 30 [$SIGSEGV]
+                Model "models/bots/boss_bot/boss_blimp.mdl" [$SIGSEGV]
+                Gravity 0 [$SIGSEGV]
+                DisableTracks 1 [$SIGSEGV]
+				ReplaceModelCollisions 1 [$SIGSEGV]
+				DisableChildModels 1 [$SIGSEGV]
+                EngineLoopSound "npc\combine_gunship\dropship_engine_distant_loop1.wav" [$SIGSEGV]
+                PingSound "npc\combine_gunship\ping_search.wav" [$SIGSEGV]
                 Name "blimpboss"
                 StartingPathTrackNode "blimp_1"
 				OnBombDroppedOutput
@@ -1643,9 +1719,9 @@ WaveSchedule
 			Where spawnbot_upper2
 			WaitForAllDead 2ba
 			TotalCurrency 200
-			TotalCount 9
-			SpawnCount 3
-			MaxActive 6
+			TotalCount 15
+			SpawnCount 5
+			MaxActive 10
 			WaitBeforeStarting 10
 			WaitBetweenSpawns 20
 			Squad
@@ -1654,6 +1730,18 @@ WaveSchedule
 				{
 					Template T_TFBot_Giant_Heavyweapons_Deflector
 					Tag bot_giant
+				}
+				TFBot
+				{
+					Template T_TFBot_Soldier_Extended_Concheror
+					Item "Jumper's Jeepcap"
+					Skill Normal
+				}
+				TFBot
+				{
+					Template T_TFBot_Soldier_Extended_Concheror
+					Item "Jumper's Jeepcap"
+					Skill Normal
 				}
 				TFBot
 				{
@@ -1696,8 +1784,8 @@ WaveSchedule
 			TotalCurrency 250
 			WaitForAllDead 2ba
 			TotalCount 100
-			SpawnCount 7
-			MaxActive 7
+			SpawnCount 5
+			MaxActive 5
 			Support 1
 			WaitBeforeStarting 0
 			WaitBetweenSpawns 10
@@ -1738,7 +1826,7 @@ WaveSchedule
 			SpawnCount 1
 			MaxActive 1
 			WaitBeforeStarting 0
-			WaitBetweenSpawnsAfterDeath 45
+			WaitBetweenSpawnsAfterDeath 5
 			
 			Support 1
 			
@@ -1757,7 +1845,7 @@ WaveSchedule
 			Where spawnbot_main2
 			TotalCurrency 0
 			TotalCount 14
-			MaxActive 12
+			MaxActive 10
 			SpawnCount 1
 			WaitBetweenSpawns 1
 			WaitBeforeStarting 4
@@ -1783,7 +1871,7 @@ WaveSchedule
 			SpawnCount 4
 			MaxActive 8
 			WaitBeforeStarting 0
-			WaitBetweenSpawns 33
+			WaitBetweenSpawns 30
 			Squad
 			{
 				TFBot
@@ -1909,9 +1997,9 @@ WaveSchedule
 			Where spawnbot_main1
 			Where spawnbot_upper2
 			TotalCurrency 50
-			TotalCount 8
+			TotalCount 14
 			SpawnCount 2
-			MaxActive 8
+			MaxActive 10
 			WaitBeforeStarting 15
 			WaitBetweenSpawns 6
 			TFBot
@@ -1957,7 +2045,92 @@ WaveSchedule
 			{
 				TFBot
 				{
-					Template T_TFGateBot_Giant_Soldier_RocketShotgun
+					Class Soldier
+					Name "Giant Black Box Soldier"
+					ClassIcon soldier_blackbox_conch_lite
+					Health 4200
+
+					EventChangeAttributes
+					{
+						Default
+						{
+							Tag bot_gatebot 				// having these will cause bots to run towards gates
+							Tag nav_prefer_gate1_flank		// having these will cause bots to run towards gates
+							BehaviorModifiers push			// having these will cause bots to run towards gates
+							Attributes IgnoreFlag 			// having these will cause bots to run towards gates
+
+							Item "The Black Box"
+							Item "MvM GateBot Light Soldier"
+							Skill Expert
+							Attributes MiniBoss
+							Tag bot_giant
+							WeaponRestrictions PrimaryOnly
+							Attributes HoldFireUntilFullReload
+							Item "The Concheror"
+							Attributes SpawnWithFullCharge 
+							ItemAttributes
+							{
+								ItemName "The Black Box"
+								"damage bonus" 0.45
+								"fire rate bonus" 0.001
+								"clip size upgrade atomic" 0
+								"faster reload rate" 1.6
+								"blast radius increased" 1.25
+								//"Projectile speed increased" 0.4
+								"projectile spread angle penalty" 4
+								"heal on hit for rapidfire" 1000
+							}
+							CharacterAttributes
+							{
+								"move speed bonus"	0.5
+								"damage force reduction" 0.4
+								"airblast vulnerability multiplier" 0.4
+								"override footstep sound set" 3
+								"Projectile speed increased" 0.9
+								"deploy time increased" 0.5
+								"increase buff duration" 100
+							}
+						}
+						RevertGateBotsBehavior
+						{
+							Item "The Black Box"
+							Item "MvM GateBot Light Soldier"
+							ItemAttributes               // turn off light hat
+							{
+								ItemName "MvM GateBot Light Soldier"
+								"item style override" 1
+							}
+							Skill Expert
+							Attributes MiniBoss
+							Tag bot_giant
+							WeaponRestrictions PrimaryOnly
+							Attributes HoldFireUntilFullReload
+							Item "The Concheror"
+							Attributes SpawnWithFullCharge 
+							ItemAttributes
+							{
+								ItemName "The Black Box"
+								"damage bonus" 0.33
+								"fire rate bonus" 0.001
+								"clip size upgrade atomic" 0
+								"faster reload rate" 1.6
+								"blast radius increased" 1.25
+								//"Projectile speed increased" 0.4
+								"projectile spread angle penalty" 4
+								"heal on hit for rapidfire" 1000
+							}
+							CharacterAttributes
+							{
+								"move speed bonus"	0.5
+								"damage force reduction" 0.4
+								"airblast vulnerability multiplier" 0.4
+								"override footstep sound set" 3
+								"Projectile speed increased" 0.9
+								"deploy time increased" 0.5
+								"increase buff duration" 100
+							}
+						}
+					}
 				}
 				TFBot
 				{
@@ -1984,12 +2157,12 @@ WaveSchedule
 				TFBot
 				{
 					Class Demoman
-					Skill Normal
+					Skill Hard
 				}
 				TFBot
 				{
 					Class Soldier
-					Skill Normal
+					Skill Hard
 				}
 			}
 		}
@@ -2003,7 +2176,7 @@ WaveSchedule
 			TotalCurrency 	75
 			TotalCount 9
 			SpawnCount 3
-			MaxActive 3
+			MaxActive 4
 			WaitBeforeStarting 10
 			WaitBetweenSpawns 0
 			
@@ -2025,15 +2198,23 @@ WaveSchedule
 			TotalCurrency 200
 			TotalCount 8
 			SpawnCount 4
-			MaxActive 5
+			MaxActive 8
 			WaitBeforeStarting 0
-			WaitBetweenSpawns 30
+			WaitBetweenSpawns 25
 			RandomSpawn 1
 			Squad
 			{
 				TFBot
 				{
 					Template T_TFBot_Giant_Soldier_RocketShotgun
+					ClassIcon soldier_blackbox_conch_lite
+					Item "The Concheror"
+					Attributes SpawnWithFullCharge
+					CharacterAttributes
+					{
+						"deploy time increased" 0.5
+						"increase buff duration" 100
+					}
 				}
 				TFBot
 				{
@@ -2069,12 +2250,38 @@ WaveSchedule
 				{
 					Class Demoman
 					ClassIcon demo_giant
-					Skill Hard
+					Skill Expert
+				}
+				TFBot
+				{
+					Class Demoman
+					ClassIcon demo_giant
+					Skill Expert
 				}
 				TFBot
 				{
 					Class Pyro
-					Skill Easy
+					Skill Normal
+					
+					CharacterAttributes
+					{
+						"Airblast Disabled" 1
+					}
+				}
+				TFBot
+				{
+					Class Pyro
+					Skill Normal
+					
+					CharacterAttributes
+					{
+						"Airblast Disabled" 1
+					}
+				}
+				TFBot
+				{
+					Class Pyro
+					Skill Normal
 					
 					CharacterAttributes
 					{
@@ -2085,6 +2292,7 @@ WaveSchedule
 				{
 					Class Pyro
 					Skill Easy
+					Attributes AlwaysFireWeapon
 					
 					CharacterAttributes
 					{
@@ -2239,7 +2447,7 @@ WaveSchedule
 						}
 						CharacterAttributes
 						{
-							//"health regen"	40
+							"health regen"	40
 							"move speed bonus"	0.4
 							"damage force reduction" 0.4
 							"airblast vulnerability multiplier" 0.4
@@ -2257,11 +2465,11 @@ WaveSchedule
 			Where spawnbot_main1
 			Where spawnbot_upper2
 			TotalCurrency 200
-			TotalCount 6
+			TotalCount 7
 			SpawnCount 1
 			MaxActive 4
 			WaitBeforeStarting 0
-			WaitBetweenSpawns 9
+			WaitBetweenSpawns 8
 			TFBot
 			{
 				Template T_TFBot_Giant_Scout_FAN
@@ -2302,16 +2510,15 @@ WaveSchedule
 			Where spawnbot_main2
 			WaitForAllDead 4aa
 			TotalCurrency 100
-			TotalCount 20
-			SpawnCount 4
-			MaxActive 6
+			TotalCount 25
+			SpawnCount 5
+			MaxActive 10
 			WaitBeforeStarting 0
 			WaitBetweenSpawns 12
 			TFBot
 			{
 				Name "Fury Pyro"
 				Class Pyro
-				Skill Hard
 				ClassIcon pyro_dragon_fury_swordstone
 				EventChangeAttributes
 				{
@@ -2323,7 +2530,7 @@ WaveSchedule
 						Attributes IgnoreFlag 			// having these will cause bots to run towards gates
 
 						Item "MvM GateBot Light Pyro"
-						Skill Hard
+						Skill Expert
 						MaxVisionRange 800
 						Item "The Dragon's Fury"
 						Item "The Sengoku Scorcher"
@@ -2340,7 +2547,7 @@ WaveSchedule
 						Item "The Dragon's Fury"
 						Item "The Sengoku Scorcher"
 						MaxVisionRange 800
-						Skill Hard
+						Skill Expert
 						//Attributes AlwaysCrit
 					}	
 				}
@@ -2354,11 +2561,11 @@ WaveSchedule
 			Where spawnbot_main2
 			WaitForAllDead 4aa
 			TotalCurrency 100
-			TotalCount 6
+			TotalCount 7
 			SpawnCount 1
 			MaxActive 2
 			WaitBeforeStarting 10
-			WaitBetweenSpawns 12
+			WaitBetweenSpawns 10
 			TFBot
 			{
 				Template T_TFBot_Giant_Scout_FAN
@@ -2377,7 +2584,7 @@ WaveSchedule
 			SpawnCount 2
 			MaxActive 4
 			WaitBeforeStarting 0
-			WaitBetweenSpawns 22
+			WaitBetweenSpawns 25
 			Squad
 			{
 				TFBot
@@ -2387,7 +2594,35 @@ WaveSchedule
 				}
 				TFBot
 				{
-					Template T_TFBot_Giant_Medic_Regen
+					Name "Giant Kritz Medic"
+					Class Medic
+					ClassIcon medic_kritz_giant
+					Skill Expert
+					Health 4500
+					Attributes MiniBoss
+					Attributes SpawnWithFullCharge
+					Attributes IgnoreEnemies
+					Item "The Kritzkrieg"
+					Item "The Overdose"
+					Tag bot_giant
+					
+					ItemAttributes
+					{
+						ItemName "The Kritzkrieg"
+						"ubercharge rate bonus" 100
+						"uber duration bonus" 92
+						"heal rate bonus" 100
+					}
+					
+					CharacterAttributes
+					{
+						"move speed bonus"	0.5
+						"damage force reduction" 0.4
+						"airblast vulnerability multiplier" 0.4
+						"airblast vertical vulnerability multiplier" 0.4
+						"bot medic uber health threshold" 9001
+						"health regen" 10
+					}
 				}
 			}
 		}
@@ -2466,7 +2701,7 @@ WaveSchedule
 			SpawnCount 1
 			MaxActive 1
 			WaitBeforeStarting 12
-			WaitBetweenSpawnsAfterDeath 1
+			WaitBetweenSpawnsAfterDeath 0
 			
 			Support 1
 			
@@ -2495,24 +2730,24 @@ WaveSchedule
 				Target wave_start_relay
 				Action RunScriptCode
 				Param "
-				ClientPrint(null,3,`\x0799CCFFBlimp deployed with 16k (16000) HP!`)
+				ClientPrint(null,3,`\x0799CCFFBlimp deployed with 15k (15000) HP!`)
 				"
 			}
 		    Tank
             {
-                Health 16000
+                Health 15000
 				Speed 100
-				DisableSmokestack 1  
+				DisableSmokestack 1 [$SIGSEGV]
                 Classicon blimp2_lite
-                Skin 1  
-                MaxTurnRate 30  
-                Model "models/bots/boss_bot/boss_blimp.mdl"  
-                Gravity 0  
-                DisableTracks 1  
-				ReplaceModelCollisions 1  
-				DisableChildModels 1  
-                EngineLoopSound "npc\combine_gunship\dropship_engine_distant_loop1.wav"  
-                PingSound "npc\combine_gunship\ping_search.wav"  
+                Skin 1 [$SIGSEGV]
+                MaxTurnRate 30 [$SIGSEGV]
+                Model "models/bots/boss_bot/boss_blimp.mdl" [$SIGSEGV]
+                Gravity 0 [$SIGSEGV]
+                DisableTracks 1 [$SIGSEGV]
+				ReplaceModelCollisions 1 [$SIGSEGV]
+				DisableChildModels 1 [$SIGSEGV]
+                EngineLoopSound "npc\combine_gunship\dropship_engine_distant_loop1.wav" [$SIGSEGV]
+                PingSound "npc\combine_gunship\ping_search.wav" [$SIGSEGV]
                 Name "blimpboss"
                 StartingPathTrackNode "blimp_1"
 				OnBombDroppedOutput
@@ -2534,7 +2769,7 @@ WaveSchedule
 			MaxActive 14
 			WaitBeforeStarting 0
 			WaitBetweenSpawns 1
-			RandomChoice
+			Squad
 			{
 				TFBot
 				{
@@ -2613,7 +2848,7 @@ WaveSchedule
 			Where spawnbot_main0
 			Where spawnbot_main1_slow
 			Where spawnbot_upper2
-			WaitForAllSpawned 5aa
+			WaitForAllDead 5aa
 			TotalCurrency 100
 			TotalCount 4
 			SpawnCount 1
@@ -2624,24 +2859,24 @@ WaveSchedule
 			{
 				TFBot
 				{
-					Template T_TFGateBot_Giant_Heavyweapons_Deflector
+					Template T_TFGateBot_Giant_Heavyweapons_Brass
 					Tag bot_giant
 				}
 			}
 		}
 		WaveSpawn
 		{
-			Name 5bb
+			Name 5bd
 			Where spawnbot_main0
 			Where spawnbot_main1
 			Where spawnbot_upper2
-			WaitForAllSpawned 5aa
+			WaitForAllDead 5aa
 			TotalCurrency 50
 			TotalCount 6
 			SpawnCount 2
 			MaxActive 2
-			WaitBeforeStarting 20
-			WaitBetweenSpawns 15
+			WaitBeforeStarting 10
+			WaitBetweenSpawns 20
 			TFBot
 			{
 				Template T_TFBot_Giant_Scout_FAN
@@ -2654,9 +2889,9 @@ WaveSchedule
 			Where spawnbot_main0
 			Where spawnbot_main1
 			Where spawnbot_upper2
-			WaitForAllSpawned 5aa
+			WaitForAllDead 5aa
 			TotalCurrency 50
-			TotalCount 20
+			TotalCount 30
 			SpawnCount 5
 			MaxActive 10
 			WaitBeforeStarting 10
@@ -2754,7 +2989,7 @@ WaveSchedule
 				TFBot
 				{
 					Class Pyro
-					Skill Normal
+					Skill Hard
 					CharacterAttributes
 					{
 						"airblast disabled" 1
@@ -2777,7 +3012,7 @@ WaveSchedule
 			WaitBetweenSpawns 10
 			TFBot
 			{
-				Template T_TFGateBot_Giant_Heavyweapons_Deflector
+				Template T_TFGateBot_Giant_Heavyweapons_Brass
 				Tag bot_giant
 			}
 		}
@@ -2796,11 +3031,6 @@ WaveSchedule
 			WaitBetweenSpawns 6
 			RandomChoice
 			{
-				TFBot
-				{
-					Template T_TFGateBot_Heavy_IronFist_Airblast
-					ClassIcon heavy_steelfist_pusher
-				}
 				TFBot
 				{
 					Template T_TFGateBot_Heavy_IronFist_Airblast
@@ -2880,17 +3110,17 @@ WaveSchedule
             {
                 Health 8000
 				Speed 100
-				DisableSmokestack 1  
+				DisableSmokestack 1 [$SIGSEGV]
                 Classicon blimp2_lite
-                Skin 1  
-                MaxTurnRate 30  
-                Model "models/bots/boss_bot/boss_blimp.mdl"  
-                Gravity 0  
-                DisableTracks 1  
-				ReplaceModelCollisions 1  
-				DisableChildModels 1  
-                EngineLoopSound "npc\combine_gunship\dropship_engine_distant_loop1.wav"  
-                PingSound "npc\combine_gunship\ping_search.wav"  
+                Skin 1 [$SIGSEGV]
+                MaxTurnRate 30 [$SIGSEGV]
+                Model "models/bots/boss_bot/boss_blimp.mdl" [$SIGSEGV]
+                Gravity 0 [$SIGSEGV]
+                DisableTracks 1 [$SIGSEGV]
+				ReplaceModelCollisions 1 [$SIGSEGV]
+				DisableChildModels 1 [$SIGSEGV]
+                EngineLoopSound "npc\combine_gunship\dropship_engine_distant_loop1.wav" [$SIGSEGV]
+                PingSound "npc\combine_gunship\ping_search.wav" [$SIGSEGV]
                 Name "blimpbosiewossie"
                 StartingPathTrackNode "fixthing_1"
 				OnBombDroppedOutput
@@ -2922,17 +3152,17 @@ WaveSchedule
             {
                 Health 8000
 				Speed 100
-				DisableSmokestack 1  
+				DisableSmokestack 1 [$SIGSEGV]
                 Classicon blimp2_lite
-                Skin 1  
-                MaxTurnRate 30  
-                Model "models/bots/boss_bot/boss_blimp.mdl"  
-                Gravity 0  
-                DisableTracks 1  
-				ReplaceModelCollisions 1  
-				DisableChildModels 1  
-                EngineLoopSound "npc\combine_gunship\dropship_engine_distant_loop1.wav"  
-                PingSound "npc\combine_gunship\ping_search.wav"  
+                Skin 1 [$SIGSEGV]
+                MaxTurnRate 30 [$SIGSEGV]
+                Model "models/bots/boss_bot/boss_blimp.mdl" [$SIGSEGV]
+                Gravity 0 [$SIGSEGV]
+                DisableTracks 1 [$SIGSEGV]
+				ReplaceModelCollisions 1 [$SIGSEGV]
+				DisableChildModels 1 [$SIGSEGV]
+                EngineLoopSound "npc\combine_gunship\dropship_engine_distant_loop1.wav" [$SIGSEGV]
+                PingSound "npc\combine_gunship\ping_search.wav" [$SIGSEGV]
                 Name "blimpboss"
                 StartingPathTrackNode "blimp_1"
 				OnBombDroppedOutput
@@ -2965,8 +3195,8 @@ WaveSchedule
 				Name "Major Crips"
 				Item "Full Metal Drill Hat"
 				ClassIcon soldier_barrage
-				Health 30000
-				Scale 1.9
+				Health 32000
+				//Scale 1.8
 				Attributes MiniBoss
 				Attributes UseBossHealthBar
 				Attributes HoldFireUntilFullReload
@@ -3076,7 +3306,7 @@ WaveSchedule
 			{
 				Class Heavyweapons
 				Name "Empire Extirpator"
-				Health 40000
+				Health 42500
 				Scale 1.8
 				ClassIcon 	heavy_deflector_booster2
 
@@ -3106,7 +3336,7 @@ WaveSchedule
 							"damage bonus"	1.5
 							"attack projectiles" 1
 							"Critboost on kill" 7
-							"killstreak tier" 2            
+							"killstreak tier" 2
 							"killstreak idleeffect" 2
 							"heal on kill" 7000
 						}
@@ -3185,7 +3415,7 @@ WaveSchedule
 				ClassIcon soldier_conch_spammer_giant
 				Attributes UseBossHealthBar
 				Skill Expert
-				Health 25000
+				Health 27500
 				Scale 1.8
 				WeaponRestrictions PrimaryOnly
 				Attributes HoldFireUntilFullReload
@@ -3374,7 +3604,7 @@ WaveSchedule
 						}
 						CharacterAttributes
 						{
-							"move speed bonus"	0.4
+							"move speed bonus"	0.5
 							"damage force reduction" 0.3
 							"airblast vulnerability multiplier" 0.4
 							"airblast vertical vulnerability multiplier" 0.1
@@ -3408,7 +3638,7 @@ WaveSchedule
 						}
 						CharacterAttributes
 						{
-							"move speed bonus"	0.4
+							"move speed bonus"	0.5
 							"damage force reduction" 0.3
 							"airblast vulnerability multiplier" 0.4
 							"airblast vertical vulnerability multiplier" 0.1
@@ -3441,17 +3671,17 @@ WaveSchedule
             {
                 Health 15000
 				Speed 100
-				DisableSmokestack 1  
+				DisableSmokestack 1 [$SIGSEGV]
                 Classicon blimp2_lite
-                Skin 1  
-                MaxTurnRate 30  
-                Model "models/bots/boss_bot/boss_blimp.mdl"  
-                Gravity 0  
-                DisableTracks 1  
-				ReplaceModelCollisions 1  
-				DisableChildModels 1  
-                EngineLoopSound "npc\combine_gunship\dropship_engine_distant_loop1.wav"  
-                PingSound "npc\combine_gunship\ping_search.wav"  
+                Skin 1 [$SIGSEGV]
+                MaxTurnRate 30 [$SIGSEGV]
+                Model "models/bots/boss_bot/boss_blimp.mdl" [$SIGSEGV]
+                Gravity 0 [$SIGSEGV]
+                DisableTracks 1 [$SIGSEGV]
+				ReplaceModelCollisions 1 [$SIGSEGV]
+				DisableChildModels 1 [$SIGSEGV]
+                EngineLoopSound "npc\combine_gunship\dropship_engine_distant_loop1.wav" [$SIGSEGV]
+                PingSound "npc\combine_gunship\ping_search.wav" [$SIGSEGV]
                 Name "blimpbosiewossie"
                 StartingPathTrackNode "fixthing_1"
 				OnBombDroppedOutput
@@ -3501,17 +3731,17 @@ WaveSchedule
             {
                 Health 15000
 				Speed 100
-				DisableSmokestack 1  
+				DisableSmokestack 1 [$SIGSEGV]
                 Classicon blimp2_lite
-                Skin 4  
-                MaxTurnRate 30  
-                Model "models/bots/boss_bot/boss_blimp.mdl"  
-                Gravity 0  
-                DisableTracks 1  
-				ReplaceModelCollisions 1  
-				DisableChildModels 1  
-                EngineLoopSound "npc\combine_gunship\dropship_engine_distant_loop1.wav"  
-                PingSound "npc\combine_gunship\ping_search.wav"  
+                Skin 4 [$SIGSEGV]
+                MaxTurnRate 30 [$SIGSEGV]
+                Model "models/bots/boss_bot/boss_blimp.mdl" [$SIGSEGV]
+                Gravity 0 [$SIGSEGV]
+                DisableTracks 1 [$SIGSEGV]
+				ReplaceModelCollisions 1 [$SIGSEGV]
+				DisableChildModels 1 [$SIGSEGV]
+                EngineLoopSound "npc\combine_gunship\dropship_engine_distant_loop1.wav" [$SIGSEGV]
+                PingSound "npc\combine_gunship\ping_search.wav" [$SIGSEGV]
                 Name "blimpboss"
                 StartingPathTrackNode "blimp_1"
 				OnBombDroppedOutput
@@ -3541,7 +3771,7 @@ WaveSchedule
 					Class Soldier
 					Name "Giant Rapid Conch Soldier"
 					ClassIcon soldier_conch_spammer
-					Health 4000
+					Health 4200
 					Skill Expert
 					Attributes AlwaysCrit
 					WeaponRestrictions PrimaryOnly

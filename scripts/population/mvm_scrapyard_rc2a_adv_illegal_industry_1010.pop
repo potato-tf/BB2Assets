@@ -23,8 +23,6 @@ WaveSchedule
 	
 	TextPrintTime 0
 	
-	//DisallowUpgrade "explode_on_ignite"
-	
 	CustomNavFile mvm_scrapyard_rc2a_whurr.nav
 	
 	Mission // Sentry Buster
@@ -43,38 +41,6 @@ WaveSchedule
 			Template T_TFBot_SentryBuster
         }
 	}
-	
-	//PlayerAttributes  
-	//{
-	//	Soldier
-	//	{
-	//		"min respawn time" 9
-	//	}
-	//	Demoman
-	//	{
-	//		"min respawn time" 9
-	//	}
-	//	Heavyweapons
-	//	{
-	//		"min respawn time" 9
-	//	}
-	//	Engi
-	//	{
-	//		"min respawn time" 9
-	//	}
-	//	Medic
-	//	{
-	//		"min respawn time" 15
-	//	}
-	//	Sniper
-	//	{
-	//		"min respawn time" 9
-	//	}
-	//	Spy
-	//	{
-	//		"min respawn time" 9
-	//	}
-	//}
 	
 	Mission
 	{
@@ -550,6 +516,7 @@ WaveSchedule
 			WeaponRestrictions PrimaryOnly
 			Attributes HoldFireUntilFullReload
 			Attributes MiniBoss
+			Item "Lord Cockswain's Pith Helmet"
 			ItemAttributes
 			{
 				ItemName "TF_WEAPON_ROCKETLAUNCHER"
@@ -1233,7 +1200,6 @@ WaveSchedule
 			Skill Expert
 			Attributes MiniBoss
 			Attributes AlwaysCrit
-			Attributes IgnoreEnemies
 			Attributes SpawnWithFullCharge
 			Tag bot_giant
 			WeaponRestrictions SecondaryOnly
@@ -1311,7 +1277,7 @@ WaveSchedule
 			"
 		}
 		
-		Explanation    //Dispayed once the wave is initialized
+		Explanation [$SIGSEGV]  //Dispayed once the wave is initialized
 		{
 			Line "{white}..."
 			Line "{white}..."

@@ -30,6 +30,7 @@ WaveSchedule
 	PrecacheSound "abby_pryor_clone_drone_in_the_hyperdome_ost_captain_theme.mp3"
 	PrecacheModel "models/bots/sniper_boss/bot_sniper_boss.mdl"
 	PrecacheModel "models\props_mvm\robot_spawnpoint_warning.mdl"
+	PrecacheModel "models/props_invasion/2fort/chem_spill_1.mdl"
 
 	Templates
 	{
@@ -2153,7 +2154,7 @@ WaveSchedule
 			Name "wave04a"
 			Where spawnbot
 
-			TotalCount 20
+			TotalCount 28
 			MaxActive  7
 			SpawnCount 4
 			TotalCurrency 75
