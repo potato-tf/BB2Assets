@@ -30,6 +30,7 @@ WaveSchedule
 	PrecacheSound "abby_pryor_clone_drone_in_the_hyperdome_ost_captain_theme.mp3"
 	PrecacheModel "models/bots/sniper_boss/bot_sniper_boss.mdl"
 	PrecacheModel "models\props_mvm\robot_spawnpoint_warning.mdl"
+	PrecacheModel "models/props_invasion/2fort/chem_spill_1.mdl"
 
 	Templates
 	{
