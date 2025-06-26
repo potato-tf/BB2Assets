@@ -13,6 +13,7 @@ WaveSchedule
 	RespawnWaveTime 		2
 	CanBotsAttackWhileInSpawnRoom no
 	Advanced				1
+	PrecacheSound "gwupgrademusic.mp3"
 	
 	Mission // sentry buster
 	{
@@ -54,12 +55,74 @@ WaveSchedule
 			Name "Chomper"
 			Skill Expert
 		}
-	}	
-//Wave 1 cashgiven 850
+	}
 
+PointTemplates
+{
+    UpgradeStationMusicFront
+    {
+        ambient_generic
+        {
+            "targetname" "startmusicplay"
+            "message" "#gwupgrademusic.mp3"
+            "health" "10"
+            "pitch" "100"
+            "volume" "20"
+            "spawnflags" "16"
+            "origin" "1798 -2655 34"
+            "radius" "1100"
+        }
+        ambient_generic
+        {
+            "targetname" "startmusicplay"
+            "message" "#gwupgrademusic.mp3"
+            "health" "10"
+            "pitch" "100"
+            "volume" "20"
+            "spawnflags" "16"
+            "origin" "1391 -711 74"
+            "radius" "900"
+        }
+        ambient_generic
+        {
+            "targetname" "startmusicplay"
+            "message" "#gwupgrademusic.mp3"
+            "health" "10"
+            "pitch" "100"
+            "volume" "20"
+            "spawnflags" "16"
+            "origin" "177 -3182 74"
+            "radius" "1100"
+        }
+        logic_relay
+        {
+            "targetname" "musicplay"
+            "spawnflags" "2"
+                
+            "OnSpawn" "startmusicplay,PlaySound,,0,-1"
+            "OnSpawn" "startmusicplay,StopSound,,84,-1"
+            "OnSpawn" "musicloop,Trigger,,84,-1"
+        }
+        logic_relay
+        {
+            "targetname" "musicloop"
+            "spawnflags" "2"
+            "OnTrigger" "startmusicplay,PlaySound,,0,-1"
+            "OnTrigger" "startmusicplay,StopSound,,84,-1"
+            "OnTrigger" "musicloop,Trigger,,84,-1"
+        }
+    }
+}
+
+SpawnTemplate UpgradeStationMusicFront
+//Wave 1 cashgiven 850
 // giants are distractions with support 
 	Wave //1
     {
+        Explanation
+        {
+            Line "{x0700ff00}Track Playing: Plants vs. Zombies: Garden Warfare [OST]: Lobby & Results 1"
+		}
 		WaitWhenDone 65
 		Checkpoint	Yes
 		StartWaveOutput
@@ -462,7 +525,7 @@ WaveSchedule
 			TotalCount 9
 			MaxActive 3
 			SpawnCount 3
-			WaitBetweenSpawns 25
+			WaitBetweenSpawns 23
 			WaitBeforeStarting 0
 			TotalCurrency 200
 			
@@ -524,7 +587,7 @@ WaveSchedule
 			SpawnCount 1
 			MaxActive 2
 			WaitForAllSpawned "W3_A1"
-			WaitBetweenSpawns 30
+			WaitBetweenSpawns 23
 			WaitBeforeStarting 30
 			TotalCurrency 100
 			
@@ -573,7 +636,7 @@ WaveSchedule
 
 			Tank
 			{
-				Health 10000					
+				Health 11000					
 				Speed 75							
 				Name "TankBoss"
 				StartingPathTrackNode "boss_path_0_1"
@@ -594,7 +657,7 @@ WaveSchedule
             Target    wave_start_relay
             Action    RunScriptCode
             Param    "
-            ClientPrint(null,3,`\x0799CCFFTank deployed with 10k (10000) HP!`)
+            ClientPrint(null,3,`\x0799CCFFTank deployed with 11k (11000) HP!`)
             "
             }
 		}
@@ -615,7 +678,7 @@ WaveSchedule
 
 			Tank
 			{
-				Health 10000							
+				Health 11000							
 				Speed 75							
 				Name "TankBoss"
 				StartingPathTrackNode "boss_path_0_1"
@@ -636,7 +699,7 @@ WaveSchedule
                 Target    wave_start_relay
                 Action    RunScriptCode
                 Param    "
-                ClientPrint(null,3,`\x0799CCFFTank deployed with 10k (10000) HP!`)
+                ClientPrint(null,3,`\x0799CCFFTank deployed with 11k (11000) HP!`)
                 "
             }
 		}
@@ -645,11 +708,10 @@ WaveSchedule
 		{
 			Name "W3_Heavy"
 			Where spawnbot_invasion
-			TotalCount 2
+			TotalCount 1
 			SpawnCount 1
-			MaxActive 2
+			MaxActive 1
 			WaitForAllSpawned "W3_Wank2"
-			WaitBetweenSpawns 42
 			WaitBeforeStarting 25
 			TotalCurrency 100
 			
@@ -1185,7 +1247,7 @@ WaveSchedule
 			TotalCount 6
 			MaxActive 4
 			SpawnCount 2
-			WaitBetweenSpawns 30
+			WaitBetweenSpawns 25
 			TotalCurrency 250
 			
 			TFBot{
@@ -1264,11 +1326,11 @@ WaveSchedule
 		{
 			Name "W5_B1"
 			Where spawnbot_invasion
-			TotalCount 8
+			TotalCount 6
 			MaxActive 4
 			SpawnCount 2
-			WaitBetweenSpawns 28
-			WaitBeforeStarting 20
+			WaitBetweenSpawns 21
+			WaitBeforeStarting 18
 			WaitForAllSpawned "W5_B0"
 			TotalCurrency 150
 
@@ -1380,7 +1442,7 @@ WaveSchedule
 			TotalCount 1
 			SpawnCount 1
 			MaxActive 1
-			WaitBeforeStarting 60
+			WaitBeforeStarting 40
 			WaitForAllSpawned "W5_Wankc"
 			TotalCurrency 100
 
@@ -1430,6 +1492,7 @@ WaveSchedule
 			MaxActive 1
 			WaitForAllDead "W5_C1_Boss"
 			TotalCurrency 100
+			
 
 			
 			TFBot{ 
@@ -1449,6 +1512,7 @@ WaveSchedule
             Name                    dummydeadornot
             Support Limited
 			WaitForAllSpawned "W5_C1_Boss2"
+			FirstSpawnWarningSound	"soldier_mvm_laughlong03.mp3"
 
             FirstSpawnOutPut
                {
