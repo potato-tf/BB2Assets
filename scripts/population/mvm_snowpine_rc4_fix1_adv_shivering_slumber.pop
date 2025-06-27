@@ -1765,6 +1765,14 @@ ShiveringSlumber
 		}
 		WaveSpawn
 		{
+			Support Limited
+			TFBot
+			{
+				ClassIcon demo_burst_homing
+			}
+		}
+		WaveSpawn
+		{
 			Name "MechanizedHorde1"
 			TotalCount 60
 			SpawnCount 2
