@@ -115,7 +115,7 @@ WaveSchedule
 			Name "Chief Healflector Heavy"
 			Class Heavyweapons
 			Skill Expert
-			Health 25000
+			Health 30000
 			ClassIcon heavy_deflector_healonkill
 			Tag bot_giant
 			Item "Deflector"
@@ -139,7 +139,7 @@ WaveSchedule
 				"move speed bonus" 0.5
 				"rage giving scale"	0.1
 				"override footstep sound set" 2
-				"health regen" 40
+				"health regen" 108
 				"increased jump height" 3
 				"cancel falling damage"	1
 			}
@@ -980,35 +980,20 @@ WaveSchedule
         }
 		WaveSpawn
 		{
-			TotalCount	1
 			Support	Limited
-			RandomChoice
+			TFBot
 			{
-				TFBot{Class Spy ClassIcon sign_placeholder_blind2}TFBot{Class Spy ClassIcon sign_placeholder_blind2}
-				TFBot{Class Spy ClassIcon sign_placeholder_blind2}TFBot{Class Spy ClassIcon sign_placeholder_blind2}
-				TFBot{Class Spy ClassIcon sign_placeholder_blind2}TFBot{Class Spy ClassIcon sign_placeholder_blind2}
-				TFBot{Class Spy ClassIcon sign_placeholder_blind2}TFBot{Class Spy ClassIcon sign_placeholder_blind2}
-				TFBot{Class Spy ClassIcon sign_placeholder_blind2}TFBot{Class Spy ClassIcon sign_placeholder_blind2}
-				TFBot{Class Spy ClassIcon sign_placeholder_blind2}TFBot{Class Spy ClassIcon sign_placeholder_blind2}
-				TFBot{Class Spy ClassIcon sign_placeholder_blind2}TFBot{Class Spy ClassIcon sign_placeholder_blind2}
-				TFBot{Class Spy ClassIcon sign_placeholder_blind2}TFBot{Class Spy ClassIcon sign_placeholder_blind2}
-				TFBot{Class Spy ClassIcon sign_placeholder_blind2}TFBot{Class Spy ClassIcon sign_placeholder_blind2}
-				TFBot{Class Spy ClassIcon sign_placeholder_blind2}TFBot{Class Spy ClassIcon sign_placeholder_blind}
+				Class Spy
+				ClassIcon sign_smog
 			}
 		}
 		WaveSpawn
 		{
-			TotalCount	1
 			Support	Limited
-			RandomChoice
+			TFBot
 			{
-				TFBot{Class Spy ClassIcon caustic}TFBot{Class Spy ClassIcon caustic}TFBot{Class Spy ClassIcon caustic}
-				TFBot{Class Spy ClassIcon caustic}TFBot{Class Spy ClassIcon caustic}TFBot{Class Spy ClassIcon caustic}
-				TFBot{Class Spy ClassIcon caustic}TFBot{Class Spy ClassIcon caustic}TFBot{Class Spy ClassIcon caustic}
-				TFBot{Class Spy ClassIcon caustic}TFBot{Class Spy ClassIcon caustic}TFBot{Class Spy ClassIcon caustic}
-				TFBot{Class Spy ClassIcon caustic}TFBot{Class Spy ClassIcon caustic}TFBot{Class Spy ClassIcon caustic}
-				TFBot{Class Spy ClassIcon caustic}TFBot{Class Spy ClassIcon caustic}TFBot{Class Spy ClassIcon caustic}
-				TFBot{Class Spy ClassIcon caustic}TFBot{Class Spy ClassIcon sign_placeholder_poison}
+				Class Spy
+				ClassIcon sign_acidrain
 			}
 		}
 		WaveSpawn
@@ -1095,9 +1080,7 @@ WaveSchedule
 				}
 				TFBot
 				{
-					Template T_TFBot_Medic_BigHeal
-					Name "Big-Heal Medic"
-					Item "The Surgeon's Stahlhelm"
+					Template	Inky_QuickUber_Medic
 					Tag bot_squad_member
 				}
 			}
@@ -1203,15 +1186,6 @@ WaveSchedule
 				Action	Trigger
 			}
 		}
-		WaveSpawn
-		{
-			WaitForAllDead	4c
-			DoneOutput
-			{			
-				Target	relay_disable_smog
-				Action	Trigger
-			}
-		}
 	}
 	Wave
 	{
@@ -1234,6 +1208,45 @@ WaveSchedule
 		}
 		WaveSpawn
 		{
+			TotalCount	1
+			Support	Limited
+			RandomChoice
+			{
+				TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_smog}
+				TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_smog}
+				TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_smog}
+				TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_smog}
+				TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_smog}
+				TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_smog}
+				TFBot{Class Spy ClassIcon sign_smog}TFBot{Class Spy ClassIcon sign_placeholder_blind}
+			}
+		}
+		WaveSpawn
+		{
+			TotalCount	1
+			Support	Limited
+			RandomChoice
+			{
+				TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_acidrain}
+				TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_acidrain}
+				TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_acidrain}
+				TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_acidrain}
+				TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_acidrain}
+				TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_acidrain}
+				TFBot{Class Spy ClassIcon sign_acidrain}TFBot{Class Spy ClassIcon sign_placeholder_poison}
+			}
+		}
+		WaveSpawn
+		{
+			FirstSpawnWarningSound "mvm/ambient_mp3/mvm_siren.mp3"
+			DoneOutput
+			{			
+				Target	relay_enable_smog
+				Action	Trigger
+			}
+		}
+		WaveSpawn
+		{
 			Support	Limited
 			TFBot
 			{
@@ -1252,9 +1265,10 @@ WaveSchedule
 		}
 		WaveSpawn
 		{
+			WaitBeforeStarting	10
 			DoneOutput
 			{			
-				Target	relay_disable_smog
+				Target	relay_enable_acid_rain
 				Action	Trigger
 			}
 		}
@@ -1355,6 +1369,7 @@ WaveSchedule
 			TFBot
 			{
 				Template	T_TFBot_Giant_Soldier_Spammer
+				MaxVisionRange 1200
 				Attributes AlwaysCrit
 				Tag bot_flanker
 				Tag bot_giant
@@ -1417,13 +1432,33 @@ WaveSchedule
 				TFBot
 				{
 					Template	T_TFBot_Giant_Soldier_RocketShotgun
+					MaxVisionRange 1200
 					Tag bot_giant
 				}
 				TFBot
 				{
 					Template	T_TFBot_Giant_Soldier_RocketShotgun
+					MaxVisionRange 1200
 					Tag bot_giant
 				}
+			}
+		}
+		WaveSpawn
+		{
+			WaitForAllDead	5b
+			DoneOutput
+			{			
+				Target	relay_disable_smog
+				Action	Trigger
+			}
+		}
+		WaveSpawn
+		{
+			WaitForAllDead	5b
+			DoneOutput
+			{			
+				Target	relay_disable_acid_rain
+				Action	Trigger
 			}
 		}
 	}
@@ -1469,7 +1504,7 @@ WaveSchedule
 			Name	support6
 			TotalCurrency	200
 			TotalCount	100
-			MaxActive	4
+			MaxActive	6
 			SpawnCount	1
 			WaitBetweenSpawns	2
 			Where	spawnbot
@@ -1484,7 +1519,7 @@ WaveSchedule
 			Name	support6
 			TotalCurrency	200
 			TotalCount	50
-			MaxActive	2
+			MaxActive	3
 			SpawnCount	1
 			WaitBeforeStarting	3
 			WaitBetweenSpawns	3
@@ -1505,7 +1540,7 @@ WaveSchedule
 			Name	support6
 			TotalCurrency	200
 			TotalCount	50
-			MaxActive	2
+			MaxActive	3
 			SpawnCount	1
 			WaitBeforeStarting	3
 			WaitBetweenSpawns	3
@@ -1586,7 +1621,7 @@ WaveSchedule
 			FirstSpawnWarningSound "mvm/mvm_tele_deliver.wav"
 			Tank
 			{
-				Health	20000
+				Health	22222
 				Name	tankboss
 				Speed	75
 				Skin	1
@@ -1617,7 +1652,7 @@ WaveSchedule
 			DoneWarningSound "vo/mvm/norm/heavy_mvm_jeers02.mp3"
 			Tank
 			{
-				Health	8888
+				Health	11111
 				Name	tankboss
 				Speed	75
 				Skin	1

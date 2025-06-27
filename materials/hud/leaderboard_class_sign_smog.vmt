@@ -1,6 +1,6 @@
 "UnlitGeneric"
 {
-	"$basetexture" "hud/leaderboard_class_sign_placeholder_blind2"
+	"$basetexture" "hud/leaderboard_class_sign_smog"
 	"$vertexcolor" 1
 	"$no_fullbright" 1
 	"$ignorez" 1

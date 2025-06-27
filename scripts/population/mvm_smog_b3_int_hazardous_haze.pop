@@ -391,8 +391,8 @@ WaveSchedule
 			Name	2b1
 			WaitForAllDead	2a
 			TotalCurrency	200
-			TotalCount	6
-			MaxActive	6
+			TotalCount	10
+			MaxActive	10
 			SpawnCount	1
 			Where	spawnbot_flank
 			TFBot
@@ -405,8 +405,8 @@ WaveSchedule
 			Name	2b2
 			WaitForAllDead	2a
 			TotalCurrency	180
-			TotalCount	5
-			MaxActive	5
+			TotalCount	9
+			MaxActive	9
 			SpawnCount	1
 			WaitBeforeStarting	1
 			WaitBetweenSpawns	0.5
@@ -424,7 +424,7 @@ WaveSchedule
 			TotalCount	1
 			MaxActive	1
 			SpawnCount	1
-			WaitBeforeStarting	4
+			WaitBeforeStarting	5
 			Where	spawnbot
 			TFBot
 			{
@@ -798,6 +798,27 @@ WaveSchedule
 		}
 		WaveSpawn
 		{
+			Name	support4
+			TotalCount	12
+			MaxActive	1
+			SpawnCount	1
+			WaitBeforeStarting	40
+			WaitBetweenSpawnsAfterDeath	10
+			Where	spawnbot_flank
+			Support Limited
+			TFBot
+			{
+				Template	T_TFBot_Engineer_Sentry_Tele_Battle
+				TeleportWhere spawnbot
+				TeleportWhere spawnbot_flank
+				CharacterAttributes
+				{
+					"cannot pick up intelligence"	1
+				}
+			}
+		}
+		WaveSpawn
+		{
 			Name	4b
 			WaitForAllSpawned	4a
 			TotalCurrency	100
@@ -1159,7 +1180,7 @@ WaveSchedule
 			Where	spawnbot_flank
 			TFBot
 			{
-				Template	T_TFBot_Giant_Heavyweapons_Deflector
+				Template	Inky_Giant_Healflector_Heavy
 			}
 		}
 		WaveSpawn
