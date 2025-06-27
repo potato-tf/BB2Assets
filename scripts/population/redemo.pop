@@ -115,6 +115,8 @@ WaveSchedule
 			"special item description 2" "-2 Clip size, Can't be upgrade"
 			"paintkit_proto_def_index" 413
 			"set_item_texture_wear" 0
+			"single wep holster time increased" 0.35
+			"single wep deploy time decreased" 0.35
 		}
 		
 		"Airie Bomber (Secondary)"
@@ -141,7 +143,7 @@ WaveSchedule
 			"maxammo secondary reduced" 0.667
 			"add cond on hit" 27
 			"single wep holster time increased" 0.35
-			"single wep deploy time increased" 0.35
+			"single wep deploy time decreased" 0.35
 			"sticky arm time bonus" -0.5
 			"blast dmg to self increased" 0.7
 			"special item description" "-90% Damage, Apply milk on hit, 0.5 sec arm time faster"
@@ -257,6 +259,8 @@ WaveSchedule
 				"fire input on hit" "popscript^$launcherReloadOnKill^"
 				"no primary ammo from dispensers while active" 1
 				"max pipebombs decreased" -5
+				"single wep holster time increased" -0.35
+				"single wep deploy time decreased" -0.35
             }
         }        
         demo_sticky_reload_on_hit // Thanks from Crilly
@@ -266,7 +270,7 @@ WaveSchedule
             Description "Reload more per hit"
             Cap 4
             Increment 1
-            Cost 300
+            Cost 250
 			AllowedWeapons
 			{
 				SimilarToItem "TF_WEAPON_PIPEBOMBLAUNCHER"
