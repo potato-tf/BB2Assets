@@ -295,14 +295,14 @@ WaveSchedule
     {
         ///////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////////////////
-        // EXPLANATION ONLY VALID UNTIL END OF BOLTED BARBEQUE EVENT TIMEFRAME
+        // EXPLANATION ONLY VALID UNTIL END OF BOLTED BARBECUE EVENT TIMEFRAME
         Explanation
         {
             Line "{ffffff}-------------------------------------------------------"
             Line "{ffffff}<<< {cf6a32}RUST BUCKET {70b04a}SPEEDRUN CHALLENGE {ffffff}>>>"
             Line "{f0e68c}The fastest mission speedrun time before"
-            Line "{f0e68c}Bolted Barbeque ends will win {ffd700}30 KEYS{f0e68c}."
-            Line "{f0e68c}(Divided equally. {ff4040}Consider 5-man #1 speedrun!{f0e68c})"
+            Line "{f0e68c}Bolted Barbecue ends will win {ffd700}30 KEYS{f0e68c}."
+            Line "{f0e68c}(Divided equally between team members)"
             Line "{ffffff}-------------------------------------------------------"
         }
         ///////////////////////////////////////////////////////////////////////////////////////
