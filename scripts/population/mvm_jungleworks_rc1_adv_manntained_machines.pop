@@ -1164,6 +1164,7 @@ population
 					Name	"Armored Direct Hit Soldier"
 					Class	Soldier
 					Skill	Normal
+					Health	750
 					ClassIcon	soldier_dh_lite_armored
 					Item	"The Direct Hit"
 					Scale	1.45
@@ -1605,7 +1606,7 @@ population
 		{
 			Name	1
 			TotalCurrency	100
-			TotalCount	7
+			TotalCount	6
 			MaxActive	4
 			SpawnCount	1
 			WaitBeforeStarting	0
