@@ -1765,6 +1765,7 @@ ShiveringSlumber
 		}
 		WaveSpawn
 		{
+			HideIcon 1
 			Support Limited
 			TFBot
 			{

@@ -634,11 +634,11 @@ WaveSchedule
 		{
 			Name "w3a"
 			TotalCount 30
-			SpawnCount 2
-			MaxActive 8
+			SpawnCount 3
+			MaxActive 9
 			Where spawnbot
 			WaitBeforeStarting 4
-			WaitBetweenSpawns 3.5
+			WaitBetweenSpawns 4
 			TotalCurrency 175
 			TFBot
 			{
@@ -1160,7 +1160,7 @@ WaveSchedule
 			MaxActive 6
 			Where spawnbot_tunnel
 			WaitForAllSpawned "w5b"
-			WaitBeforeSTarting 20
+			WaitBeforeSTarting 18
 			WaitBetweenSpawns 20
 			TotalCurrency 200
 			Squad
@@ -1199,7 +1199,7 @@ WaveSchedule
 			SpawnCount 1
 			MaxActive 4
 			WaitForAllSpawned "w5b"
-			WaitBeforeStarting 18
+			WaitBeforeStarting 16
 			WaitBetweenSpawns 19
 			Where spawnbot
 			TotalCurrency 200
@@ -1279,7 +1279,7 @@ WaveSchedule
 		WaveSpawn
 		{
 			Name "w6b"
-			TotalCount 30
+			TotalCount 20
 			SpawnCount 2
 			MaxActive 8
 			Where spawnbot_parachute
