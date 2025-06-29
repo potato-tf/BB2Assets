@@ -1367,7 +1367,7 @@ WaveSchedule
 				TFBot
 				{
 					Template T_TFBot_Soldier_Burstfire
-					Name "Racist Burst Fire Soldier"
+					Name "Burst Fire Soldier"
 					ClassIcon soldier_burstfire_hyper_lite
 				}
 				TFBot
