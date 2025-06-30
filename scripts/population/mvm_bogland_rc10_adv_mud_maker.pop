@@ -1606,7 +1606,7 @@ population
 				Template	T_TFBot_Pyro
 				ClassIcon	pyro_reflect_daan
 				Item	"Traffic Cone"
-				Attributes	"AlwaysFireWeapon"
+				//Attributes	"AlwaysFireWeapon"
 				Attributes	"AlwaysCrit"
 			}
 		}
@@ -1833,6 +1833,10 @@ population
 				Item	"armored authority"
 				AlwaysGlow	1
 				UseHumanAnimations 1   // Use normal class animations instead of a bot / custom model ones
+				WeaponResist [$SIGSEGV] //Multiplies damage received from weapons listed below
+				{
+					"TF_WEAPON_MINIGUN" 0.4	//let him live lol
+				}
 				ItemAttributes
 				{
 					ItemName	"TF_WEAPON_ROCKETLAUNCHER"
@@ -1894,7 +1898,7 @@ population
 				}
 				Message	
 				{
-					Name	"{red}Field Marshal Mechanus has arrived!"
+					Name	"{blue}Field Marshal Mechanus has arrived!"
 					Delay	0.1
 					Repeats	1
 					Cooldown	3
@@ -1902,7 +1906,7 @@ population
 				}
                 Message	
 				{
-					Name	"{red}Field Marshal Mechanus {FFFFFF}has used their {9BBF4D}RECALL{FFFFFF} Power Up Canteen!"
+					Name	"{blue}Field Marshal Mechanus {FFFFFF}has used their {9BBF4D}RECALL{FFFFFF} Power Up Canteen!"
 					Delay	1.75
 					Repeats	1
 					IfHealthBelow	25000
@@ -1945,6 +1949,10 @@ population
 				Attributes	"UseBossHealthBar"
 				Attributes	"MiniBoss"
 				AlwaysGlow	1
+				WeaponResist [$SIGSEGV] //Multiplies damage received from weapons listed below
+				{
+					"TF_WEAPON_MINIGUN" 0.4	//let him live lol
+				}
 				ItemAttributes
 				{
 					ItemName	"The Machina"
@@ -2026,7 +2034,7 @@ population
 				}
 				Message	
 				{
-					Name	"{red}Deadlock has spawned behind you!"
+					Name	"{blue}Deadlock has spawned behind you!"
 					Delay	0.1
 					Repeats	1
 					Cooldown	3
@@ -2034,7 +2042,7 @@ population
 				}
                 Message	
 				{
-					Name	"{red}Deadlock {FFFFFF}has used their {9BBF4D}RECALL{FFFFFF} Power Up Canteen!"
+					Name	"{blue}Deadlock {FFFFFF}has used their {9BBF4D}RECALL{FFFFFF} Power Up Canteen!"
 					Delay	0.875
 					Repeats	1
 					IfHealthBelow	12000
@@ -2185,7 +2193,7 @@ population
 		}
 		WaveSpawn
 		{	
-			Name	"support"
+			Name	"support1"
 			//WaitForAllDead	support
 			TotalCurrency	100
 			TotalCount	16
@@ -2203,7 +2211,7 @@ population
 		}
 		WaveSpawn
 		{
-			Name	"support"
+			Name	"support2"
 			//WaitForAllDead	support
 			TotalCurrency	100
 			TotalCount	18
