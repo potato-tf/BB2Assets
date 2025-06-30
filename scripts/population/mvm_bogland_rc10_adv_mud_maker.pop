@@ -1833,10 +1833,6 @@ population
 				Item	"armored authority"
 				AlwaysGlow	1
 				UseHumanAnimations 1   // Use normal class animations instead of a bot / custom model ones
-				WeaponResist [$SIGSEGV] //Multiplies damage received from weapons listed below
-				{
-					"TF_WEAPON_MINIGUN" 0.4	//let him live lol
-				}
 				ItemAttributes
 				{
 					ItemName	"TF_WEAPON_ROCKETLAUNCHER"
@@ -1949,10 +1945,6 @@ population
 				Attributes	"UseBossHealthBar"
 				Attributes	"MiniBoss"
 				AlwaysGlow	1
-				WeaponResist [$SIGSEGV] //Multiplies damage received from weapons listed below
-				{
-					"TF_WEAPON_MINIGUN" 0.4	//let him live lol
-				}
 				ItemAttributes
 				{
 					ItemName	"The Machina"
