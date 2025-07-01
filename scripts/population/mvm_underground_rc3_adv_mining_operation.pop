@@ -1806,10 +1806,6 @@ population
 						//Attributes AlwaysCrit
 						WeaponRestrictions MeleeOnly
 						//Attributes HoldFireUntilFullReload
-						WeaponResist [$SIGSEGV] //Multiplies damage received from weapons listed below
-						{
-							"TF_WEAPON_MINIGUN" 0.4	//let him live lol
-						}
 						Tag	boss_death
 						ItemAttributes
 						{
@@ -1840,10 +1836,6 @@ population
 						Skill	Expert
 						WeaponRestrictions SecondaryOnly
 						Attributes HoldFireUntilFullReload
-						WeaponResist [$SIGSEGV] //Multiplies damage received from weapons listed below
-						{
-							"TF_WEAPON_MINIGUN" 0.4	//let him live lol
-						}
 						Tag	boss_death
 						ItemAttributes
 						{
@@ -1874,10 +1866,6 @@ population
 						Skill	Expert
 						WeaponRestrictions PrimaryOnly
 						Attributes HoldFireUntilFullReload
-						WeaponResist [$SIGSEGV] //Multiplies damage received from weapons listed below
-						{
-							"TF_WEAPON_MINIGUN" 0.4	//let him live lol
-						}
 						Tag	boss_death
 						//Attributes	"AlwaysCrit"
 						ItemAttributes
@@ -1914,10 +1902,6 @@ population
 						WeaponRestrictions PrimaryOnly
 						Attributes HoldFireUntilFullReload
 						//Attributes AlwaysFireWeapon	//may change this one and the attribute above later again
-						WeaponResist [$SIGSEGV] //Multiplies damage received from weapons listed below
-						{
-							"TF_WEAPON_MINIGUN" 0.4	//let him live lol
-						}
 						Tag	boss_death
 						AddCond "TF_COND_SODAPOPPER_HYPE"  
 						RocketCustomParticle eyeboss_projectile  
@@ -1965,10 +1949,6 @@ population
 						WeaponRestrictions PrimaryOnly
 						Attributes HoldFireUntilFullReload
 						Item	"TF_WEAPON_ROCKETLAUNCHER"
-						WeaponResist [$SIGSEGV] //Multiplies damage received from weapons listed below
-						{
-							"TF_WEAPON_MINIGUN" 0.4	//let him live lol
-						}
 						Tag	boss_death
 						ItemAttributes
 						{
@@ -2005,10 +1985,6 @@ population
 						Skill	Expert
 						WeaponRestrictions PrimaryOnly
 						Attributes HoldFireUntilFullReload
-						WeaponResist [$SIGSEGV] //Multiplies damage received from weapons listed below
-						{
-							"TF_WEAPON_MINIGUN" 0.4	//let him live lol
-						}
 						Tag	boss_death
 						AddCond "TF_COND_PREVENT_DEATH"  
 						ItemAttributes
@@ -2041,10 +2017,6 @@ population
 						Skill	Expert
 						WeaponRestrictions PrimaryOnly
 						Attributes HoldFireUntilFullReload
-						WeaponResist [$SIGSEGV] //Multiplies damage received from weapons listed below
-						{
-							"TF_WEAPON_MINIGUN" 0.4	//let him live lol
-						}
 						Tag	boss_death
 						UseHumanAnimations 1  
 						AddCond "TF_COND_PREVENT_DEATH"  
