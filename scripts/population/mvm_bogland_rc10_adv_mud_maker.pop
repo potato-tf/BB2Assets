@@ -1606,7 +1606,7 @@ population
 				Template	T_TFBot_Pyro
 				ClassIcon	pyro_reflect_daan
 				Item	"Traffic Cone"
-				Attributes	"AlwaysFireWeapon"
+				//Attributes	"AlwaysFireWeapon"
 				Attributes	"AlwaysCrit"
 			}
 		}
@@ -1894,7 +1894,7 @@ population
 				}
 				Message	
 				{
-					Name	"{red}Field Marshal Mechanus has arrived!"
+					Name	"{blue}Field Marshal Mechanus has arrived!"
 					Delay	0.1
 					Repeats	1
 					Cooldown	3
@@ -1902,7 +1902,7 @@ population
 				}
                 Message	
 				{
-					Name	"{red}Field Marshal Mechanus {FFFFFF}has used their {9BBF4D}RECALL{FFFFFF} Power Up Canteen!"
+					Name	"{blue}Field Marshal Mechanus {FFFFFF}has used their {9BBF4D}RECALL{FFFFFF} Power Up Canteen!"
 					Delay	1.75
 					Repeats	1
 					IfHealthBelow	25000
@@ -2026,7 +2026,7 @@ population
 				}
 				Message	
 				{
-					Name	"{red}Deadlock has spawned behind you!"
+					Name	"{blue}Deadlock has spawned behind you!"
 					Delay	0.1
 					Repeats	1
 					Cooldown	3
@@ -2034,7 +2034,7 @@ population
 				}
                 Message	
 				{
-					Name	"{red}Deadlock {FFFFFF}has used their {9BBF4D}RECALL{FFFFFF} Power Up Canteen!"
+					Name	"{blue}Deadlock {FFFFFF}has used their {9BBF4D}RECALL{FFFFFF} Power Up Canteen!"
 					Delay	0.875
 					Repeats	1
 					IfHealthBelow	12000
@@ -2185,7 +2185,7 @@ population
 		}
 		WaveSpawn
 		{	
-			Name	"support"
+			Name	"support1"
 			//WaitForAllDead	support
 			TotalCurrency	100
 			TotalCount	16
@@ -2203,7 +2203,7 @@ population
 		}
 		WaveSpawn
 		{
-			Name	"support"
+			Name	"support2"
 			//WaitForAllDead	support
 			TotalCurrency	100
 			TotalCount	18
