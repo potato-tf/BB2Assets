@@ -6,7 +6,7 @@
 
 population
 {
-	StartingCurrency	1000
+	StartingCurrency	1100
 	RespawnWaveTime	4
 	CanBotsAttackWhileInSpawnRoom	no
 	NoRomevisionCosmetics 1
@@ -269,6 +269,23 @@ population
 		TFBot
 		{
 			Template T_TFBot_Sniper   //_Sydney_Sleeper
+		}
+	}
+	
+	Mission
+	{
+		Objective	Spy
+		Where spawnbot_g2s0b
+		Where spawnbot_g2s1b
+		BeginAtWave	6
+		RunForThisManyWaves	1
+		InitialCooldown	45
+		CooldownTime	35
+		DesiredCount	2
+		TFBot
+		{
+			Class Spy
+			skill expert
 		}
 	}
 	
@@ -1236,9 +1253,9 @@ population
 		Waitforalldead firstimpression 
 		name w1DEMS
 			TotalCurrency	150
-			TotalCount	6
+			TotalCount	8
 			MaxActive	2
-			SpawnCount	1
+			SpawnCount	2
 			Where spawnbot_g2s0_alt
 			WaitBeforeStarting	1
 			WaitBetweenSpawns	15
@@ -1309,7 +1326,7 @@ population
 		{
 		name scoutw1
 		Waitforalldead 12
-			TotalCurrency	100
+			TotalCurrency	50
 			TotalCount	2
 			MaxActive	5
 			SpawnCount	1
@@ -1334,7 +1351,7 @@ population
 		{
 		name scoutw1
 		Waitforalldead 12
-			TotalCurrency	100
+			TotalCurrency	50
 			TotalCount	2
 			MaxActive	5
 			SpawnCount	1
@@ -1396,13 +1413,13 @@ population
 		}
 		WaveSpawn
 		{
-		Waitforallspawned w1DEMS
+		Waitforalldead w1DEMS
 			TotalCurrency	50
 			TotalCount	1
 			MaxActive	1
 			SpawnCount	1
 			Where spawnbot_g2s1_alt
-			WaitBeforeStarting	15
+			WaitBeforeStarting	0
 			WaitBetweenSpawns	10
 			TFBot
 				{
@@ -1876,6 +1893,7 @@ population
 		}
 		WaveSpawn
 		{
+		    Name 32
 			Waitforallspawned 31
 			TotalCurrency	50
 			TotalCount	9
@@ -2098,6 +2116,28 @@ population
 			Class Spy
 			Skill expert
 			Attributes IgnoreFlag
+			}
+		}
+		WaveSpawn
+		{
+		    WaitforallSpawned AAgent
+			TotalCurrency	0
+			TotalCount	1
+			MaxActive	1
+			SpawnCount	1
+			WaitBeforeStarting 1
+			WaitBetweenSpawnsAfterDeath 3
+			Support 1
+			Where spawnbot_g0s1_alt
+		    Where spawnbot_g0s2_alt
+		    Where spawnbot_g1s0_alt
+		    Where spawnbot_g1s1_alt
+		    Where spawnbot_g2s0_alt
+		    Where spawnbot_g2s1_alt
+			TFBot
+			{
+			Template T_TFBot_Giant_Scout_Baseball
+			Health 1200
 			}
 		}
 	}
@@ -3287,6 +3327,7 @@ population
 		WaveSpawn
 		{
 		    Waitforalldead 61
+			Name GateTANKS
 			TotalCount 2
 			MaxActive 1
 			SpawnCount 1
@@ -3443,8 +3484,8 @@ population
 			TFBot
 			{
 			    Class Heavyweapons
-			Name "Giant Heal-on-all Heater"
-			ClassIcon 	heavy_heater_heal
+			Name "Giant Heater Heavy"
+			ClassIcon 	heavy_heater
 			Skill Expert
 			Health 5000
 			Item "The Bunsen Brave"
@@ -3457,13 +3498,6 @@ population
 			{
 				ItemName "The Huo Long Heatmaker"
 				"damage bonus"	1.5
-				"heal on hit for rapidfire" 42.0
-				"heal on kill" 2069
-			}
-			ItemAttributes
-			{
-				ItemName "The Bunsen Brave"
-				"set item tint RGB" 16738740
 			}
 			CharacterAttributes
 			{
@@ -3602,10 +3636,10 @@ population
 		}
 		WaveSpawn
 		{
-		    WaitforallSpawned 62
+		    Waitforalldead GateTANKS
 			TotalCount 12
 			MaxActive 8
-			SpawnCount 2
+			SpawnCount 4
 			//Waitbeforestarting 1
 			TotalCurrency 100
 			Where spawnbot_g0s1_alt
@@ -3614,38 +3648,44 @@ population
 		Where spawnbot_g1s1_alt
 		Where spawnbot_g2s0_alt
 		Where spawnbot_g2s1_alt
-			WaitBeforeStarting 18.5
-			WaitBetweenSpawns 12
+			//WaitBeforeStarting 18.5
+			WaitBetweenSpawns 17.5
 			Squad
 			{
+			
+			
 			TFBot
 			{
 			    Class Soldier
 			Name "Giant Burst Fire Soldier"
 			ClassIcon soldier_burstfire_hyper
 			Health 4200
-			Skill hard
+			Skill Expert
 			Item "Armored Authority"
 			WeaponRestrictions PrimaryOnly
-			Attributes MiniBoss
+		Attributes MiniBoss
 			tag bot_giant
 			Attributes HoldFireUntilFullReload
 			//Attributes AlwaysCrit
+			
 			ItemAttributes
 			{
 				ItemName "TF_WEAPON_ROCKETLAUNCHER"
 				"damage bonus" 2.0
 				"faster reload rate" 0.4
 				"fire rate bonus" 0.2
+				
 				"clip size upgrade atomic" 5.0
+				"Projectile speed increased" 0.75
 			}
+		
+			
 			CharacterAttributes
-			{
+		{
 				"move speed bonus"	0.5
 				"damage force reduction" 0.4
 				"airblast vulnerability multiplier" 0.4
 				"override footstep sound set" 3
-				"Projectile speed increased" 0.8
 			}
 			}
 			TFBot
@@ -3656,7 +3696,7 @@ population
 		}
 		WaveSpawn
 		{
-		   Waitforalldead 62
+		   Waitforalldead GateTANKS
 			TotalCount 1
 			MaxActive 1
 			SpawnCount 1
@@ -3683,7 +3723,7 @@ population
 					Type "Primary" 
 				}
 			name "Stand-in Conch Tank"
-			Health 40000 //HELL YEAH!
+			Health 35000 //DIE DIE DIE
 			Attributes SpawnWithFullCharge
 			Item "The Concheror"
 			Item "Soldier's Stash"
