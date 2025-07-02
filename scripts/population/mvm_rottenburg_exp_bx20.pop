@@ -567,7 +567,8 @@ WaveSchedule
 			{
 				TFBot
 				{
-					Template T_TFBot_Giant_Soldier_Rocketshotgun
+					Template T_TFBot_Giant_Soldier_Spammer
+					Item "The Lucky Shot"
 				}
 				TFBot
 				{
@@ -839,7 +840,7 @@ WaveSchedule
 			MaxActive 5
 			SpawnCount 1
 			WaitBetweenSpawns 10
-			WaitBeforeStarting 20
+			WaitBeforeStarting 25
 			TotalCurrency 100
 			
 			
@@ -1133,8 +1134,25 @@ WaveSchedule
 				}
 				TFBot
 				{
-					Template T_TFBot_Medic_Quickuber
-					Name "Quick Uber Medic"
+					ClassIcon	medic_shield_lite
+					Name	"Shield Medic"
+					Class	Medic
+					Skill	Expert
+					WeaponRestrictions	SecondaryOnly
+					Attributes	"SpawnWithFullCharge"
+					Attributes  "ProjectileShield"
+					Attributes IgnoreEnemies
+					ItemAttributes
+					{
+						ItemName	"tf_weapon_medigun"
+						"increase buff duration"	2.2
+						"generate rage on heal"	1
+					}
+					CharacterAttributes
+					{
+						"bot medic uber deploy delay duration" 900
+					}
+					Item	"german gonzila"
 				}
 				TFBot
 				{
@@ -1166,8 +1184,8 @@ WaveSchedule
 			TotalCurrency 25
 			TFBot
 			{
-				Class Pyro
-				Skill Easy
+				Class Demoman
+				Skill Normal
 			}
 		}
 		WaveSpawn
@@ -1268,7 +1286,7 @@ WaveSchedule
 			WaitBetweenSpawns 7
 			WaitBeforeStarting 12
 			TotalCurrency 50
-			Support Limited
+			Support 1
 			RandomChoice
 			{
 				TFBot
@@ -1292,7 +1310,7 @@ WaveSchedule
 			TotalCount 4
 			MaxActive 1
 			SpawnCount 1
-			WaitBetweenSpawns 25
+			WaitBetweenSpawns 22
 			WaitBeforeStarting 20
 			TotalCurrency 50
 			RandomChoice
@@ -1424,8 +1442,8 @@ WaveSchedule
 		{
 			Where spawnbot
 			Name 5supers
-			TotalCount 11
-			MaxActive 3
+			TotalCount 10
+			MaxActive 2
 			SpawnCount 1
 			WaitBetweenSpawns 12
 			WaitBeforeStarting 5
@@ -1497,7 +1515,7 @@ WaveSchedule
 				TFBot
 				{
 					Class Soldier
-					Skill Hard
+					Skill Expert
 					Preferclass spy
 					CharacterAttributes
 					{
@@ -1650,7 +1668,8 @@ WaveSchedule
 				}
 				TFBot
 				{
-					Template T_TFBot_Sniper_Huntsman
+					Class Demoman
+					Skill Hard
 					//Attributes AlwaysCrit
 				}
 				TFBot
@@ -1756,7 +1775,7 @@ WaveSchedule
 			Where spawnbot
 			WaitForAllSpawned 6aa
 			Name 6bb
-			TotalCount 33
+			TotalCount 42
 			MaxActive 6
 			SpawnCount 3
 			WaitBetweenSpawns 4
@@ -1963,7 +1982,7 @@ WaveSchedule
 			MaxActive 5
 			SpawnCount 4
 			WaitBetweenSpawns 2
-			WaitBeforeStarting 38
+			WaitBeforeStarting 58
 			TotalCurrency 200 
 			
 			Support 1
@@ -1980,7 +1999,11 @@ WaveSchedule
 				{
 					Class Pyro
 					Preferclass medic
-					Skill Easy
+					Skill Hard
+					CharacterAttributes
+					{
+						"airblast disabled" 1
+					}
 				}
 			}
 		}
@@ -1997,6 +2020,7 @@ WaveSchedule
 			TFBot
 			{
 				Template T_TFBot_Giant_Heavyweapons_Deflector
+				Attributes AlwaysCrit
 				Tag Flankers
 			}
 		}
@@ -2024,8 +2048,8 @@ WaveSchedule
 			TotalCount 10
 			MaxActive 1
 			SpawnCount 1
-			WaitBetweenSpawns 22
-			WaitBeforeStarting 26
+			WaitBetweenSpawns 20
+			WaitBeforeStarting 20
 			TotalCurrency 150
 			Support 1
 			
@@ -2051,7 +2075,7 @@ WaveSchedule
 							Name "Giant Laser Rocket Heavy"
 							ClassIcon heavy_atomic_rocket
 							Health 5000
-							//Attributes AlwaysCrit
+							Attributes AlwaysCrit
 							Attributes MiniBoss
 							Item "The U-clank-a"
 							Tag bot_giant

@@ -2285,7 +2285,7 @@ WaveSchedule // 事实上这里可以是任何内容
             WaitBetweenSpawns 2
             WaitForAllSpawned "3c"
         
-            TotalCurrency 20
+            TotalCurrency 10
 
             Support 1
         
@@ -2294,6 +2294,34 @@ WaveSchedule // 事实上这里可以是任何内容
                 Template T_TFBot_Pyro_combo_flarepush
                 //Action Mobber
             }
+        }
+
+        WaveSpawn
+        {
+            Name "3support-final"
+            Where spawnbot
+            TotalCount 30
+            MaxActive 12
+            SpawnCount 2
+            WaitBeforeStarting 30
+            WaitBetweenSpawns 2
+            WaitForAllSpawned "3c"
+        
+            TotalCurrency 10
+
+            Support 1
+        
+            RandomChoice
+	    {
+		TFBot
+		{
+		    Template T_TFBot_Soldier_stock
+		}
+		TFBot
+		{
+		    Template T_TFBot_Pyro_combo_flarepush
+		}
+	    }
         }
     }
 
@@ -4085,3 +4113,7 @@ WaveSchedule // 事实上这里可以是任何内容
 //
 // Changed the text colour to increase visibility.
 // W3 - Added support bomb carrier pyros after all mainwave robots spawned (Yes this is totally not a buff).
+//
+// -Beta Update 2-
+// 
+// W3 - Added more support robots after the main wave robots all spawned.
