@@ -447,22 +447,17 @@ WaveSchedule
 			WaitForAllSpawned 1aa
 			Where spawnbot
 			TotalCurrency 50
-			Totalcount 4
-			Spawncount 2
-			Maxactive 4
+			Totalcount 2
+			Spawncount 1
+			Maxactive 2
 			WaitBetweenSpawns 20
 			WaitBeforeStarting 20
 			Squad
 			{
 				TFBot
 				{
-					Template T_TFBot_Heavyweapons_Fist
+					Template T_TFBot_Giant_Scout_Fast
 					Item "The U-clank-a"
-				}
-				TFBot
-				{
-					Template T_TFBot_Medic_Quickuber
-					Name "Quick-Uber Medic"
 				}
 			}
 		}
@@ -537,13 +532,13 @@ WaveSchedule
 				Target wave_start_relay
 				Action RunScriptCode
 				Param "
-				ClientPrint(null,3,`\x0799CCFFTank deployed with 20k (20000) HP!`)
+				ClientPrint(null,3,`\x0799CCFFTank deployed with 22k (22000) HP!`)
 				"
 			}
 
 			Tank
 			{
-				Health 20000
+				Health 22000
 				Speed 80
 				Name "tankboss"
 				StartingPathTrackNode "boss_path_a1"
@@ -727,9 +722,9 @@ WaveSchedule
 			Name 3aa
 			Where spawnbot
 			TotalCurrency 200
-			Totalcount 10
-			Spawncount 2
-			Maxactive 6
+			Totalcount 15
+			Spawncount 3
+			Maxactive 7
 			WaitBeforeStarting 2
 			WaitBetweenSpawns 10
 			TFBot
@@ -827,8 +822,8 @@ WaveSchedule
 				}
 				TFBot
 				{
-					Template T_TFBot_Giant_Medic_Regen
-					Name "Giant Regen Medic"
+					Template T_TFBot_Giant_Medic
+					ClassIcon medic_pop
 				}
 			}
 		}
@@ -965,11 +960,11 @@ WaveSchedule
 			Where spawnbot
 			WaitForAllDead 4ab
 			TotalCurrency 80
-			Totalcount 12
+			Totalcount 16
 			Spawncount 2
 			Maxactive 7
 			WaitBeforeStarting 0
-			WaitBetweenSpawns 10
+			WaitBetweenSpawns 8
 			Squad
 			{
 				TFBot
@@ -1581,14 +1576,14 @@ WaveSchedule
 				TFBot
 				{
 					Class Heavyweapons
-					Skill Easy
+					Skill Normal
 					Attributes Aggressive
 					Tag special_main_left
 				}
 				TFBot
 				{
 					Class Heavyweapons
-					Skill Easy
+					Skill Normal
 					Attributes Aggressive
 					Tag special_main_right
 				}
@@ -1770,7 +1765,7 @@ WaveSchedule
 				Class Demoman
 				Name "Tavish Prime"
 				ClassIcon demo_bomber
-				Health 42500
+				Health 50000
 				Scale 1.9
 				Skill Expert
 				Attributes MiniBoss
@@ -1900,9 +1895,8 @@ WaveSchedule
 				}
 				TFBot
 				{
-					Template T_TFBot_Medic_Bigheal
-					Name "Big Heal Medic"
-					Item "The Surgeon's Stahlhelm"
+					Template T_TFBot_Medic_Quickuber
+					Name "Quick Uber Medic"
 				}
 			}
 		}
