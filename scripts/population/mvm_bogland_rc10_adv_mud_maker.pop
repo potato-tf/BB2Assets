@@ -1233,7 +1233,7 @@ population
 		{
     		Target "gamerules"
     		Action "RunScriptCode"
-    		Param "ClientPrint(null,3,`\x07F1C232Red Headquarters \x078FCE00: Watch out and be prepared the \x07FF3F3FLeader\x078FCE00 of this offensive is coming soon.\x07FF3F3F His Right Hand\x078FCE00 is with him.`)"
+    		Param "ClientPrint(null,3,`\x07F1C232Red Headquarters \x078FCE00: Watch out and be prepared. The \x07FF3F3FLeader\x078FCE00 of this offensive is coming soon.\x07FF3F3F His Right Hand\x078FCE00 is with him.`)"
 		}
 		DoneOutput
 		{
