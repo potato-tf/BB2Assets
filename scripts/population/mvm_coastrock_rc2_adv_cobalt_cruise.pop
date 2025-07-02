@@ -4,6 +4,7 @@
 
 #base robot_standard.pop
 #base robot_giant.pop
+#base overclock_cactus_general.pop // Dr. Cactus' overclocks
 
 //Cash Count
 //Start $-1 you're in crippling debt. gg no re
@@ -291,7 +292,7 @@ WaveSchedule
 			Tank
 			{
 				Name "w1 tank"
-				Health 5000
+				Health 5499
 				Speed 75
 				StartingPathTrackNode tankpath_alt
 				OnBombDroppedOutput
@@ -1117,11 +1118,11 @@ WaveSchedule
 		{
 			Name "w5b"
 			TotalCount 24
-			SpawnCount 2
-			MaxActive 8
+			SpawnCount 3
+			MaxActive 9
 			WaitForAllSpawned "w5a"
 			WaitBeforeStarting 10
-			WaitBetweenSpawns 3.5
+			WaitBetweenSpawns 4
 			TotalCurrency 100
 			Where spawnbot
 			Where spawnbot_flank
@@ -1367,7 +1368,6 @@ WaveSchedule
 				TFBot
 				{
 					Template T_TFBot_Soldier_Burstfire
-					Name "Burst Fire Soldier"
 					ClassIcon soldier_burstfire_hyper_lite
 				}
 				TFBot
