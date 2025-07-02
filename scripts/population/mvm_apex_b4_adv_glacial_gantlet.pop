@@ -514,7 +514,7 @@ custom_mvm_hell
 			Where spawnbot
 			TFBot
 			{
-				Template YoovyGregBot_Heavy_Melee_Subgiant
+				Template YoovyBot_Heavy_Steelfist_Subgiant //YoovyGregBot_Heavy_Melee_Subgiant - V2 Change
                 CustomEyeGlowColor "255 0 0"
                 
                 Tag focus
@@ -536,7 +536,7 @@ custom_mvm_hell
 			{
 				TFBot
 				{
-					Template YoovyGregBot_Giant_Soldier_Shotgun_Apex
+					Template YoovyGregBot_Giant_Soldier_Shotgun_Apex // +25% Damage Bonus is from the V2 Change
 					CustomEyeGlowColor "255 0 0"
 					
 					Tag focus
@@ -703,18 +703,18 @@ custom_mvm_hell
             WaitForAllDead W2_CRYO_INTO
             TotalCurrency 105
             TotalCount 21
-            MaxActive 8
+            MaxActive 7 //8 - V2 Change
             SpawnCount 1
             WaitBeforeStarting 0
             WaitBetweenSpawns 2
             Where spawnbot_all
             TFBot
             {
-                Template YoovyBot_Heavy_KGB
+                Template YoovyBot_Heavy_Shotgun //YoovyBot_Heavy_KGB - V2 Change
                 
-                CustomEyeGlowColor "255 0 0"
+                //CustomEyeGlowColor "255 0 0" - V2 Change
                 Item "Heavy Heating"
-                Skill Expert
+                Skill Normal //Expert - V2 Change
             }
         }
         WaveSpawn
@@ -732,7 +732,7 @@ custom_mvm_hell
             {
                 TFBot
                 {
-                    Template YoovyGregBot_Giant_Soldier_Cryo
+                    Template YoovyBot_Giant_Soldier_RapidFire //YoovyGregBot_Giant_Soldier_Cryo - V2 Change
                     CustomEyeGlowColor "255 0 0"
                     Tag focus
                     Skill Expert
@@ -785,7 +785,7 @@ custom_mvm_hell
                 }
                 TFBot
                 {
-                    Template YoovyBot_Medic_Uber_Quick
+                    Template YoovyBot_Medic_Uber //_Quick - V2 Change
                     
                     Tag focus
                     Skill Hard
@@ -806,12 +806,12 @@ custom_mvm_hell
             Support 1
             TFBot
             {
-                Template YoovyGregBot_Demoman_Knight_TideTurner
+                Template YoovyBot_Demoman //YoovyGregBot_Demoman_Knight_TideTurner - V2 Change
                 
-                CustomEyeGlowColor "255 0 0"
+                //CustomEyeGlowColor "255 0 0" - V2 Change
                 Item "EOTL_hiphunter_jacket"
                 Tag focus
-                Skill Expert
+                Skill Normal //Expert - V2 Change
             }
         }
         WaveSpawn
@@ -1114,17 +1114,17 @@ custom_mvm_hell
 		WaveSpawn
 		{
 			Name W4_01
-			TotalCurrency	75
-			TotalCount	15
-			MaxActive	5
+			TotalCurrency	85 //75 - V2 Change
+			TotalCount	18 //15 - V2 Change
+			MaxActive	6 //5 - V2 Change
 			SpawnCount	3
 			WaitBeforeStarting	0.1
-			WaitBetweenSpawns	7
+			WaitBetweenSpawns	6 //7 - V2 Change
 			Where spawnbot_right
 			TFBot
 			{
 				Template YoovyGregBot_Soldier_Cryo
-                CustomEyeGlowColor "36 180 255" // Hard AI Level Color
+           		CustomEyeGlowColor "36 180 255" // Normal AI Level Color
                 Tag focus
 				Skill Normal
 			}
@@ -1132,22 +1132,50 @@ custom_mvm_hell
 		WaveSpawn
 		{
 			Name W4_01
-			TotalCurrency	150
-			TotalCount	2
-			MaxActive	2
-			SpawnCount	1
+			TotalCurrency	140 //150 - V2 Change
+			TotalCount	6 //2 - V2 Change
+			MaxActive	6 //2 - V2 Change
+			SpawnCount  3 //1 - V2 Change
 			WaitBeforeStarting	5
 			WaitBetweenSpawns	20
 			Where spawnbot_left
-			TFBot
-			{
-				Template YoovyBot_Giant_Heavy_Deflector_Potato
-				Item "Heavy Heating"
-                CustomEyeGlowColor "255 0 0"
-				
-                Tag focus
-				Skill Expert
-			}
+            // TFBot - V2 Change
+            // {
+            //     Template YoovyBot_Giant_Heavy_Deflector_Potato
+            //     Item "Heavy Heating"
+            //     CustomEyeGlowColor "255 0 0"
+                
+            //     Tag focus
+            //     Skill Expert
+            // }
+            Squad // V2 Change
+            {
+                TFBot
+                {
+                    Template YoovyBot_Giant_Heavy_Deflector_Potato
+                    Item "Heavy Heating"
+                    CustomEyeGlowColor "255 0 0"
+                    
+                    Tag focus
+                    Skill Expert
+                }
+				TFBot
+				{
+					Template YoovyBot_Medic_Uber_Quick
+					Item "The Puffed Practitioner"
+					
+					Tag focus
+					Skill Hard
+				}
+				TFBot
+				{
+					Template YoovyBot_Medic_Uber_Quick
+					Item "The Puffed Practitioner"
+					
+					Tag focus
+					Skill Hard
+				}
+            }
 		}
 		WaveSpawn
 		{
@@ -1156,9 +1184,9 @@ custom_mvm_hell
 			TotalCurrency	120
 			TotalCount	24
 			MaxActive	8
-			SpawnCount	4
+			SpawnCount	1 //4
 			WaitBeforeStarting	10
-			WaitBetweenSpawns	7.5
+			WaitBetweenSpawns	1.75 //7.5
 			Where spawnbot_right
 			TFBot
 			{
@@ -1166,7 +1194,7 @@ custom_mvm_hell
                 Item "EOTL_hiphunter_jacket"
 				
                 Tag focus
-				Skill Normal
+				Skill Hard //Normal
 			}
 		}
 		WaveSpawn
@@ -1194,9 +1222,9 @@ custom_mvm_hell
 			Name W4_02
 			WaitForAllSpawned W4_01
 			TotalCurrency	100
-			TotalCount	4
-			MaxActive	4
-			SpawnCount	2
+			TotalCount	6 //4
+			MaxActive	6 //4
+			SpawnCount	3 //2
 			WaitBeforeStarting	10
 			WaitBetweenSpawns	20
 			Where spawnbot_right
@@ -1211,6 +1239,13 @@ custom_mvm_hell
 					Skill Expert
 				}
 				TFBot
+				{
+					Template YoovyBot_Medic_Uber
+					
+					Tag focus
+					Skill Hard
+				}
+				TFBot // V2 Change
 				{
 					Template YoovyBot_Medic_Uber
 					
@@ -1234,8 +1269,8 @@ custom_mvm_hell
 			{
 				TFBot
 				{
-					Template YoovyBot_Giant_Soldier_BurstFire
-					Attributes AlwaysCrit
+					Template YoovyBot_Giant_Soldier_BurstFire_Giga //YoovyBot_Giant_Soldier_BurstFire
+					//Attributes AlwaysCrit
 					CustomEyeGlowColor "255 0 0"
 					
 					Tag focus
@@ -1617,7 +1652,7 @@ custom_mvm_hell
 			Tank
 			{
 				Model "models/bots/boss_bot/boss_tank_color.mdl"
-				Health 35000
+				Health 40000 // 35000 - V2 Change
 				Speed 75
                 Name "tankboss1"
 				StartingPathTrackNode "boss_path_1b_1"
@@ -1638,7 +1673,7 @@ custom_mvm_hell
 				Target wave_start_relay
 				Action RunScriptCode
 				Param "
-				ClientPrint(null,3,`\x0799CCFFA Tank has arrived with \x07ffffff35,000 \x0799CCFFHP!`)
+				ClientPrint(null,3,`\x0799CCFFA Tank has arrived with \x07ffffff40,000 \x0799CCFFHP!`)
 				"
 			}
         }
@@ -1655,9 +1690,9 @@ custom_mvm_hell
 			TFBot
 			{
 				Template YoovyGregBot_Scout_Cryo
-				CustomEyeGlowColor "0 255 0"
+            	CustomEyeGlowColor "36 180 255" // Normal AI Level Color
                 Tag focus
-				Skill Easy
+				Skill Normal // Easy - V2 Change
 			}
 		}
 		WaveSpawn
@@ -1682,10 +1717,10 @@ custom_mvm_hell
 		{
 			Name W6_01_GIANTS
 			TotalCurrency	170
-			TotalCount	2
-			MaxActive	2
+			TotalCount	4 //2 - V2 Change
+			MaxActive	3 //2 - V2 Changeb
 			SpawnCount	2
-			WaitBeforeStarting	20
+			WaitBeforeStarting	8 //20 - V2 Change
 			WaitBetweenSpawns	30
 			Where spawnbot
 			Squad
@@ -1737,7 +1772,7 @@ custom_mvm_hell
 			Tank
 			{
 				Model "models/bots/boss_bot/boss_tank_color.mdl"
-				Health 25000
+				Health 30000 // 25000 - V2 Change
 				Speed 75
                 Name "tankboss2"
 				StartingPathTrackNode "boss_path_ba_1"
@@ -1758,7 +1793,7 @@ custom_mvm_hell
 				Target wave_start_relay
 				Action RunScriptCode
 				Param "
-				ClientPrint(null,3,`\x0799CCFFA Tank has arrived with \x07ffffff25,000 \x0799CCFFHP!`)
+				ClientPrint(null,3,`\x0799CCFFA Tank has arrived with \x07ffffff30,000 \x0799CCFFHP!`)
 				"
 			}
         }
@@ -1838,7 +1873,7 @@ custom_mvm_hell
 				Template YoovyBot_Scout
 				
                 Tag focus
-				Skill Normal
+				Skill Hard // Normal - V2 Change
 			}
 		}
 	}
@@ -1898,7 +1933,7 @@ custom_mvm_hell
 			Tank
 			{
 				Model "models/bots/boss_bot/boss_tank_color.mdl"
-				Health 40000
+				Health 45000 //40000 - V2 Change
 				Skin 1
 				Speed 75
                 Name "drilltank"
@@ -1921,7 +1956,7 @@ custom_mvm_hell
 				Target wave_start_relay
 				Action RunScriptCode
 				Param "
-				ClientPrint(null,3,`\x0799CCFFThe final Drill Tank has arrived with \x07ffffff40,000 \x0799CCFFHP!`)
+				ClientPrint(null,3,`\x0799CCFFThe final Drill Tank has arrived with \x07ffffff45,000 \x0799CCFFHP!`)
 				"
 			}
         }
@@ -1940,7 +1975,7 @@ custom_mvm_hell
 				Template YoovyGregBot_Pyro_Dual
                 
                 Tag focus
-				Skill Normal
+				Skill Hard // Normal - V2 Change
 			}
 		}
 		WaveSpawn
@@ -1960,12 +1995,11 @@ custom_mvm_hell
 					Template YoovyBot_Heavy_Buff_Ext
 					
 					Tag focus
-					CustomEyeGlowColor "0 255 0"
-					Skill Easy
+					Skill Normal // Easy - V2 Change
 				}
 				TFBot
 				{
-					Template YoovyBot_Medic_QF_BigHeal
+					Template YoovyBot_Medic_Uber //YoovyBot_Medic_QF_BigHeal - V2 Change
 					Item "The Puffed Practitioner"
 					
 					Tag focus
@@ -2004,12 +2038,12 @@ custom_mvm_hell
 			Where spawnbot_left
 			TFBot
 			{
-				Template YoovyBot_Pyro_Phlog
+				Template YoovyBot_Pyro_Fury //YoovyBot_Pyro_Phlog - V2 Change
 				Item "The Sub Zero Suit"
 				
-                CustomEyeGlowColor "255 0 0"
+                //CustomEyeGlowColor "255 0 0" - V2 Change
                 Tag focus
-				Skill Expert
+				Skill Hard // Expert - V2 Change
 			}
 		}
 		WaveSpawn
@@ -2025,7 +2059,7 @@ custom_mvm_hell
 			Where spawnbot_left
 			TFBot
 			{
-				Template YoovyBot_Soldier
+				Template YoovyBot_Soldier_Buff_Ext //YoovyBot_Soldier - V2 Change
 				
                 Tag focus
 				Skill Hard
@@ -2055,9 +2089,9 @@ custom_mvm_hell
 			Name W7_02
 			WaitForAllSpawned W7_01
 			TotalCurrency	120
-			TotalCount	9
-			MaxActive	6
-			SpawnCount	3
+			TotalCount	12 //9 - V2 Change
+			MaxActive	8 //6 - V2 Change
+			SpawnCount	4 //3 - V2 Change
 			WaitBeforeStarting	10
 			WaitBetweenSpawns	16
 			Where spawnbot_left
@@ -2088,6 +2122,14 @@ custom_mvm_hell
 					Tag focus
 					Skill Hard
 				}
+				TFBot //V2 Change
+				{
+					Template YoovyGregBot_Soldier_Conch_Ext_Cryo
+					Attributes AlwaysCrit
+					
+					Tag focus
+					Skill Normal
+				}
 			}
 		}
 		WaveSpawn
@@ -2112,7 +2154,7 @@ custom_mvm_hell
 				}
 				TFBot
 				{
-					Template YoovyBot_Medic_QF_BigHeal
+					Template YoovyBot_Medic_Uber_Quick //YoovyBot_Medic_QF_BigHeal - V2 Change
 					
 					Tag focus
 					Skill Hard
@@ -2158,100 +2200,33 @@ custom_mvm_hell
 				TFBot
 				{
 					Template YoovyGregBot_Pyro_Cryo
-            		CustomEyeGlowColor "36 180 255" // Normal AI Level Color
+            		CustomEyeGlowColor "255 240 0" // Hard AI Level Color
 					Tag focus
-					Skill Normal
+					Skill Hard //Normal - V2 Change
 				}
 				TFBot
 				{
 					Template YoovyGregBot_Pyro_Cryo
-            		CustomEyeGlowColor "36 180 255" // Normal AI Level Color
+            		CustomEyeGlowColor "255 240 0" // Hard AI Level Color
 					Tag focus
-					Skill Normal
+					Skill Hard //Normal - V2 Change
 				}
 				TFBot
 				{
 					Template YoovyGregBot_Pyro_Cryo
-            		CustomEyeGlowColor "36 180 255" // Normal AI Level Color
+            		CustomEyeGlowColor "255 240 0" // Hard AI Level Color
 					Tag focus
-					Skill Normal
+					Skill Hard //Normal - V2 Change
 				}
 				TFBot
 				{
 					Template YoovyGregBot_Pyro_Cryo
 					Attributes AlwaysFireWeapon
-            		CustomEyeGlowColor "0 255 0"
+            		CustomEyeGlowColor "255 240 0" // Hard AI Level Color
 					Tag focus
-					Skill Easy
+					Skill Hard //Easy - V2 Change
 				}
 			}
 		}
 	}
 }
-// 		WaveSpawn
-// 		{
-// 			Name W7_BOMB_RESET
-// 			WaitForAllDead W7_02
-//             FirstSpawnOutput
-// 			{
-// 				Target wave_start_relay
-// 				Action RunScriptCode
-// 				Param "
-// 					EntFire(`intel`,`ForceReset`)
-// 				"
-// 			}
-// 		}
-// 		WaveSpawn
-// 		{
-// 			Name W7_CHIEF
-// 			WaitForAllDead W7_02
-// 			TotalCurrency	0
-// 			TotalCount	1
-// 			MaxActive	1
-// 			SpawnCount	1
-// 			WaitBeforeStarting	0.5
-// 			WaitBetweenSpawns	0
-// 			Where spawnbot_left
-// 			TFBot
-// 			{
-// 				Template YoovyGregBot_Chief_Engineer_Cryogen
-// 				
-//                 Tag focus
-// 				Skill Expert
-// 			}
-// 		}
-// 	}
-//     Wave
-// 	{
-// 		WaitWhenDone	65
-// 		Checkpoint	Yes
-// 		StartWaveOutput
-// 		{
-// 			Target	wave_start_relay
-// 			Action	Trigger
-// 		}
-// 		DoneOutput
-// 		{
-// 			Target	wave_finished_relay
-// 			Action	Trigger
-// 		}
-// 		WaveSpawn
-// 		{
-// 			Name W7_CHIEF_TEST
-// 			TotalCurrency	0
-// 			TotalCount	1
-// 			MaxActive	1
-// 			SpawnCount	1
-// 			WaitBeforeStarting	0
-// 			WaitBetweenSpawns	0
-// 			Where spawnbot_left
-// 			TFBot
-// 			{
-// 				Template YoovyGregBot_Chief_Engineer_Cryogen
-// 				
-//                 Tag focus
-// 				Skill Expert
-// 			}
-// 		}
-// 	}
-// }
