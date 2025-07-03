@@ -9748,7 +9748,7 @@ WaveSchedule
             //TFBot
             Class Medic
             Health 4500
-            Name "Giant Über Medic"
+            Name "Giant Uber Medic"
             ClassIcon medic_uber_giant
             Attributes SpawnWithFullCharge
             Attributes MiniBoss
@@ -9789,7 +9789,7 @@ WaveSchedule
             //TFBot
             Class Medic
             Health 4500
-            Name "Giant Quick-Über Medic"
+            Name "Giant Quick-Uber Medic"
             ClassIcon medic_uber_giant
             Attributes SpawnWithFullCharge
             Attributes MiniBoss
@@ -9832,7 +9832,7 @@ WaveSchedule
             //TFBot
             Class Medic
             Health 4500
-            Name "Giant Quick-Über Medic"
+            Name "Giant Quick-Uber Medic"
             ClassIcon medic_uber_giant
             Attributes SpawnWithFullCharge
             Attributes MiniBoss
@@ -9871,7 +9871,7 @@ WaveSchedule
             //TFBot
             Class Medic
             Health 4500
-            Name "Giant Long-Über Medic"
+            Name "Giant Long-Uber Medic"
             ClassIcon medic_uber_giant
             Attributes SpawnWithFullCharge
             Attributes MiniBoss
@@ -9917,7 +9917,7 @@ WaveSchedule
             //TFBot
             Class Medic
             Health 4500
-            Name "Giant Long-Über Medic"
+            Name "Giant Long-Uber Medic"
             ClassIcon medic_uber_giant
             Attributes SpawnWithFullCharge
             Attributes MiniBoss
@@ -10044,7 +10044,7 @@ WaveSchedule
             //TFBot
             Class Medic
             Health 4500
-            Name "Giant Über Shield Medic"
+            Name "Giant Uber Shield Medic"
             ClassIcon medic_shield_uber_giant
             Attributes SpawnWithFullCharge
             Attributes ProjectileShield
@@ -10088,7 +10088,7 @@ WaveSchedule
             //TFBot
             Class Medic
             Health 4500
-            Name "Giant Quick-Über Shield Medic"
+            Name "Giant Quick-Uber Shield Medic"
             ClassIcon medic_shield_uber_giant
             Attributes SpawnWithFullCharge
             Attributes ProjectileShield
@@ -10134,7 +10134,7 @@ WaveSchedule
             //TFBot
             Class Medic
             Health 4500
-            Name "Giant Long-Über Shield Medic"
+            Name "Giant Long-Uber Shield Medic"
             ClassIcon medic_shield_uber_giant
             Attributes SpawnWithFullCharge
             Attributes ProjectileShield
@@ -10183,7 +10183,7 @@ WaveSchedule
             //TFBot
             Class Medic
             Health 4500
-            Name "Giant Long-Über Shield Medic"
+            Name "Giant Long-Uber Shield Medic"
             ClassIcon medic_shield_uber_giant
             Attributes SpawnWithFullCharge
             Attributes ProjectileShield
@@ -11399,6 +11399,7 @@ WaveSchedule
             {
                 ItemName "TF_WEAPON_SHOTGUN_SOLDIER"
 				"faster reload rate" 0.75
+                "damage bonus" 1.25 // Apex V2 Change
             }
 
             //Cosmetics
@@ -12438,7 +12439,7 @@ WaveSchedule
 						"killstreak idleeffect" 2
 						"set_item_texture_wear" 0
 						"ragdolls become ash" 1
-						"damage bonus" 1.4
+						"damage bonus" 1.5
 					}
 					ItemAttributes
 					{
@@ -12507,7 +12508,7 @@ WaveSchedule
 						"killstreak idleeffect" 2
 						"set_item_texture_wear" 0
 						"ragdolls become ash" 1
-						"damage bonus" 1.4
+						"damage bonus" 1.5
 					}
 					ItemAttributes
 					{
