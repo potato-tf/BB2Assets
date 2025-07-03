@@ -796,7 +796,7 @@ WaveSchedule
             TotalCount 1
             MaxActive 1
             SpawnCount 1
-            WaitBeforeStarting 30
+            WaitBeforeStarting 20
             WaitBetweenSpawns 0
             TotalCurrency 100
         
@@ -1019,6 +1019,7 @@ WaveSchedule
                 Item "The Loch-n-Load"
                 ClassIcon demo_loch_nys
                 Skill Expert
+                Name "Loch'n'Load Demoman"
                 ItemAttributes
                 {
                     Itemname  "The Loch-n-Load"
@@ -1240,7 +1241,7 @@ WaveSchedule
             Name "a3"
             WaitForAllSpawned "a2"
             Where spawnbot
-            TotalCount 4
+            TotalCount 3
             MaxActive 2
             SpawnCount 1
             WaitBeforeStarting 15
@@ -1518,7 +1519,7 @@ WaveSchedule
             TotalCount 6
             MaxActive 4
             SpawnCount 3
-            WaitBeforeStarting 15
+            WaitBeforeStarting 10
             WaitBetweenSpawns 22
             TotalCurrency 100
         
@@ -1548,9 +1549,9 @@ WaveSchedule
             Where spawnbot_left
             Where spawnbot_right
             TotalCount 30
-            MaxActive 10
-            SpawnCount 1
-            WaitBeforeStarting 15
+            MaxActive 12
+            SpawnCount 2
+            WaitBeforeStarting 10
             WaitBetweenSpawns 2
             TotalCurrency 100
         
@@ -1611,16 +1612,42 @@ WaveSchedule
         {
             Name "a1"
             Where spawnbot_right
-            TotalCount 3
-            MaxActive 2
-            SpawnCount 1
+            TotalCount 15
+            MaxActive 10
+            SpawnCount 5
             WaitBeforeStarting 0
             WaitBetweenSpawns 18
             TotalCurrency 100
-
-            TFBot
+            Squad
             {
-                Template T_TFBot_Giant_Soldier_BurstFire
+                TFBot
+                {
+                    Template T_TFBot_Giant_Soldier_BurstFire
+                }
+
+                TFBot 
+                {
+                    Template T_TFBot_Medic_BigHeal_Fix
+                    ClassIcon medic_pop
+                }
+
+                TFBot 
+                {
+                    Template T_TFBot_Medic_BigHeal_Fix
+                    ClassIcon medic_pop
+                }
+
+                TFBot 
+                {
+                    Template T_TFBot_Medic_BigHeal_Fix
+                    ClassIcon medic_pop
+                }
+
+                TFBot 
+                {
+                    Template T_TFBot_Medic_BigHeal_Fix
+                    ClassIcon medic_pop
+                }
             }
         }
 
@@ -1654,7 +1681,7 @@ WaveSchedule
             TotalCount 1
             MaxActive 1
             SpawnCount 1
-            WaitBeforeStarting 34
+            WaitBeforeStarting 28
             WaitBetweenSpawns 0
         
             TotalCurrency 50
@@ -1683,14 +1710,14 @@ WaveSchedule
 
         WaveSpawn
         {
-            Name "a2"
+            Name "a2.1"
             WaitForAllSpawned "a1"
             Where spawnbot_right
             Where spawnbot_left
             TotalCount 26
             MaxActive 5
             SpawnCount 2
-            WaitBeforeStarting 38
+            WaitBeforeStarting 31
             WaitBetweenSpawns 8
             TotalCurrency 50
         
@@ -1733,7 +1760,7 @@ WaveSchedule
             MaxActive 3
             SpawnCount 1
             WaitBeforeStarting 34
-            WaitBetweenSpawns 18
+            WaitBetweenSpawns 9
             TotalCurrency 100
             FirstSpawnOutput
             {
@@ -1756,11 +1783,11 @@ WaveSchedule
             Name "a3"
             WaitForAllSpawned "a2"
             Where spawnbot_right
-            TotalCount 2
-            MaxActive 2
-            SpawnCount 1
+            TotalCount 4
+            MaxActive 4
+            SpawnCount 2
             WaitBeforeStarting 14
-            WaitBetweenSpawns 17
+            WaitBetweenSpawns 21
             TotalCurrency 100
             FirstSpawnOutput
             {
@@ -1771,9 +1798,17 @@ WaveSchedule
                     crocBossScript.BeginCrocodileEvent(25, 1.4)
                 "
             }
-            TFBot
+            Squad 
             {
-                Template T_TFBot_Giant_Heavyweapons	
+                TFBot
+                {
+                    Template T_TFBot_Giant_Heavyweapons
+                }
+
+                TFBot
+                {
+                    Template T_TFBot_Medic_Shield
+                }
             }
         }
 
@@ -1878,7 +1913,7 @@ WaveSchedule
             MaxActive 2
             SpawnCount 1
             WaitBeforeStarting 0
-            WaitBetweenSpawns 28
+            WaitBetweenSpawns 22
             TotalCurrency 100
         
             TFBot
@@ -1902,13 +1937,13 @@ WaveSchedule
             {
                 Target gamerules
                 Action "RunScriptCode"
-                Param "ClientPrint(null,3,`\x0799CCFFTank deployed with 25k (25000) HP!`)"
+                Param "ClientPrint(null,3,`\x0799CCFFTank deployed with 35k (35000) HP!`)"
             }
             Tank
             {
                 Name "tankboss"
                 StartingPathTrackNode "boss_path_a1"
-                Health 25000
+                Health 35000
                 Speed 75
                 Skin 0
         
@@ -1979,8 +2014,8 @@ WaveSchedule
             TotalCount 8
             MaxActive 8
             SpawnCount 4
-            WaitBeforeStarting 19
-            WaitBetweenSpawns 25
+            WaitBeforeStarting 14
+            WaitBetweenSpawns 20
             TotalCurrency 100
             Squad 
             {
@@ -2014,10 +2049,10 @@ WaveSchedule
             WaitForAllSpawned "a2"
             Where spawnbot_invasion
             TotalCount 30
-            MaxActive 10
+            MaxActive 12
             SpawnCount 3
-            WaitBeforeStarting 19
-            WaitBetweenSpawns 5
+            WaitBeforeStarting 13
+            WaitBetweenSpawns 3
             TotalCurrency 50
         
             TFBot
@@ -2255,7 +2290,7 @@ WaveSchedule
                 Class Soldier
                 ClassIcon soldier_crocodile_burst
                 Scale 1.9
-                Health 40000
+                Health 50000
                 UseCustomModel "models\bots\sniper\bot_sniper.mdl"
                 UseHumanAnimations 1
                 Attributes MiniBoss
@@ -2282,6 +2317,11 @@ WaveSchedule
                 }
                 Item "Rocko"
                 Item "Crocodile Dandy"
+                WeaponResist [$SIGSEGV] 
+                {
+                    "TF_WEAPON_KNIFE" 0.75
+                    "TF_WEAPON_MINIGUN" 0.6
+                }
                 FireInput [$SIGSEGV] 
                 {
                     Target "!self" 
@@ -2321,6 +2361,7 @@ WaveSchedule
                     "health regen" 25
                     "rage giving scale" 0.25
                     "cannot pick up intelligence" 1
+                    "dmg taken from crit reduced" 0.5
                 }
             }
         }
