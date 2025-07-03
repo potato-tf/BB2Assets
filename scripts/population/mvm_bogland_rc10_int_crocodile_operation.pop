@@ -1612,16 +1612,42 @@ WaveSchedule
         {
             Name "a1"
             Where spawnbot_right
-            TotalCount 3
-            MaxActive 2
-            SpawnCount 1
+            TotalCount 15
+            MaxActive 10
+            SpawnCount 5
             WaitBeforeStarting 0
             WaitBetweenSpawns 18
             TotalCurrency 100
-
-            TFBot
+            Squad
             {
-                Template T_TFBot_Giant_Soldier_BurstFire
+                TFBot
+                {
+                    Template T_TFBot_Giant_Soldier_BurstFire
+                }
+
+                TFBot 
+                {
+                    Template T_TFBot_Medic_BigHeal_Fix
+                    ClassIcon medic_pop
+                }
+
+                TFBot 
+                {
+                    Template T_TFBot_Medic_BigHeal_Fix
+                    ClassIcon medic_pop
+                }
+
+                TFBot 
+                {
+                    Template T_TFBot_Medic_BigHeal_Fix
+                    ClassIcon medic_pop
+                }
+
+                TFBot 
+                {
+                    Template T_TFBot_Medic_BigHeal_Fix
+                    ClassIcon medic_pop
+                }
             }
         }
 
@@ -1903,7 +1929,7 @@ WaveSchedule
             {
                 Target gamerules
                 Action "RunScriptCode"
-                Param "ClientPrint(null,3,`\x0799CCFFTank deployed with 25k (25000) HP!`)"
+                Param "ClientPrint(null,3,`\x0799CCFFTank deployed with 35k (35000) HP!`)"
             }
             Tank
             {
