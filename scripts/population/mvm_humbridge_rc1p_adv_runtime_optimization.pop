@@ -206,8 +206,6 @@
 #base robot_standard.pop
 #base robot_giant.pop
 
-#base seel_restricts.pop //TESTING ONLY. Personal set of fluid restrictions.
-
 RunFastEatAss,OrSomething
 {
 	StartingCurrency 1200
@@ -218,7 +216,6 @@ RunFastEatAss,OrSomething
 	
 	AllowBotExtraSlots 1
 	RobotLimit 42 //There's a LOT of them.
-	MaxRedPlayers 5 //TESTING ONLY
 	
 	BotTeleportUberDuration 1.2 //Makes Teleporter Scouts less infuriating.
 	
