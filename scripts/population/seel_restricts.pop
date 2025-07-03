@@ -1,0 +1,12 @@
+WaveSchedule
+{
+	// Upgrade restrictions: No uber / crit canteens.
+	DisallowUpgrade "critboost"
+	DisallowUpgrade "ubercharge"
+	
+	// Class restrictions: No medic.
+	ClassLimit
+	{
+		Medic 0
+	}
+}
