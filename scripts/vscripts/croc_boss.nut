@@ -296,7 +296,7 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
             {
                 continue
             }
-            ClientPrint(player, 4, "The Crocodiles are FURIOUS!")
+            ClientPrint(player, 4, "The Crocodiles have SNAPPED! Watch your feet!")
             // player.EmitSound("ambient_mp3/lair/crocs_hiss3.mp3")
             // player.EmitSound("ambient_mp3/lair/crocs_growl5.mp3")
         }
