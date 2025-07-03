@@ -577,6 +577,14 @@ custom_mvm_hell
     }
     Wave
 	{
+	        Explanation
+	        {
+	            Line "{yellow}////////////////////////////////////"
+	            Line "Intel suggests a special modifier has been applied to some robots and its been identified as {blue}Cryo!"
+	            Line "{blue}Cryo {reset}will inflict {red}25% slower reload rate {reset}and {red}25% slower fire rate."
+		    Line "{blue}Cryo Bots {reset}will have a blue effect on their heads and their weapons will be a deep blue, so watch out!"
+	            Line "{yellow}////////////////////////////////////"
+	        }
 		SpawnTemplate cryobottutorial
 		WaitWhenDone	65
 		Checkpoint	Yes
