@@ -662,12 +662,6 @@ WaveSchedule
 			Target	wave_finished_relay
 			Action	Trigger
 		}
-		Explanation  
-        {
-            Line "{blue}The Neuroanatomist{reset} : Potato judging restrictions (2025 revision) have been integrated into this mission."
-			Line "{blue}The Neuroanatomist{reset} : In this case, no Medic and crit/uber canteens on int missions."
-			Line "{blue}The Neuroanatomist{reset} : Lucky for you, an as accurate recreation isn't needed, you're allowed to have six players rather than three."
-        }
 		WaveSpawn
 		{
 			Name	1a1
