@@ -7358,7 +7358,7 @@ WaveSchedule
         {
             //TFBot
             Class Medic
-            Name "Über Medic"
+            Name "Uber Medic"
             ClassIcon medic_uber
             Attributes SpawnWithFullCharge
 
@@ -7382,7 +7382,7 @@ WaveSchedule
         {
 			//TFBot
 			Class Medic
-			Name "Quick-Über Medic"
+			Name "Quick-Uber Medic"
 			ClassIcon medic_uber
 			Attributes SpawnWithFullCharge
 
@@ -7407,7 +7407,7 @@ WaveSchedule
         {
 			//TFBot
 			Class Medic
-			Name "Quick-Über Medic"
+			Name "Quick-Uber Medic"
 			ClassIcon medic_uber
 			Attributes SpawnWithFullCharge
 
@@ -7428,7 +7428,7 @@ WaveSchedule
         {
             //TFBot
             Class Medic
-            Name "Long-Über Medic"
+            Name "Long-Uber Medic"
             ClassIcon medic_uber
             Attributes SpawnWithFullCharge
 
@@ -7457,7 +7457,7 @@ WaveSchedule
         {
             //TFBot
             Class Medic
-            Name "Long-Über Medic"
+            Name "Long-Uber Medic"
             ClassIcon medic_uber
             Attributes SpawnWithFullCharge
 
@@ -7570,7 +7570,7 @@ WaveSchedule
         {
             //TFBot
             Class Medic
-            Name "Über Shield Medic"
+            Name "Uber Shield Medic"
             ClassIcon medic_shield_uber
             Attributes SpawnWithFullCharge
             Attributes ProjectileShield
@@ -7601,7 +7601,7 @@ WaveSchedule
         {
             //TFBot
             Class Medic
-            Name "Quick-Über Shield Medic"
+            Name "Quick-Uber Shield Medic"
             ClassIcon medic_shield_uber
             Attributes SpawnWithFullCharge
             Attributes ProjectileShield
@@ -7634,7 +7634,7 @@ WaveSchedule
         {
             //TFBot
             Class Medic
-            Name "Long-Über Shield Medic"
+            Name "Long-Uber Shield Medic"
             ClassIcon medic_shield_uber
             Attributes SpawnWithFullCharge
             Attributes ProjectileShield
@@ -7669,7 +7669,7 @@ WaveSchedule
         {
             //TFBot
             Class Medic
-            Name "Long-Über Shield Medic"
+            Name "Long-Uber Shield Medic"
             ClassIcon medic_shield_uber
             Attributes SpawnWithFullCharge
             Attributes ProjectileShield
@@ -9818,6 +9818,76 @@ WaveSchedule
 				{
 					//TFBot
 					Skill Normal
+					Attributes HoldFireUntilFullReload
+					//Weapons
+					Item "The Black Box"
+					ItemAttributes
+					{
+						ItemName "The Black Box"
+						"projectile spread angle penalty" 4
+						"projectile speed decreased" 0.75
+						"heal on hit for rapidfire" 50
+						"paintkit_proto_def_index" 411 //Steel Brushed
+						"health on radius damage" 50
+						"blast radius increased" 1.25
+						"set_item_texture_wear" 0
+						"fire rate bonus" 0.001
+						"damage penalty" 0.75
+					}
+					//Cosmetics
+					Item "Full Metal Helmet"
+					ItemAttributes
+					{
+						ItemName "Full Metal Helmet"
+						"set item tint RGB" 8289918
+					}
+				}
+			}
+		}
+		YoovyGateBot_Soldier_Blackbox_BurstFire_Hard
+		{
+            //TFBot
+            Class Soldier
+            Name "Lead Leech"
+            ClassIcon soldier_blackbox
+			EventChangeAttributes
+			{
+				Default
+				{
+					//GateBot
+					BehaviorModifiers push
+					Attributes DisableDodge
+					Attributes IgnoreFlag
+					Tag bot_noflank_ledge1
+					Tag bot_noflank_ledge2
+					Tag bot_gatebot
+					//Yellow Gatebot
+					Item "MvM GateBot Light Soldier"
+					Tag bot_noflank_gate
+					Tag bot_noflank_upper
+					//TFBot
+					Skill Hard
+					Attributes HoldFireUntilFullReload
+					//Weapons
+					Item "The Black Box"
+					ItemAttributes
+					{
+						ItemName "The Black Box"
+						"projectile spread angle penalty" 4
+						"projectile speed decreased" 0.75
+						"heal on hit for rapidfire" 50
+						"paintkit_proto_def_index" 411 //Steel Brushed
+						"health on radius damage" 50
+						"blast radius increased" 1.25
+						"set_item_texture_wear" 0
+						"fire rate bonus" 0.001
+						"damage penalty" 0.75
+					}
+				}
+				RevertGatebotsBehavior
+				{
+					//TFBot
+					Skill Hard
 					Attributes HoldFireUntilFullReload
 					//Weapons
 					Item "The Black Box"
