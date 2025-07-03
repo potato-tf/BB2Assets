@@ -1783,11 +1783,11 @@ WaveSchedule
             Name "a3"
             WaitForAllSpawned "a2"
             Where spawnbot_right
-            TotalCount 2
-            MaxActive 2
-            SpawnCount 1
+            TotalCount 4
+            MaxActive 4
+            SpawnCount 2
             WaitBeforeStarting 14
-            WaitBetweenSpawns 17
+            WaitBetweenSpawns 21
             TotalCurrency 100
             FirstSpawnOutput
             {
@@ -1798,9 +1798,17 @@ WaveSchedule
                     crocBossScript.BeginCrocodileEvent(25, 1.4)
                 "
             }
-            TFBot
+            Squad 
             {
-                Template T_TFBot_Giant_Heavyweapons	
+                TFBot
+                {
+                    Template T_TFBot_Giant_Heavyweapons
+                }
+
+                TFBot
+                {
+                    Template T_TFBot_Medic_Shield
+                }
             }
         }
 
@@ -2311,7 +2319,7 @@ WaveSchedule
                 Item "Crocodile Dandy"
                 WeaponResist [$SIGSEGV] 
                 {
-                    "TF_WEAPON_KNIFE" 0.5
+                    "TF_WEAPON_KNIFE" 0.75
                     "TF_WEAPON_MINIGUN" 0.6
                 }
                 FireInput [$SIGSEGV] 
