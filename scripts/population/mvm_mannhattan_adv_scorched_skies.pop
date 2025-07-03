@@ -1168,9 +1168,9 @@ custom_mvm_hell
             EntFire(`bombpath_holograms_main_3way*`,`color`,`255 95 0`)
             EntFire(`bombpath_holograms_main_centerpath*`,`color`,`255 95 0`)
 			EntFire(`forwardupgrade_func`,`enable`)
-            "
-			//EntFire(`intel`,`showtimer`,`0`)
-			//EntFire(`intel`,`setreturntime`,`10000000`)
+			EntFire(`intel`,`showtimer`,`0`)
+			EntFire(`intel`,`setreturntime`,`10000000`)
+            " //Readded no bomb reset
         }
 		WaveSpawn
 		{
@@ -1604,9 +1604,9 @@ custom_mvm_hell
             EntFire(`bombpath_holograms_main_3way*`,`color`,`255 95 0`)
             EntFire(`bombpath_holograms_main_centerpath*`,`color`,`255 95 0`)
 			EntFire(`forwardupgrade_func`,`enable`)
-            "
-			//EntFire(`intel`,`showtimer`,`0`)
-			//EntFire(`intel`,`setreturntime`,`10000000`)
+			EntFire(`intel`,`showtimer`,`0`)
+			EntFire(`intel`,`setreturntime`,`10000000`)
+            " //Readded no bomb reset
         }
 		WaveSpawn
 		{
@@ -1645,12 +1645,12 @@ custom_mvm_hell
 			{
 				TFBot
 				{
-					Template YoovyGateBot_Scout_Easy
+					Template YoovyGateBot_Scout_Normal // YoovyGateBot_Scout_Easy - V2 Change
 				}
 				TFBot
 				{
 					Template YoovyBot_Scout
-					Skill Easy
+					Skill Normal // Easy - V2 Change
 					Tag bot_noflank_ledge1
 					Tag bot_noflank_ledge2
 					Tag bot_noflank_upper
@@ -1658,7 +1658,7 @@ custom_mvm_hell
 				TFBot
 				{
 					Template YoovyBot_Scout
-					Skill Easy
+					Skill Normal // Easy - V2 Change
 					Tag bot_noflank_ledge1
 					Tag bot_noflank_ledge2
 					Tag bot_noflank_upper
@@ -1681,13 +1681,13 @@ custom_mvm_hell
 			{
 				TFBot
 				{
-					Template YoovyGateBot_Org_Scout_Easy
+					Template YoovyGateBot_Org_Scout_Normal //YoovyGateBot_Org_Scout_Easy - V2 Change
 				}
 				TFBot
 				{
 					Template YoovyBot_Scout
 					CustomEyeGlowColor "0 255 0"
-					Skill Easy
+					Skill Normal // Easy - V2 Change
 					Tag bot_noflank_ledge1
 					Tag bot_noflank_ledge2
 					Tag bot_noflank_upper
@@ -1696,7 +1696,7 @@ custom_mvm_hell
 				{
 					Template YoovyBot_Scout
 					CustomEyeGlowColor "0 255 0"
-					Skill Easy
+					Skill Normal // Easy - V2 Change
 					Tag bot_noflank_ledge1
 					Tag bot_noflank_ledge2
 					Tag bot_noflank_upper
@@ -1708,10 +1708,10 @@ custom_mvm_hell
 			Name W2_01_GIANTDEMO
 			TotalCurrency	88
 			TotalCount	4
-			MaxActive	3
+			MaxActive	4 // 4 - V2 Change
 			SpawnCount	2
 			WaitBeforeStarting	0
-			WaitBetweenSpawns	20
+			WaitBetweenSpawns	18 // 20 - V2 Change
 			Where	spawnbot_main0
 			Where	spawnbot_main1
 			Where	spawnbot_main2_giants
@@ -1747,15 +1747,15 @@ custom_mvm_hell
 				TFBot
 				{
 					Template YoovyBot_Pyro
-					CustomEyeGlowColor "0 255 0"
-					Skill Easy
+					//CustomEyeGlowColor "0 255 0"
+					Skill Normal // Easy - V2 Change
 					Tag bot_noflank_ledge1
 					Tag bot_noflank_ledge2
 					Tag bot_noflank_upper
 				}
 				TFBot
 				{
-					Template YoovyBot_Medic_QF
+					Template YoovyBot_Medic_Uber_Quick //YoovyBot_Medic_QF - V2 Change
 					Skill Hard
 					Tag bot_noflank_ledge1
 					Tag bot_noflank_ledge2
@@ -1770,9 +1770,9 @@ custom_mvm_hell
 			TotalCurrency	60
 			TotalCount	12
 			MaxActive	4
-			SpawnCount	2
+			SpawnCount	1 //2 - V2 Change
 			WaitBeforeStarting	15
-			WaitBetweenSpawns	7
+			WaitBetweenSpawns	3.5 //7 - V2 Change
 			Where	spawnbot_main0
 			Where	spawnbot_main1
 			Where	spawnbot_upper2
@@ -1796,7 +1796,7 @@ custom_mvm_hell
 			Where	spawnbot_upper2
 			TFBot
 			{
-				Template YoovyGateBot_Org_Pyro_Easy
+				Template YoovyGateBot_Org_Pyro_Normal //YoovyGateBot_Org_Pyro_Easy - V2
 			}
 		}
 		WaveSpawn
@@ -1814,9 +1814,9 @@ custom_mvm_hell
 			Where	spawnbot_upper2
 			TFBot
 			{
-				Template YoovyBot_Giant_Soldier_Charged
+				Template YoovyBot_Giant_Soldier_RapidFire //YoovyBot_Giant_Soldier_Charged - V2 Change
 				CustomEyeGlowColor "255 0 0"
-				Skill Normal
+				Skill Expert //Normal - V2 Change
 				Tag bot_noflank_ledge1
 				Tag bot_noflank_ledge2
 				Tag bot_noflank_upper
@@ -1848,7 +1848,7 @@ custom_mvm_hell
 				}
 				TFBot
 				{
-					Template YoovyBot_Pyro_Conch
+					Template YoovyBot_Pyro_Conch_Ext // YoovyBot_Pyro_Conch - V2 Change
 					Skill Normal
 					Tag bot_noflank_ledge1
 					Tag bot_noflank_ledge2
@@ -1873,15 +1873,16 @@ custom_mvm_hell
 			{
 				TFBot
 				{
-					Template YoovyBot_Giant_Soldier_Charged
-					Skill Normal
+					Template YoovyBot_Giant_Soldier_RapidFire //YoovyBot_Giant_Soldier_Charged - V2 Change
+					CustomEyeGlowColor "255 0 0"
+					Skill Expert //Normal - V2 Change
 					Tag bot_noflank_ledge1
 					Tag bot_noflank_ledge2
 					Tag bot_noflank_upper
 				}
 				TFBot
 				{
-					Template YoovyBot_Pyro_Conch
+					Template YoovyBot_Pyro_Conch_Ext // YoovyBot_Pyro_Conch - V2 Change
 					Skill Normal
 					Tag bot_noflank_ledge1
 					Tag bot_noflank_ledge2
@@ -1905,7 +1906,7 @@ custom_mvm_hell
 			TFBot
 			{
 				Template YoovyBot_Scout_FAN
-				UseHumanAnimations 1
+				//UseHumanAnimations 1 - V2 Change
 				CustomEyeGlowColor "0 255 0"
 				Skill Easy
 				Tag bot_noflank_ledge1
@@ -1922,7 +1923,7 @@ custom_mvm_hell
 			MaxActive	4
 			SpawnCount	1
 			WaitBeforeStarting	10
-			WaitBetweenSpawns	4
+			WaitBetweenSpawns	2 // 4 - V2 Change
 			Where	spawnbot_main0
 			Where	spawnbot_main1
 			Where	spawnbot_main2_giants
@@ -1932,7 +1933,7 @@ custom_mvm_hell
 			TFBot
 			{
 				Template YoovyBot_Heavy_Shotgun //YoovyBot_Heavy_GRU
-				UseHumanAnimations 1
+				//UseHumanAnimations 1 - V2 Change
 				Skill Normal
 				Tag bot_noflank_ledge2
 				Tag bot_noflank_upper
@@ -1944,10 +1945,10 @@ custom_mvm_hell
 			WaitForAllSpawned W2_02_GATE
 			TotalCurrency	32
 			TotalCount	32
-			MaxActive	2
+			MaxActive	6 // 2 - V2 Change
 			SpawnCount	1
 			WaitBeforeStarting	10
-			WaitBetweenSpawns	3
+			WaitBetweenSpawns	2 // 3 - V2 Change
 			Where	spawnbot_main0
 			Where	spawnbot_main1
 			Where	spawnbot_main2_giants
@@ -1986,9 +1987,9 @@ custom_mvm_hell
             EntFire(`bombpath_holograms_main_3way*`,`color`,`255 95 0`)
             EntFire(`bombpath_holograms_main_centerpath*`,`color`,`255 95 0`)
 			EntFire(`forwardupgrade_func`,`enable`)
-            "
-			//EntFire(`intel`,`showtimer`,`0`)
-			//EntFire(`intel`,`setreturntime`,`10000000`)
+			EntFire(`intel`,`showtimer`,`0`)
+			EntFire(`intel`,`setreturntime`,`10000000`)
+            " //Readded no bomb reset
         }
 		WaveSpawn
 		{
@@ -2059,41 +2060,41 @@ custom_mvm_hell
 		{
 			Name W3_01_GIANTHEAVIES
 			TotalCurrency	150
-			TotalCount	2
-			MaxActive	1
-			SpawnCount	1
+			TotalCount	6 // 2 - V2 Change
+			MaxActive	3 // 1 - V2 Change
+			SpawnCount	3 // 1 - V2 Change
 			WaitBeforeStarting	7
 			WaitBetweenSpawns	20
 			Where	spawnbot_main0
 			Where	spawnbot_main1
 			Where	spawnbot_upper2
-			//Squad
-			//{
-			TFBot
+			Squad // V2 Change
 			{
-				Template YoovyBot_Giant_Heavy_Heater
-				CustomEyeGlowColor "255 0 0"
-				Tag bot_noflank_ledge1
-				Tag bot_noflank_ledge2
-				Tag bot_noflank_upper
-				Skill Expert
-				//}
-				// TFBot
-				// {
-				// 	Template YoovyBot_Medic_QF_BigHeal
-				// 	Tag bot_noflank_ledge1
-				// 	Tag bot_noflank_ledge2
-				// 	Tag bot_noflank_upper
-				// 	Skill Hard
-				// }
-				// TFBot
-				// {
-				// 	Template YoovyBot_Medic_QF_BigHeal
-				// 	Tag bot_noflank_ledge1
-				// 	Tag bot_noflank_ledge2
-				// 	Tag bot_noflank_upper
-				// 	Skill Hard
-				// }
+				TFBot
+				{
+					Template YoovyBot_Giant_Heavy_Heater
+					CustomEyeGlowColor "255 0 0"
+					Tag bot_noflank_ledge1
+					Tag bot_noflank_ledge2
+					Tag bot_noflank_upper
+					Skill Expert
+				}
+				TFBot // V2 Change
+				{
+					Template YoovyBot_Medic_QF_BigHeal
+					Tag bot_noflank_ledge1
+					Tag bot_noflank_ledge2
+					Tag bot_noflank_upper
+					Skill Hard
+				}
+				TFBot // V2 Change
+				{
+					Template YoovyBot_Medic_QF_BigHeal
+					Tag bot_noflank_ledge1
+					Tag bot_noflank_ledge2
+					Tag bot_noflank_upper
+					Skill Hard
+				}
 			}
 		}
 		WaveSpawn
@@ -2105,12 +2106,12 @@ custom_mvm_hell
 			SpawnCount	1
 			WaitBeforeStarting	12
 			WaitBetweenSpawns	20
-			Where	spawnbot_main0
+			Where	spawnbot_upper0 //spawnbot_main0 - V2 Cha
 			Where	spawnbot_main1
 			Where	spawnbot_upper2
 			TFBot
 			{
-				Template YoovyGateBot_Org_Giant_Scout_Melee_Expert
+				Template YoovyGateBot_Org_Giant_Scout_Expert //YoovyGateBot_Org_Giant_Scout_Melee_Expert - V2 Change
 			}
 		}
 		WaveSpawn
@@ -2134,14 +2135,14 @@ custom_mvm_hell
 				}
 				TFBot
 				{
-					Template YoovyBot_Medic_Uber_Quick
+					Template YoovyBot_Medic_Uber // V2 Change - YoovyBot_Medic_Uber_Quick
 					Skill Hard
 					Tag bot_noflank_ledge1
 					Tag bot_noflank_ledge2
 				}
 				TFBot
 				{
-					Template YoovyBot_Medic_Uber_Quick
+					Template YoovyBot_Medic_Uber // V2 Change - YoovyBot_Medic_Uber_Quick
 					Skill Hard
 					Tag bot_noflank_ledge1
 					Tag bot_noflank_ledge2
@@ -2155,9 +2156,9 @@ custom_mvm_hell
 			TotalCurrency	120
 			TotalCount	24
 			MaxActive	8
-			SpawnCount	4
+			SpawnCount	2 // 3 - V2 Change
 			WaitBeforeStarting	5
-			WaitBetweenSpawns	7
+			WaitBetweenSpawns	3.5 // 7 - V2 Change
 			Where	spawnbot_upper0
 			Where	spawnbot_main1
 			Where	spawnbot_main2_giants
@@ -2179,15 +2180,14 @@ custom_mvm_hell
 			MaxActive	6
 			SpawnCount	3
 			WaitBeforeStarting	5
-			WaitBetweenSpawns	7.5
+			WaitBetweenSpawns	7 // 7.5 - V2 Change
 			Where	spawnbot_main0
 			Where	spawnbot_main1
 			Where	spawnbot_upper2
 			TFBot
 			{
 				Template YoovyBot_Engineer_Widowmaker
-				CustomEyeGlowColor "0 255 0"
-				Skill Easy
+				Skill Normal // V2 Change - Easy
 				Tag bot_noflank_ledge1
 				Tag bot_noflank_ledge2
 				Tag bot_noflank_upper
@@ -2219,7 +2219,7 @@ custom_mvm_hell
 				}
 				TFBot
 				{
-					Template YoovyBot_Medic_Uber_Quick
+					Template YoovyBot_Medic_Uber // V2 Change - YoovyBot_Medic_Uber_Quick
 					Skill Hard
 					Tag bot_noflank_ledge1
 					Tag bot_noflank_ledge2
@@ -2227,29 +2227,6 @@ custom_mvm_hell
 				}
 			}
 		}
-		// WaveSpawn
-		// {
-		// 	Name W3_03
-		// 	WaitForAllDead W3_02_GATE
-		// 	TotalCurrency	120
-		// 	TotalCount	2
-		// 	MaxActive	2
-		// 	SpawnCount	1
-		// 	WaitBeforeStarting	3
-		// 	WaitBetweenSpawns	24
-		// 	Where	spawnbot_main0
-		// 	Where	spawnbot_main1
-		// 	Where	spawnbot_upper2
-		// 	TFBot
-		// 	{
-		// 		Template YoovyBot_Giant_Heavy_Heater
-		// 		CustomEyeGlowColor "255 0 0"
-		// 		Skill Expert
-		// 		Tag bot_noflank_ledge1
-		// 		Tag bot_noflank_ledge2
-		// 		Tag bot_noflank_upper
-		// 	}
-		// }
 		WaveSpawn
 		{
 			Name W3_BOMB_SUPPORT
@@ -2314,10 +2291,10 @@ custom_mvm_hell
 			WaitForAllDead W3_02_GATE
 			TotalCurrency	55
 			TotalCount	55
-			MaxActive	5
+			MaxActive	6 // 5 - V2 Change
 			SpawnCount	1
 			WaitBeforeStarting	0
-			WaitBetweenSpawns	3
+			WaitBetweenSpawns	2 // 3 - V2 Change
 			Where	spawnbot_main0
 			Where	spawnbot_main1
 			Where	spawnbot_upper2
@@ -2387,9 +2364,9 @@ custom_mvm_hell
             EntFire(`bombpath_holograms_main_3way*`,`color`,`255 95 0`)
             EntFire(`bombpath_holograms_main_centerpath*`,`color`,`255 95 0`)
 			EntFire(`forwardupgrade_func`,`enable`)
-            "
-			//EntFire(`intel`,`showtimer`,`0`)
-			//EntFire(`intel`,`setreturntime`,`10000000`)
+			EntFire(`intel`,`showtimer`,`0`)
+			EntFire(`intel`,`setreturntime`,`10000000`)
+            " //Readded no bomb reset
         }
 		WaveSpawn
 		{
@@ -2481,9 +2458,9 @@ custom_mvm_hell
 			TotalCurrency	105
 			TotalCount	21
 			MaxActive	6
-			SpawnCount	3
+			SpawnCount	1 // 3 - V2 Change
 			WaitBeforeStarting	0.1
-			WaitBetweenSpawns	7
+			WaitBetweenSpawns	2.33 // 7 - V2 Change
 			Where	spawnbot_main0
 			Where	spawnbot_main1
 			Where	spawnbot_upper2
@@ -2512,7 +2489,7 @@ custom_mvm_hell
 			TFBot
 			{
 				Template YoovyBot_Pyro_Fury
-				Skill Normal
+				Skill Hard // Normal - V2 Change
 				Tag bot_noflank_ledge2
 				Tag bot_noflank_upper
 			}
@@ -2533,7 +2510,7 @@ custom_mvm_hell
 			TFBot
 			{
 				Template YoovyBot_Pyro_Fury
-				Skill Normal
+				Skill Hard // Normal - V2 Change
 				Tag bot_noflank_ledge2
 				Tag bot_noflank_upper
 			}
@@ -2545,15 +2522,15 @@ custom_mvm_hell
 			TotalCurrency	180
 			TotalCount	36
 			MaxActive	9
-			SpawnCount	3
+			SpawnCount	1 // 3 - V2 Change
 			WaitBeforeStarting	15
-			WaitBetweenSpawns	4
+			WaitBetweenSpawns	1.3 // 4 - V2 Change
 			Where	spawnbot_upper0
 			Where	spawnbot_main1
 			Where	spawnbot_upper2
 			TFBot
 			{
-				Template YoovyGateBot_Soldier_Blackbox_BurstFire_Normal
+				Template YoovyGateBot_Soldier_Blackbox_BurstFire_Hard // YoovyGateBot_Soldier_Blackbox_BurstFire_Normal - V2 Change
 			}
 		}
 		WaveSpawn
@@ -2655,14 +2632,58 @@ custom_mvm_hell
 			Where	spawnbot_main0
 			Where	spawnbot_main1
 			Where	spawnbot_main2_giants
-			TFBot
+			RandomChoice // V2 Change
 			{
-				Template YoovyBot_Heavy
-				CustomEyeGlowColor "0 255 0"
-				Skill Easy
-				Tag bot_noflank_ledge1
-				Tag bot_noflank_ledge2
-				Tag bot_noflank_upper
+				Shuffle 1
+				TFBot
+				{
+					Template YoovyBot_Heavy
+					CustomEyeGlowColor "0 255 0"
+					Skill Easy
+					Tag bot_noflank_ledge1
+					Tag bot_noflank_ledge2
+					Tag bot_noflank_upper
+				}
+				TFBot
+				{
+					Template YoovyBot_Heavy
+					CustomEyeGlowColor "0 255 0"
+					Skill Easy
+					Tag bot_noflank_ledge1
+					Tag bot_noflank_ledge2
+					Tag bot_noflank_upper
+				}
+				TFBot
+				{
+					Template YoovyBot_Heavy
+					CustomEyeGlowColor "0 255 0"
+					Skill Easy
+					Tag bot_noflank_ledge1
+					Tag bot_noflank_ledge2
+					Tag bot_noflank_upper
+				}
+				TFBot
+				{
+					Template YoovyBot_Heavy
+					Name "Big Gunner"
+					Item "Graybanns"
+					Item "Heavy Metal"
+					Skill Normal
+					Tag bot_noflank_ledge1
+					Tag bot_noflank_ledge2
+					Tag bot_noflank_upper
+				}
+				TFBot
+				{
+					Template YoovyBot_Heavy
+					Name "Big Gunner"
+					Item "Graybanns"
+					Item "Heavy Metal"
+					Skill Normal
+					Tag bot_noflank_ledge1
+					Tag bot_noflank_ledge2
+					Tag bot_noflank_upper
+				}
 			}
 		}
 		WaveSpawn
@@ -2681,7 +2702,7 @@ custom_mvm_hell
 			TFBot
 			{
 				Template YoovyBot_Scout_Sodapop
-				UseHumanAnimations 1
+				//UseHumanAnimations 1
 				Skill Normal
 				Tag bot_noflank_ledge1
 				Tag bot_noflank_ledge2
@@ -2712,9 +2733,9 @@ custom_mvm_hell
             EntFire(`bombpath_holograms_main_3way*`,`color`,`255 95 0`)
             EntFire(`bombpath_holograms_main_centerpath*`,`color`,`255 95 0`)
 			EntFire(`forwardupgrade_func`,`enable`)
+			EntFire(`intel`,`showtimer`,`0`)
+			EntFire(`intel`,`setreturntime`,`10000000`)
             "
-			//EntFire(`intel`,`showtimer`,`0`)
-			//EntFire(`intel`,`setreturntime`,`10000000`)
         }
 		WaveSpawn
 		{
@@ -2779,7 +2800,7 @@ custom_mvm_hell
 			}
 			TFBot
 			{
-				Template YoovyGateBot_Chief_Pyro_Fury
+				Template YoovyGateBot_Chief_Pyro_Fury // V2 Change - 10% More damage on Fury, 10k More health
 			}
 		}
 		WaveSpawn
@@ -2893,8 +2914,8 @@ custom_mvm_hell
 			TFBot
 			{
 				Template YoovyBot_Scout_Bonk
-				CustomEyeGlowColor "0 255 0"
-				Skill Easy
+				//CustomEyeGlowColor "0 255 0"
+				Skill Normal // Easy - V2 Change
 				Tag bot_noflank_ledge1
 				Tag bot_noflank_ledge2
 				Tag bot_noflank_upper
@@ -2919,7 +2940,7 @@ custom_mvm_hell
 			TFBot
 			{
 				Template YoovyBot_Demoman_Stickybomb
-				Skill Normal
+				Skill Hard // Normal - V2 Change
 				Tag bot_noflank_ledge1
 				Tag bot_noflank_ledge2
 				Tag bot_noflank_upper
@@ -2935,12 +2956,12 @@ custom_mvm_hell
 			Name W5_01
 			WaitForAllDead W5_CHIEF
 			TotalCurrency	55
-			TotalCount	2
-			MaxActive	1
+			TotalCount	4 // 2 - V2 Change
+			MaxActive	2 // 1 - V2 Change
 			SpawnCount	1
 			WaitBeforeStarting	0
-			WaitBetweenSpawns	30
-			Where	spawnbot_main0
+			WaitBetweenSpawns	15 // 30 - V2 Change
+			Where	spawnbot_upper0
 			Where	spawnbot_main1
 			Where	spawnbot_upper2
 			TFBot
@@ -2958,7 +2979,7 @@ custom_mvm_hell
 			WaitForAllDead W5_CHIEF
 			TotalCurrency	50
 			TotalCount	4
-			MaxActive	3
+			MaxActive	4 // 3 - V2 Change
 			SpawnCount	2
 			WaitBeforeStarting	0.1
 			WaitBetweenSpawns	35
@@ -2998,15 +3019,15 @@ custom_mvm_hell
 			TotalCurrency	30
 			TotalCount	6
 			MaxActive	6
-			SpawnCount	1
+			SpawnCount	1 // 2 - V2 Change
 			WaitBeforeStarting	0
-			WaitBetweenSpawns	2.6
+			WaitBetweenSpawns	1 // 2.6 - V2 Change
 			Where	spawnbot_main0
 			Where	spawnbot_main1
 			Where	spawnbot_upper2
 			TFBot
 			{
-				Template YoovyGateBot_Soldier_Crit_Expert
+				Template YoovyGateBot_Soldier_DirectHit_Crit_Expert // YoovyGateBot_Soldier_Crit_Expert - V2 Change
 			}
 		}
 		WaveSpawn
@@ -3016,15 +3037,15 @@ custom_mvm_hell
 			TotalCurrency	30
 			TotalCount	6
 			MaxActive	6
-			SpawnCount	2
+			SpawnCount	1 // 2 - V2 Change
 			WaitBeforeStarting	0
-			WaitBetweenSpawns	2.6
+			WaitBetweenSpawns	1 // 2.6 - V2 Change
 			Where	spawnbot_upper0
 			Where	spawnbot_main1
 			Where	spawnbot_main2_giants
 			TFBot
 			{
-				Template YoovyGateBot_Org_Soldier_Crit_Expert
+				Template YoovyGateBot_Org_Soldier_DirectHit_Crit_Expert // YoovyGateBot_Org_Soldier_Crit_Expert - V2 Change
 			}
 		}
 		WaveSpawn
@@ -3045,21 +3066,21 @@ custom_mvm_hell
 				Shuffle 1
 				TFBot
 				{
-					Template YoovyBot_Soldier
+					Template YoovyBot_Soldier_DirectHit //YoovyBot_Soldier - V2 Change
 					Tag bot_noflank_ledge1
 					Tag bot_noflank_ledge2
 					Tag bot_noflank_upper
 					Attributes AlwaysCrit
-					Skill Normal
+					Skill Hard // Normal - V2 Change
 				}
 				TFBot
 				{
-					Template YoovyBot_Soldier
+					Template YoovyBot_Soldier_DirectHit //YoovyBot_Soldier - V2 Change
 					Tag bot_noflank_ledge1
 					Tag bot_noflank_ledge2
 					Tag bot_flank_upper
 					Attributes AlwaysCrit
-					Skill Normal
+					Skill Hard // Normal - V2 Change
 				}
 			}
 
@@ -3103,7 +3124,8 @@ custom_mvm_hell
 			{
 				TFBot
 				{
-					Template YoovyBot_Giant_Heavy_Shotgun_NotValve
+					Template YoovyBot_Giant_Heavy_Shotgun //YoovyBot_Giant_Heavy_Shotgun_NotValve - V2 Change
+					Attributes AlwaysCrit // V2 Change
 					CustomEyeGlowColor "255 0 0"
 					Skill Expert
 					Tag bot_noflank_ledge1
@@ -3112,7 +3134,7 @@ custom_mvm_hell
 				}
 				TFBot
 				{
-					Template YoovyBot_Medic_Uber_Quick
+					Template YoovyBot_Medic_Uber //YoovyBot_Medic_Uber_Quick - V2 Change
 					Skill Hard
 					Tag bot_noflank_ledge1
 					Tag bot_noflank_ledge2
@@ -3297,7 +3319,7 @@ custom_mvm_hell
 			EntFire(`intel`,`showtimer`,`0`)
 			EntFire(`intel`,`setreturntime`,`10000000`)
             "
-			//Main Bomb no longer Resets on final wave
+			//Main Bomb no longer Resets on all waves
         }
 		WaveSpawn
 		{
@@ -3399,34 +3421,34 @@ custom_mvm_hell
 			Where	spawnbot_upper0
 			Where	spawnbot_main1
 			Where	spawnbot_main2_giants
-			FirstSpawnOutPut
-			{
-				Target nobombreset
-				Action Show
-			}
+			//FirstSpawnOutPut// No Longer needed in V2
+			//{
+			//	Target nobombreset
+			//	Action Show
+			//}
 			TFBot
 			{
 				Template YoovyGateBot_Demoman_Knight_Persian_Crit_Expert
 			}
 		}
-		//waveSpawn
-		//{
-		//	Name W6_01
-		//	WaitForAllDead W6_GATERUSH
-		//	TotalCurrency 60
-		//	TotalCount 12
-		//	MaxActive 6
-		//	SpawnCount 3
-		//	WaitBeforeStarting 0
-		//	WaitBetweenSpawns 10
-		//	Where	spawnbot_upper0
-		//	Where	spawnbot_main1
-		//	Where	spawnbot_main2_giants
-		//	TFBot
-		//	{
-		//		Template YoovyGateBot_Org_Heavy_Heater_Normal_1000VisionRange
-		//	}
-		//}
+		waveSpawn // Readded - V2 Change
+		{
+			Name W6_01
+			WaitForAllDead W6_GATERUSH
+			TotalCurrency 60
+			TotalCount 12
+			MaxActive 6
+			SpawnCount 3
+			WaitBeforeStarting 0
+			WaitBetweenSpawns 10
+			Where	spawnbot_upper0
+			Where	spawnbot_main1
+			Where	spawnbot_main2_giants
+			TFBot
+			{
+				Template YoovyGateBot_Org_Heavy_Heater_Normal_1000VisionRange
+			}
+		}
 		WaveSpawn
 		{
 			Name W6_01
@@ -3449,7 +3471,7 @@ custom_mvm_hell
 		{
 			Name W6_01
 			WaitForAllDead W6_GATERUSH
-			TotalCurrency	100
+			TotalCurrency	40 // 100 - V2 Change - Because of Upstairs Heater Heavies being readded
 			TotalCount	4
 			MaxActive	2
 			SpawnCount	1
@@ -3467,7 +3489,7 @@ custom_mvm_hell
 		{
 			Name W6_01
 			WaitForAllDead W6_GATERUSH
-			TotalCurrency	75
+			TotalCurrency	55 // 75 - V2 Change
 			TotalCount	6
 			MaxActive	6
 			SpawnCount	2
@@ -3484,7 +3506,7 @@ custom_mvm_hell
 				}
 				TFBot
 				{
-					Template YoovyBot_Medic_QF_BigHeal
+					Template YoovyBot_Medic_Uber_Quick //YoovyBot_Medic_QF_BigHeal - V2 Change
 					Skill Hard
 					Tag bot_noflank_ledge1
 					Tag bot_noflank_ledge2
@@ -3501,7 +3523,8 @@ custom_mvm_hell
 			MaxActive	6
 			SpawnCount	1
 			WaitBeforeStarting	15
-			WaitBetweenSpawns	1.75
+			WaitBetweenSpawns	1 // 1.75 - V2 Change
+			Where	spawnbot_upper0 // V2 Change
 			Where	spawnbot_main0
 			Where	spawnbot_main1
 			Where	spawnbot_main2_giants
@@ -3509,6 +3532,7 @@ custom_mvm_hell
 			TFBot
 			{
 				Template YoovyBot_Demoman
+				Attributes AlwaysCrit
 				Skill Hard
 				Tag bot_noflank_ledge1
 				Tag bot_noflank_ledge2
@@ -3519,12 +3543,12 @@ custom_mvm_hell
 		{
 			Name W6_02_GATE
 			WaitForAllSpawned W6_01
-			TotalCurrency	80
-			TotalCount	8
-			MaxActive	8
+			TotalCurrency	100 // 80 - V2 Change
+			TotalCount	10 // 8 - V2 Change
+			MaxActive	10 // 8 - V2 Change
 			SpawnCount	2
 			WaitBeforeStarting	15
-			WaitBetweenSpawns	10
+			WaitBetweenSpawns	7 // 10 - V2 Change
 			Where	spawnbot_upper0
 			Where	spawnbot_main1
 			Where	spawnbot_upper2
@@ -3611,7 +3635,7 @@ custom_mvm_hell
 			Where	spawnbot_main2_giants
 			TFBot
 			{
-				Template YoovyBot_Giant_Soldier_BurstFire_Potato
+				Template YoovyBot_Giant_Soldier_RapidFire //YoovyBot_Giant_Soldier_BurstFire_Potato
 				Attributes AlwaysCrit
 				CustomEyeGlowColor "255 0 0"
 				Skill Expert
@@ -3625,11 +3649,11 @@ custom_mvm_hell
 			WaitForAllDead W6_02_GATE
 			TotalCurrency	30
 			TotalCount	4
-			MaxActive	3
+			MaxActive	4 // 3 - V2 Change
 			SpawnCount	2
 			WaitBeforeStarting	10
-			WaitBetweenSpawns	45
-			Where	spawnbot_main0
+			WaitBetweenSpawns	35 // 45 - V2 Change
+			Where	spawnbot_upper0 // main0 - V2 Change
 			Where	spawnbot_main1
 			Where	spawnbot_upper2
 			Squad
@@ -3714,10 +3738,10 @@ custom_mvm_hell
 			WaitForAllDead W6_02_GATE
 			TotalCurrency	25
 			TotalCount	25
-			MaxActive	4
+			MaxActive	6 // 4 - V2 Change
 			SpawnCount	1
 			WaitBeforeStarting	10
-			WaitBetweenSpawns	3
+			WaitBetweenSpawns	2 // 3 - V2 Change
 			Support 1
 			Where	spawnbot_main0
 			Where	spawnbot_upper0
@@ -3727,7 +3751,7 @@ custom_mvm_hell
 			TFBot
 			{
 				Template YoovyBot_Pyro_Fury
-				Skill Normal
+				Skill Hard // Normal - V2 Change
 				Tag bot_noflank_ledge2
 				Tag bot_noflank_upper
 			}
@@ -3738,10 +3762,11 @@ custom_mvm_hell
 			WaitForAllDead W6_02_GATE
 			TotalCurrency	25
 			TotalCount	25
-			MaxActive	2
+			MaxActive	4 // 2 - V2 Change
 			SpawnCount	1
 			WaitBeforeStarting	10
-			WaitBetweenSpawns	7
+			WaitBetweenSpawns	5 // 7 - V2 Change
+			RandomSpawn 1
 			Support 1
 			Where	spawnbot_main0
 			Where	spawnbot_upper0
@@ -3752,9 +3777,10 @@ custom_mvm_hell
 			{
 				Template YoovyBot_Pyro
 				ClassIcon pyro
-				CustomEyeGlowColor "0 255 0"
+				//CustomEyeGlowColor "0 255 0"
+				Attributes AlwaysCrit // V2 Change
 				Attributes AlwaysFireWeapon
-				Skill Easy
+				Skill Hard // Easy - V2 Change
 				Tag bot_noflank_ledge2
 				Tag bot_noflank_upper
 			}
