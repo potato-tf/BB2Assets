@@ -610,6 +610,11 @@ LobotomySchedule
 				ItemName "The Cow Mangler 5000"
 				"faster reload rate" -0.8
 			}
+			ItemAttributes
+			{
+				ItemName "The Concheror"
+				"switch from wep deploy time decreased" 0.66
+			}
 			CharacterAttributes
 			{
 				"move speed bonus"	0.5
@@ -617,7 +622,6 @@ LobotomySchedule
 				"airblast vulnerability multiplier" 0.4
 				"override footstep sound set" 3
 				"increase buff duration" 9
-				"deploy time decreased" 0.5
 			}
 		}
 
@@ -641,6 +645,11 @@ LobotomySchedule
 				"fire rate bonus" 0.2
 				"projectile spread angle penalty" 5
 			}
+			ItemAttributes
+			{
+				ItemName "The Concheror"
+				"switch from wep deploy time decreased" 0.66
+			}
 			CharacterAttributes
 			{
 				"move speed bonus"	0.5
@@ -651,7 +660,6 @@ LobotomySchedule
 				"airblast vertical vulnerability multiplier" 0.1
 				"Projectile speed increased" 0.4
 				"increase buff duration" 9
-				"deploy time decreased" 0.5
 			}
 		}
 
