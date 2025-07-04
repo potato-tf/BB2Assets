@@ -211,6 +211,40 @@ Custom_MvM_Hell
     BodyPartScaleSpeed 100
     Templates
     {
+        YoovyBot_Pyro_Fury
+        {
+            //TFBot
+            Class Pyro
+            Name "Dragon's Fury Pyro"
+            ClassIcon pyro_dragon_fury_swordstone
+            MaxVisionRange 650
+
+            //Weapons
+            Item "The Dragon's Fury"
+
+            //Cosmetics
+            Item "Airtight Arsonist"
+        }
+        YoovyBot_Giant_Soldier
+        {
+            //TFBot
+            Class Soldier
+            Health 3800
+            Name "Giant Soldier"
+            ClassIcon soldier_giant
+            Attributes HoldFireUntilFullReload
+            Attributes MiniBoss
+            Tag bot_giant
+            CharacterAttributes
+            {
+                "airblast vertical vulnerability multiplier" 0.1
+                "airblast vulnerability multiplier" 0.1
+				"override footstep sound set" 5
+                "damage force reduction" 0.1
+                "move speed penalty" 0.5
+                "killstreak tier" 1
+            }
+        }
 		YoovyBot_Sniper_Jarate_Dual
 		{
             //TFBot
@@ -395,7 +429,7 @@ Custom_MvM_Hell
 		{
 			//TFBot
 			Class Medic
-			Name "Quick-Ãœber Medic"
+			Name "Quick-Uber Medic"
 			ClassIcon medic_uber
 			Attributes SpawnWithFullCharge
 
@@ -1028,6 +1062,37 @@ Custom_MvM_Hell
             //Cosmetics
 			Item "The Fed-Fightin' Fedora"
 		}
+        YoovyBot_Giant_Heavy_Brassbeast
+        {
+            //TFBot
+            Class Heavy
+            Health 5000
+            Name "Giant Brassbeast Heavy"
+            ClassIcon heavy_brass_nys_giant
+            Attributes MiniBoss
+			MaxVisionRange 1200
+            Tag bot_giant
+            CharacterAttributes
+            {
+                "airblast vertical vulnerability multiplier" 0.1
+                "airblast vulnerability multiplier" 0.1
+				"override footstep sound set" 5
+                "damage force reduction" 0.1
+                "move speed penalty" 0.5
+                "killstreak tier" 1
+            }
+
+            //Weapons
+            Item "The Brass Beast"
+            ItemAttributes
+            {
+                ItemName "The Brass Beast"
+                "damage bonus" 1.7
+            }
+
+            //Cosmetic
+            Item "Officer's Ushanka"
+        }
 		YoovyBot_Giant_Heavy_Deflector
 		{
 			//TFBot
@@ -1172,7 +1237,7 @@ Custom_MvM_Hell
             //Cosmetics
 			Item "Scotch Bonnet"
 		}
-		YoovyBot_Giant_Soldier_RapidFire //Unused
+		YoovyBot_Giant_Soldier_RapidFire
 		{
             //TFBot
 			Class Soldier
@@ -1391,7 +1456,7 @@ Custom_MvM_Hell
             //TFBot
             Class Medic
             Health 4500
-            Name "Giant Ãœber Medic"
+            Name "Giant Uber Medic"
             ClassIcon medic_uber_giant
             Attributes SpawnWithFullCharge
             Attributes MiniBoss
@@ -1549,6 +1614,58 @@ Custom_MvM_Hell
 			Item "Ol' Snaggletooth"
 			Item "Crocodile Dandy"
 		}
+        YoovyBot_Giant_Soldier_BurstFire_Giga
+        {
+            //TFBot
+            Class Soldier
+            Health 4200
+            Name "Giga Burst Fire Soldier"
+            ClassIcon soldier_burstfire_hyper_lite
+            Attributes HoldFireUntilFullReload
+            Attributes AlwaysCrit
+            Attributes MiniBoss
+            Tag bot_giant
+            CharacterAttributes
+            {
+                "airblast vertical vulnerability multiplier" 0.1
+                "airblast vulnerability multiplier" 0.1
+				"override footstep sound set" 5
+                "damage force reduction" 0.1
+                "move speed penalty" 0.5
+                "killstreak tier" 1
+            }
+
+            //Weapons
+            Item "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+            ItemAttributes
+            {
+                ItemName "Upgradeable TF_WEAPON_ROCKETLAUNCHER"
+                "projectile speed decreased" 0.9
+                "clip size upgrade atomic" 5
+                "attach particle effect" 704 //Energy Orb
+                "item style override" 1
+                "crit kill will gib" 1
+                "is australium item" 1
+                "faster reload rate" 0.4
+                "fire rate bonus" 0.2
+                "damage bonus" 2
+            }
+
+            //Cosmetics
+            Item "Big Steel Jaw of Summer Fun"
+            Item "Combat Slacks"
+            Item "Transparent Trousers"
+            Item "Forest Footwear"
+            Item "The Slo-Poke"
+            ItemAttributes
+            {
+                ItemName "The Slo-Poke"
+                "particle effect use head origin" 1
+                "particle effect vertical offset" 3
+                "attach particle effect" 296 //Sapped (BLU)
+                "set item tint RGB" 2829099
+            }
+        }
 		YoovyBot_Giant_Soldier_Nuke
 		{
 			//TFBot
@@ -1594,7 +1711,7 @@ Custom_MvM_Hell
 		{
 			//TFBot
 			Class Medic
-			Name "Ãœber Medic"
+			Name "Uber Medic"
 			ClassIcon medic_uber
 			Attributes SpawnWithFullCharge
 
@@ -1723,7 +1840,7 @@ Custom_MvM_Hell
 		InitialCooldown	40
 		CooldownTime 25
 		
-		DesiredCount 2
+		DesiredCount 3 // 2 - V2 Change
 		TFBot
 		{
 			Template YoovyBot_Spy
@@ -1880,19 +1997,27 @@ Custom_MvM_Hell
 		{
 			Name W1_01
 			TotalCurrency	60
-			TotalCount	12
-			MaxActive	6
-			SpawnCount	2
+			TotalCount	18 // 12 - V2 Change
+			MaxActive	9 // 6 - V2 Change
+			SpawnCount	3 // 2 - V2 Change
 			WaitBeforeStarting	0.1
-			WaitBetweenSpawns	7
+			WaitBetweenSpawns	6 //7 - V2 Change
 			Where	spawnbot
             Squad
             {
+                ShouldPreserveSquad 1 // V2 Change, so if a Spy stabs the Gauntlet first (for whatever reason) now the Medic will Uber the Pyro
                 TFBot
                 {
                     Template YoovyBot_Heavy_Steelfist_Subgiant //_GRU
 					CustomEyeGlowColor "255 0 0"
                     Skill Expert
+                }
+                TFBot // V2 Change
+                {
+                    Template YoovyBot_Pyro
+				    PreferClass Spy
+                    Attributes AlwaysFireWeapon
+                    Skill Normal
                 }
                 TFBot
                 {
@@ -1905,11 +2030,11 @@ Custom_MvM_Hell
 		{
 			Name W1_01
 			TotalCurrency	30
-			TotalCount	6
+			TotalCount	12 // 6 - V2 Change
 			MaxActive	6
-			SpawnCount	3
+			SpawnCount	1 // 3 - V2 Change
 			WaitBeforeStarting	10
-			WaitBetweenSpawns	20
+			WaitBetweenSpawns	3.3 // 20 - V2 Change
 			Where	spawnbot_flank2
 			TFBot
 			{
@@ -1991,7 +2116,7 @@ Custom_MvM_Hell
 		{
 			Name W1_02
             WaitForAllSpawned W1_01
-			TotalCurrency	80
+			TotalCurrency	60
 			TotalCount	12
 			MaxActive	6
 			SpawnCount	2
@@ -2012,6 +2137,24 @@ Custom_MvM_Hell
                     Skill Hard
                 }
             }
+		}
+		WaveSpawn // V2 Change
+		{
+			Name W1_02
+            WaitForAllSpawned W1_01
+			TotalCurrency	20
+			TotalCount	2
+			MaxActive	2
+			SpawnCount	1
+			WaitBeforeStarting	15
+			WaitBetweenSpawns	20
+			Where	spawnbot
+			TFBot
+			{
+				Template YoovyBot_Giant_Soldier
+                CustomEyeGlowColor "255 0 0"
+				Skill Expert
+			}
 		}
     }
 	//////////////
@@ -2063,11 +2206,11 @@ Custom_MvM_Hell
 				Target wave_start_relay
 				Action RunScriptCode
 				Param "
-				ClientPrint(null,3,`\x0799CCFFA Tank has arrived with \x07ffffff16,000 \x0799CCFFHP!`)
+				ClientPrint(null,3,`\x0799CCFFA Tank has arrived with \x07ffffff18,000 \x0799CCFFHP!`)
 				"
 			}
 		}
-		WaveSpawn //16,000 health tank
+		WaveSpawn //20,000 health tank
 		{
 			Name W2_01_TANK
 			TotalCurrency	155
@@ -2078,7 +2221,7 @@ Custom_MvM_Hell
 			WaitBetweenSpawns 0
 			Tank
 			{
-				Health 16000
+				Health 18000 // V2 Chamge - 16,000
 				Speed 75
 				Name tankboss
 				StartingPathTrackNode tankpath_alt
@@ -2114,12 +2257,12 @@ Custom_MvM_Hell
 				}
 				TFBot
 				{
-					Template YoovyBot_Medic_QF_BigHeal
+					Template YoovyBot_Medic_Uber_Quick //YoovyBot_Medic_QF_BigHeal - V2 Change
 					Skill Hard
 				}
 				TFBot
 				{
-					Template YoovyBot_Medic_QF_BigHeal
+					Template YoovyBot_Medic_Uber_Quick //YoovyBot_Medic_QF_BigHeal - V2 Change
 					Skill Hard
 				}
 			}
@@ -2146,11 +2289,11 @@ Custom_MvM_Hell
 			Name W2_02
 			WaitForAllSpawned W2_01
 			TotalCurrency	200
-			TotalCount	4
-			MaxActive	4
-			SpawnCount	2
+			TotalCount	6 // V2 Change
+			MaxActive	6
+			SpawnCount	3
 			WaitBeforeStarting	15
-			WaitBetweenSpawns	25
+			WaitBetweenSpawns	20 // 25 - V2 Change
 			Where	spawnbot
 			Squad
 			{
@@ -2161,6 +2304,11 @@ Custom_MvM_Hell
 					Skill Expert
 				}
 				TFBot
+				{
+					Template YoovyBot_Medic_Uber_Quick
+					Skill Hard
+				}
+				TFBot // V2 Change
 				{
 					Template YoovyBot_Medic_Uber_Quick
 					Skill Hard
@@ -2261,13 +2409,13 @@ Custom_MvM_Hell
 			MaxActive	8
 			SpawnCount	4
 			WaitBeforeStarting	0
-			WaitBetweenSpawns	30
+			WaitBetweenSpawns	25 // 30 - V2 Change
 			Where	spawnbot
 			Squad
 			{
 				TFBot
 				{
-					Template YoovyBot_Giant_Heavy_KGB //_GRU
+					Template YoovyBot_Giant_Heavy_GRU //YoovyBot_Giant_Heavy_KGB - V2 Change - Reverted the GRU -> KGB as they gain no distance when they're KGB against classes like Heavy
 					CustomEyeGlowColor "255 0 0"
 					Skill Expert
 				}
@@ -2323,7 +2471,7 @@ Custom_MvM_Hell
 				}
 				TFBot
 				{
-					Template YoovyBot_Medic_QF_BigHeal
+					Template YoovyBot_Medic_Uber_Quick // YoovyBot_Medic_QF_BigHeal - V2 Change
 					Skill Hard
 				}
 				TFBot
@@ -2355,7 +2503,7 @@ Custom_MvM_Hell
 			{
 				TFBot
 				{
-					Template YoovyBot_Giant_Heavy_Shotgun_NotValve //YoovyBot_Giant_Heavy_Shotgun
+					Template YoovyBot_Giant_Heavy_Shotgun //YoovyBot_Giant_Heavy_Shotgun_NotValve - Way too weak
 					CustomEyeGlowColor "255 0 0"
 					Skill Expert
 				}
@@ -2396,7 +2544,7 @@ Custom_MvM_Hell
 			Name W3_01_SUPPORT
 			TotalCurrency	100
 			TotalCount	100
-			MaxActive	5
+			MaxActive	6 // 5 - V2 Change
 			SpawnCount	1
 			WaitBeforeStarting	5
 			WaitBetweenSpawns	2
@@ -2490,6 +2638,23 @@ Custom_MvM_Hell
 				Skill Normal
 			}
 		}
+		WaveSpawn // V2 Change
+		{
+			Name W3_01_SUPPORT
+			TotalCurrency	0
+			TotalCount	0
+			MaxActive	1
+			SpawnCount	1
+			WaitBeforeStarting	9
+			WaitBetweenSpawnsAfterDeath	4
+			Where	spawnbot_mission_spy
+			Support 1
+			TFBot
+			{
+				Template YoovyBot_Spy
+				Skill Normal
+			}
+		}
 	}
 	//////////////
 	//////////////
@@ -2540,7 +2705,7 @@ Custom_MvM_Hell
 				Target wave_start_relay
 				Action RunScriptCode
 				Param "
-				ClientPrint(null,3,`\x0799CCFFA Tank has arrived with \x07ffffff25,000 \x0799CCFFHP!`)
+				ClientPrint(null,3,`\x0799CCFFA Tank has arrived with \x07ffffff30,000 \x0799CCFFHP!`)
 				"
 			}
 		}
@@ -2555,7 +2720,7 @@ Custom_MvM_Hell
 			WaitBetweenSpawns 0
 			Tank
 			{
-				Health 25000
+				Health 30000 //25,000 - V2 Change
 				Speed 75
 				Name tankboss
 				StartingPathTrackNode tankpath_alt
@@ -2595,7 +2760,7 @@ Custom_MvM_Hell
 			MaxActive	8
 			SpawnCount	4
 			WaitBeforeStarting	20
-			WaitBetweenSpawns	30
+			WaitBetweenSpawns	25 // 30 - V2 Change
 			Where	spawnbot
 			Squad
 			{
@@ -2648,11 +2813,11 @@ Custom_MvM_Hell
 			Name W4_02
 			WaitForAllSpawned W4_01
 			TotalCurrency	100
-			TotalCount	4
-			MaxActive	4
+			TotalCount	5 //4 - V2 Change
+			MaxActive	5 //4 - V2 Change
 			SpawnCount	1
 			WaitBeforeStarting	20
-			WaitBetweenSpawns	12
+			WaitBetweenSpawns	10 //12 - V2 Change
 			Where	spawnbot_flank2
 			TFBot
 			{
@@ -2666,19 +2831,37 @@ Custom_MvM_Hell
 			Name W4_02
 			WaitForAllSpawned W4_01
 			TotalCurrency	120
-			TotalCount	2
-			MaxActive	2
-			SpawnCount	1
-			WaitBeforeStarting	25
+			TotalCount	8 // V2 Change
+			MaxActive	8
+			SpawnCount	4
+			WaitBeforeStarting	20 // 25 - V2 Change
 			WaitBetweenSpawns	20
 			Where	spawnbot
-			TFBot
-			{
-				Template YoovyBot_Giant_Heavy_Deflector
-				PreferClass Spy
-				CustomEyeGlowColor "255 0 0"
-				Skill Expert
-			}
+            Squad // V2 Change
+            {
+                TFBot
+                {
+                    Template YoovyBot_Giant_Heavy_Deflector
+                    PreferClass Spy
+                    CustomEyeGlowColor "255 0 0"
+                    Skill Expert
+                }
+                TFBot // V2 Change
+                {
+                    Template YoovyBot_Medic_QF_BigHeal
+                    Skill Hard
+                }
+                TFBot // V2 Change
+                {
+                    Template YoovyBot_Medic_QF_BigHeal
+                    Skill Hard
+                }
+                TFBot // V2 Change
+                {
+                    Template YoovyBot_Medic_QF_BigHeal
+                    Skill Hard
+                }
+            }
 		}
 		WaveSpawn
 		{
@@ -2686,11 +2869,11 @@ Custom_MvM_Hell
 			WaitForAllSpawned W4_01
 			TotalCurrency	55
 			TotalCount	55
-			MaxActive	5
+			MaxActive	6 // 5 - V2 Change
 			SpawnCount	1
 			WaitBeforeStarting	20
 			WaitBetweenSpawns	2
-			Where	spawnbot_flank2
+			Where	spawnbot_flank // spawnbot_flank2 - V2 Change
 			Support 1
 			TFBot
 			{
@@ -2754,7 +2937,7 @@ Custom_MvM_Hell
 			{
 				Template YoovyBot_Scout
 				PreferClass Spy
-				Skill Normal
+				Skill Hard // Normal - V2 Change
 			}
 		}
 		WaveSpawn
@@ -2766,21 +2949,21 @@ Custom_MvM_Hell
 			SpawnCount	1
 			WaitBeforeStarting	0.1
 			WaitBetweenSpawns	2
-			Where	spawnbot
+			Where	spawnbot_flank // spawnbot - V2 Change
 			TFBot
 			{
 				Template YoovyBot_Scout
 				PreferClass Spy
-				Skill Normal
+				Skill Hard // Normal - V2 Change
 			}
 		}
 		WaveSpawn
 		{
 			Name W5_01
 			TotalCurrency	170
-			TotalCount	4
-			MaxActive	3
-			SpawnCount	2
+			TotalCount	8 // V2 Change
+			MaxActive	8
+			SpawnCount	4
 			WaitBeforeStarting	0.1
 			WaitBetweenSpawns	25
 			Where	spawnbot
@@ -2788,10 +2971,8 @@ Custom_MvM_Hell
 			{
 				TFBot
 				{
-					Template YoovyBot_Giant_Pyro_Airblast
-					PreferClass Spy
+					Template YoovyBot_Giant_Soldier_RapidFire //YoovyBot_Giant_Pyro_Airblast - V2 Change
 					CustomEyeGlowColor "255 0 0"
-					Attributes AlwaysCrit
 					Skill Expert
 				}
 				TFBot
@@ -2801,6 +2982,22 @@ Custom_MvM_Hell
 					CustomEyeGlowColor "255 0 0"
 					Skill Expert
 				}
+                TFBot //V2 Change
+                {
+                    Template YoovyBot_Pyro
+                    Attributes AlwaysFireWeapon
+                    PreferClass Spy
+					CustomEyeGlowColor "255 0 0"
+                    Skill Expert
+                }
+                TFBot //V2 Change
+                {
+                    Template YoovyBot_Pyro
+                    Attributes AlwaysFireWeapon
+                    PreferClass Spy
+					CustomEyeGlowColor "255 0 0"
+                    Skill Expert
+                }
 			}
 		}
 		WaveSpawn
@@ -2874,7 +3071,7 @@ Custom_MvM_Hell
 				Template YoovyBot_Scout
 				PreferClass Spy
 				ClassIcon scout_giant
-				Skill Normal
+				Skill Hard // Normal - V2 Change
 			}
 		}
 	}
@@ -2922,18 +3119,19 @@ Custom_MvM_Hell
 		WaveSpawn
 		{
 			Name W6_01
-			TotalCurrency	400
+			TotalCurrency	200
 			TotalCount	8
-			MaxActive	2
+			MaxActive	4 // 2 - V2 Change
 			SpawnCount	1
 			WaitBeforeStarting	0
 			WaitBetweenSpawns	7
 			Where	spawnbot
 			TFBot
 			{
-				Template YoovyBot_Giant_Scout_FAN
-				CustomEyeGlowColor "255 0 0"
-				Skill Expert
+				Template YoovyBot_Giant_Scout_Fast // YoovyBot_Giant_Scout_FAN - V2 Change
+                Attributes AlwaysCrit // V2 Change
+				CustomEyeGlowColor "0 255 0"
+				Skill Easy // Expert - V2 Change
 			}
 		}
 		WaveSpawn
@@ -2994,6 +3192,25 @@ Custom_MvM_Hell
 				}
 			}
 		}
+		WaveSpawn // V2 Change
+		{
+			Name W6_02
+			WaitForAllSpawned W6_01
+			TotalCurrency	200
+			TotalCount	6
+			MaxActive	3 // 2 - V2 Change
+			SpawnCount	1
+			WaitBeforeStarting	15
+			WaitBetweenSpawns	10
+			Where	spawnbot_flank2
+			TFBot
+			{
+				Template YoovyBot_Giant_Scout_Fast
+                Attributes AlwaysCrit
+				CustomEyeGlowColor "0 255 0"
+				Skill Easy
+			}
+		}
 		WaveSpawn
 		{
 			Name W6_02
@@ -3027,22 +3244,19 @@ Custom_MvM_Hell
 				}
 				TFBot
 				{
-					Template YoovyBot_Sniper_Jarate_Dual
-					PreferClass Spy
+					Template YoovyBot_Medic_Uber //YoovyBot_Sniper_Jarate_Dual - V2 Change
 					CustomEyeGlowColor "255 0 0"
 					Skill Expert
 				}
 				TFBot
 				{
-					Template YoovyBot_Sniper_Jarate_Dual
-					PreferClass Spy
+					Template YoovyBot_Medic_Uber //YoovyBot_Sniper_Jarate_Dual - V2 Change
 					CustomEyeGlowColor "255 0 0"
 					Skill Expert
 				}
 				TFBot
 				{
-					Template YoovyBot_Sniper_Jarate_Dual
-					PreferClass Spy
+					Template YoovyBot_Medic_Uber //YoovyBot_Sniper_Jarate_Dual - V2 Change
 					CustomEyeGlowColor "255 0 0"
 					Skill Expert
 				}
@@ -3054,7 +3268,7 @@ Custom_MvM_Hell
 			WaitForAllSpawned W6_01
 			TotalCurrency	15
 			TotalCount	15
-			MaxActive	7
+			MaxActive	6 // 7 - V2 Change
 			SpawnCount	1
 			WaitBeforeStarting	15
 			WaitBetweenSpawns	0.5
@@ -3065,9 +3279,8 @@ Custom_MvM_Hell
 			Support 1
 			TFBot
 			{
-				Template YoovyBot_Demoman_Knight //_Persian - Like swatting flies.
+				Template YoovyBot_Demoman_Knight_Persian // V2 Change - Regular Demoknights just don't do anything at this cash and end-game wave, reverted back to Persians
 				CustomEyeGlowColor "255 0 0"
-				Attributes AlwaysCrit
 				Skill Expert
 			}
 		}
@@ -3077,7 +3290,7 @@ Custom_MvM_Hell
 			WaitForAllSpawned W6_01
 			TotalCurrency	15
 			TotalCount	15
-			MaxActive	3
+			MaxActive	6 // 3 - V2 Change
 			SpawnCount	1
 			WaitBeforeStarting	15
 			WaitBetweenSpawns	0.5
@@ -3088,11 +3301,9 @@ Custom_MvM_Hell
 			Support 1
 			TFBot
 			{
-				Template YoovyBot_Sniper_Jarate_Dual
-				ClassIcon sniper_jarate_bushwacka_giant
+				Template YoovyBot_Soldier //YoovyBot_Sniper_Jarate_Dual - V2 Change
 				PreferClass Spy
-				CustomEyeGlowColor "255 0 0"
-				Skill Expert
+				Skill Hard
 			}
 		}
 	}
@@ -3145,11 +3356,11 @@ Custom_MvM_Hell
 				Target wave_start_relay
 				Action RunScriptCode
 				Param "
-				ClientPrint(null,3,`\x0799CCFFA Tank has arrived with \x07ffffff25,000 \x0799CCFFHP!`)
+				ClientPrint(null,3,`\x0799CCFFA Tank has arrived with \x07ffffff35,000 \x0799CCFFHP!`)
 				"
 			}
 		}
-		WaveSpawn //25,000 health tank
+		WaveSpawn //35,000 health tank
 		{
 			Name W7_01_TANK
 			TotalCurrency	25
@@ -3160,7 +3371,7 @@ Custom_MvM_Hell
 			WaitBetweenSpawns 0
 			Tank
 			{
-				Health 25000
+				Health 35000 // 25,000 - V2 Change
 				Speed 75
 				Name tankboss
 				StartingPathTrackNode tankpath_alt
@@ -3190,12 +3401,12 @@ Custom_MvM_Hell
 			{
 				TFBot
 				{
-					Template YoovyBot_Pyro
+					Template YoovyBot_Pyro_Fury //YoovyBot_Pyro - V2 Change
 					Skill Hard
 				}
 				TFBot
 				{
-					Template YoovyBot_Medic_Uber_Quick
+					Template YoovyBot_Medic_Uber // YoovyBot_Medic_Uber_Quick - V2 Change
 					Skill Hard
 				}
 			}
@@ -3307,9 +3518,9 @@ Custom_MvM_Hell
 			Name W7_02
 			WaitForAllSpawned W7_01
 			TotalCurrency	15
-			TotalCount	6
-			MaxActive	6
-			SpawnCount	2
+			TotalCount	9 //6 - V2 Change
+			MaxActive	9 //6 - V2 Change
+			SpawnCount	3 //2 - V2 Change
 			WaitBeforeStarting	20
 			WaitBetweenSpawns	20
 			Where	spawnbot_flank2
@@ -3321,6 +3532,11 @@ Custom_MvM_Hell
 					CustomEyeGlowColor "255 0 0"
 					Attributes AlwaysCrit
 					Skill Expert
+				}
+				TFBot
+				{
+					Template YoovyBot_Medic_Uber
+					Skill Hard
 				}
 				TFBot
 				{
@@ -3339,11 +3555,11 @@ Custom_MvM_Hell
 				Target wave_start_relay
 				Action RunScriptCode
 				Param "
-				ClientPrint(null,3,`\x0799CCFFThe final Tank has arrived with \x07ffffff25,000 \x0799CCFFHP!`)
+				ClientPrint(null,3,`\x0799CCFFThe final Tank has arrived with \x07ffffff35,000 \x0799CCFFHP!`)
 				"
 			}
 		}
-		WaveSpawn //25,000 health tank
+		WaveSpawn //35,000 health tank
 		{
 			Name W7_03_TANK
 			WaitForAllSpawned W7_02
@@ -3355,7 +3571,7 @@ Custom_MvM_Hell
 			WaitBetweenSpawns 0
 			Tank
 			{
-				Health 25000
+				Health 35000 //25,000 - V2 Change
 				Speed 75
 				Name tankboss
 				Skin 1
@@ -3380,7 +3596,7 @@ Custom_MvM_Hell
 			TotalCount  4
 			MaxActive	4
 			SpawnCount	1
-			WaitBeforeStarting	30
+			WaitBeforeStarting 	25 // 30 - V2 Change
 			WaitBetweenSpawns	25
 			Where	spawnbot_flank2
 			TFBot
@@ -3399,7 +3615,7 @@ Custom_MvM_Hell
 			TotalCount	4
 			MaxActive	4
 			SpawnCount	2
-			WaitBeforeStarting	40
+			WaitBeforeStarting 	35 // 40 - V2 Change
 			WaitBetweenSpawns	40
 			Where	spawnbot_boss
 			FirstSpawnOutput
@@ -3438,15 +3654,15 @@ Custom_MvM_Hell
 			TotalCount	20
 			MaxActive	8
 			SpawnCount	1
-			WaitBeforeStarting	25
+			WaitBeforeStarting 	20 // 25 - V2 Change
 			WaitBetweenSpawns	1
 			Where	spawnbot
 			Support 1
 			TFBot
 			{
-				Template YoovyBot_Pyro
+				Template YoovyBot_Pyro_Fury
 				PreferClass Spy
-				ClassIcon pyro_giant
+				ClassIcon pyro_dragon_fury_swordstone_giant
 				Skill Hard
 			}
 		}
@@ -3458,7 +3674,7 @@ Custom_MvM_Hell
 			TotalCount	25
 			MaxActive	4
 			SpawnCount	1
-			WaitBeforeStarting	25
+			WaitBeforeStarting 	20 // 25 - V2 Change
 			WaitBetweenSpawns	3
 			Where	spawnbot
 			Support 1
