@@ -2490,5 +2490,46 @@ population
 				}
 			}
 		}
+		WaveSpawn
+		{
+			//Name	"Boss Supporter"
+			//WaitForAllDead	Complex
+			TotalCurrency	0
+			TotalCount	9999
+			MaxActive	1
+			SpawnCount	1
+			WaitBeforeStarting	999999
+			WaitBetweenSpawns	8
+			Where	spawnbot_invasion
+			HideIcon 1 [$SIGSEGV] // Hides icons from the wave bar. Should use a ClassIcon different from visible ones 
+			Support	1
+			Squad
+			{
+				TFBot
+				{
+					ClassIcon	heavy_shotgun_burst_lite
+				}
+				TFBot
+				{
+					ClassIcon	soldier_nuke2_giant
+				}
+				TFBot
+				{
+					ClassIcon	soldier_homing_spammer_nys_giant
+				}
+				TFBot
+				{
+					ClassIcon	soldier_bison_b
+				}
+				TFBot
+				{
+					ClassIcon	barrage_infinity
+				}
+				TFBot
+				{
+					ClassIcon	soldier_boss_visor
+				}
+			}
+		}
 	}
 }
