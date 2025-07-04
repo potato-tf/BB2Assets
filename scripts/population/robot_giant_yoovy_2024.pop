@@ -12394,7 +12394,7 @@ WaveSchedule
 		{
             //TFBot
             Class Pyro
-            Health 40000
+            Health 50000
             Name "Mr. Pyrotechnics"
 			ClassIcon pyro_firebomber_yoovy
 			EventChangeAttributes
