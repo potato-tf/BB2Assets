@@ -2795,7 +2795,7 @@ custom_mvm_hell
 				Target wave_start_relay
 				Action RunScriptCode
 				Param "
-				ClientPrint(null,3,`\x07ff0000Mr. Pyrotechnics \x0799CCFFhas arrived with \x07ff000040,000 HP!`)
+				ClientPrint(null,3,`\x07ff0000Mr. Pyrotechnics \x0799CCFFhas arrived with \x07ff000050,000 HP!`)
 				"
 			}
 			TFBot
