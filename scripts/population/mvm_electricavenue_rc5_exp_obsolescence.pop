@@ -1,7 +1,7 @@
 #base robot_giant.pop
 #base robot_standard.pop
 // #base robot_gatebot.pop
-#base conga_weapons_v2.pop
+// #base conga_weapons_v2.pop
 //Mission by Conga Dispenser and Sergeant Table
 population
 {
@@ -13,6 +13,7 @@ population
 	AddSentryBusterWhenKillCountExceeds	10
 	TextPrintTime 0
 	PrecacheModel "models\bots\soldier_boss\bot_soldier_boss_gibby.mdl"
+	PrecacheModel "models/buildables/amplifier_test/amplifier.mdl"
 	PrecacheSound "vs_architect.mp3"
 	PrecacheSound "woter.mp3"
 	PrecacheSound "major_shocks.wav"
@@ -74,7 +75,7 @@ population
 		Objective	Spy
 		Where	spawnbot
 		BeginAtWave	4
-		RunForThisManyWaves	1
+		RunForThisManyWaves	2
 		InitialCooldown	30
 		CooldownTime	45
 		DesiredCount	2
@@ -645,14 +646,12 @@ population
 			logic_case
 			{
 				"targetname" "bossattacksforfinale"
-				"OnCase01" "pop_interface,ChangeBotAttributes,nuker,0,-1"
+				"OnCase01" "pop_interface,ChangeBotAttributes,nukermultiple,0,-1"
 				"OnCase02" "pop_interface,ChangeBotAttributes,healingshotgunrapid,0,-1"	
-				"OnCase03" "pop_interface,ChangeBotAttributes,normalcritrapid,0,-1"
-				"OnCase04" "pop_interface,ChangeBotAttributes,increasingrocketbarrage,0,-1"
-				"OnCase05" "pop_interface,ChangeBotAttributes,loosecannonscatter,0,-1"
-				"OnCase06" "pop_interface,ChangeBotAttributes,sucknblow,0,-1"
-				"OnCase07" "pop_interface,ChangeBotAttributes,jumpingintothewater,0,-1"
-				"OnCase08" "pop_interface,ChangeBotAttributes,jumpingintothewater,0,-1"
+				"OnCase03" "pop_interface,ChangeBotAttributes,specialattackjump2,0,-1"
+				"OnCase04" "pop_interface,ChangeBotAttributes,spiralrocketattackofdoom,0,-1"
+				"OnCase05" "pop_interface,ChangeBotAttributes,totheskiesandairstrike,0,-1"
+				"OnCase06" "pop_interface,ChangeBotAttributes,jumpingintothewater,0,-1"
 			}
 			logic_relay
             {
@@ -1037,7 +1036,7 @@ population
 			{
 				"targetname"   "boss_hint"
 				"display_text" "Uber Generator!"
-				"lifetime"     "6"
+				"lifetime"     "8"
 				"origin" "0 0 0"
 			}
 			OnSpawnOutput
@@ -1423,6 +1422,14 @@ population
 		}
 		trainwarningtemplate
 		{
+			logic_timer
+            {
+                "targetname" "mannpower_kill"
+                "RefireTime" "0.01"
+                "spawnflags" "0"
+                "UseRandomTime" "0"
+                "OnTimer" "item_powerup_rune,kill,,0,-1"
+            }
 			logic_relay
 			{
 				"targetname" "incomingpathswitch_right"
@@ -1521,7 +1528,7 @@ population
                 "health" "10"
                 "pitch" "100"
                 "spawnflags" "17"
-                "message" "#ambient/alarms/train_horn_distant1.wav"
+                "message" "ambient/alarms/train_horn_distant1.wav"
             }
             ambient_generic
             {
@@ -1537,7 +1544,7 @@ population
                 "health" "10"
                 "pitch" "100"
                 "spawnflags" "17"
-                "message" "#ambient\alarms\train_horn2.wav"
+                "message" "ambient\alarms\train_horn2.wav"
             }
 		}
 	}
@@ -1560,6 +1567,7 @@ population
 			WeaponRestrictions	MeleeOnly
 			Attributes SpawnWithFullCharge
 			AlwaysGLow 1
+			UseMeleeThreatPrioritization 1
 			UseCustomModel "models\bots\soldier_boss\bot_soldier_boss_gibby.mdl"
 			SpawnTemplate	bossattachments
 			CharacterAttributes
@@ -1570,7 +1578,12 @@ population
 				"airblast vertical vulnerability multiplier" 0.3
 				"rage giving scale"	0.2
 				"override footstep sound set" 2
+				"cancel falling damage" 1
 //				"cannot pick up intelligence" 1
+			}
+			WeaponResist
+			{
+				"TF_WEAPON_MINIGUN"	0.7
 			}
 			FireInput
 			{
@@ -2519,6 +2532,7 @@ population
 						"Reload time decreased" 0.2
 						"clip size bonus" 0.25
 						"dmg from melee increased" 1
+						"damage bonus" 1.5
 					}
 					FireInput
                     {
@@ -2636,6 +2650,318 @@ population
                         Delay 7
                         Repeats 0
                         Cooldown 8.1
+                    }
+				}
+				spiralrocketattackofdoom
+				{
+					WeaponRestrictions	PrimaryOnly
+					FireInput
+					{
+						Target player
+						Action $SetProp$m_iszClassIcon
+						Param 	soldier_rocketrain_giant
+						Delay 0
+						Cooldown 0
+						Repeats 1
+					}
+					FireInput
+                    {
+                        Target "player"
+                        Action "$playsoundtoself"
+                        Param  "vo\mvm\mght\soldier_mvm_m_directhittaunt04.mp3"
+                        Delay  0
+						 Repeats 1
+                        Cooldown 99
+                    }
+                    FireInput
+                    {
+                        Target "player"
+                        Action "$playsoundtoself"
+                        Param  "vo\mvm\mght\soldier_mvm_m_directhittaunt04.mp3"
+                        Delay  0
+						 Repeats 1
+                        Cooldown 99
+                    }
+					Item "TF_WEAPON_ROCKETLAUNCHER"
+					ItemAttributes
+					{
+						ItemName "TF_WEAPON_ROCKETLAUNCHER"
+						"projectile spread angle penalty" 5
+						"projectile speed decreased" 0.6
+						// "projectile spread angle penalty" 5
+						"faster reload rate" -1
+						"damage bonus" 1.2
+						"faster reload rate" -0.5
+						"fire rate bonus" 0.1
+					}
+					FireInput
+                    {
+                        Target "bossattack_trigger"
+                        Action "Trigger"
+                        Delay 6
+                        Repeats 0
+                        Cooldown 9.1
+                    }
+				}
+				nukermultiple
+				{
+					AimOffset "0 0 700"
+					Item "The Black Box"
+					Attributes SuppressFire
+					WeaponRestrictions PrimaryOnly
+					FireInput
+					{
+						Target player
+						Action $SetProp$m_iszClassIcon
+						Param 		soldier_nuke2
+						Delay 0
+						Cooldown 0
+						Repeats 1
+					}
+					FireInput
+                    {
+                        Target "player"
+                        Action "$playsoundtoself"
+                        Param  "vo\mvm\mght\soldier_mvm_m_autodejectedtie02.mp3"
+                        Delay  0
+						 Repeats 1
+                        Cooldown 99
+                    }
+                    FireInput
+                    {
+                        Target "player"
+                        Action "$playsoundtoself"
+                        Param  "vo\mvm\mght\soldier_mvm_m_autodejectedtie02.mp3"
+                        Delay  0
+						 Repeats 1
+                        Cooldown 99
+                    }
+					FireWeapon    //Periodically fires weapon
+					{
+						Delay 2.5 //Time before the first fire input starts (Default: 10)
+						Cooldown 1 //Time between each fire input (Default: 10)
+						Repeats 5 //How many times should bot use the fire input in total (Default: 0 - Infinite)
+						Duration 0.1 //How long should the button be pressed (Default: 0.1)
+						Type "Primary"
+					}
+					ItemAttributes
+					{
+						ItemName "The Black Box"
+						"damage bonus" 3
+						"damage causes airblast" 1
+						"fire rate bonus" 0.5
+						"use large smoke explosion" 1
+						"projectile gravity" 900
+						"blast radius increased" 2
+						"clip size penalty" 0.25
+						"faster reload rate" -1
+						"Projectile speed increased" 0.7
+						// "custom projectile model" 
+						"custom impact sound" "misc/doomsday_missile_explosion.wav"
+						"projectile trail particle" "spell_fireball_small_red"
+						"projectile sound" "weapons/mortar/mortar_shell_incomming1.wav"
+						"explosion particle" "mvm_hatch_destroy"
+						"hand scale" 1.7
+						"custom kill icon" "megaton"
+						// "mult projectile scale" 1.5
+					}
+					ShootTemplate
+					{
+						Name itscalledflairsir
+						OriginalItemName "The Black Box"
+						AttachToProjectile 1
+					}
+					FireInput
+                    {
+                        Target "bossattack_trigger"
+                        Action "Trigger"
+                        Delay 8
+                        Repeats 0
+                        Cooldown 8.1
+                    }
+				}
+				specialattackjump2
+                {
+					WeaponRestrictions PrimaryOnly
+					Item "the direct hit"
+					Attributes SuppressFire
+					AimAt Feet
+					FireInput
+					{
+						Target player
+						Action $SetProp$m_iszClassIcon
+						Param 		soldier_homing_direct_burst_giant
+						Delay 0
+						Cooldown 0
+						Repeats 1
+					}
+					FireWeapon    //Periodically fires weapon
+					{
+						Delay 4.5 //Time before the first fire input starts (Default: 10)
+						Cooldown 3 //Time between each fire input (Default: 10)
+						Repeats 3 //How many times should bot use the fire input in total (Default: 0 - Infinite)
+						Duration 0.1 //How long should the button be pressed (Default: 0.1)
+						Type "Primary"
+					}
+					FireInput
+                    {
+                        Target "player"
+                        Action "$playsoundtoself"
+                        Param  "vo\mvm\mght\soldier_mvm_m_battlecry05.mp3"
+                        Delay  0
+						 Repeats 1
+                        Cooldown 99
+                    }
+                    FireInput
+                    {
+                        Target "player"
+                        Action "$playsoundtoself"
+                        Param  "vo\mvm\mght\soldier_mvm_m_battlecry05.mp3"
+                        Delay  0
+						 Repeats 1
+                        Cooldown 99
+                    }
+					ItemAttributes
+					{
+						ItemName "the direct hit"
+						"spread angle pattern" "0 25 0|25 0 0|0 -25 0|-25 0 0|0 0 0|15 15 0|15 0 0|0 -15 0|-15 15 0|"
+						"mult projectile count" 9
+						"ignores other projectiles" 1
+                        "projectile speed decreased" 0.3
+                        "mod projectile heat seek power" 60
+                        "mod projectile heat aim error" 360
+                        "mod projectile heat aim time" 0.9
+						"projectile trail particle" "halloween_rockettrail"
+						"faster reload rate" -1
+						"fire rate bonus" 1.35
+					}
+					AddCond
+					{
+						Index 36
+						Duration 10
+					}
+                    AddAttribute
+                    {
+                        Item "player"
+                        Name "no_jump"
+                        Value 1
+                        Delay 0
+                        Cooldown 20
+                    }
+                    FireInput
+                    {
+                        Target "!self"
+                        Action "$PlaySequence"
+                        Param  "taunt_unleashed_rage_soldier"
+                        Delay  0
+						 Repeats 1
+                        Cooldown 99
+                    }
+                    FireInput
+                    {
+                        Target "jumpattack"
+                        Action "Trigger"
+                        Delay 2.5
+                        Repeats 3
+                        Cooldown 3
+                    }
+                    FireInput
+                    {
+                        Target "bossattack_trigger"
+                        Action "Trigger"
+                        Delay 12
+                        Repeats 0
+                        Cooldown 12.1
+                    }
+                }
+				totheskiesandairstrike
+				{
+					Item "The Original"
+					WeaponRestrictions PrimaryOnly
+					Attributes SuppressFire
+					FireWeapon    //Periodically fires weapon
+					{
+						Delay 2.8 //Time before the first fire input starts (Default: 10)
+						Cooldown 4 //Time between each fire input (Default: 10)
+						Repeats 3 //How many times should bot use the fire input in total (Default: 0 - Infinite)
+						Duration 0.15 //How long should the button be pressed (Default: 0.1)
+						Type "Primary"
+					}
+					FireInput
+					{ // this makes the bot move forward in the air
+						Target "!self"
+						Action "RunScriptCode"
+						Param "self.ApplyAbsVelocityImpulse(Vector(0,0,1300))"
+						Delay 2
+						Repeats 3
+						Cooldown 4
+					}
+					VoiceCommand
+					{
+						Delay 1.7
+						Cooldown 99
+						Repeats 1
+						Type "Cheers"
+                    }
+					FireInput
+					{ // this makes the bot move forward in the air
+						Target "player"
+						Action "$PlaySoundToSelf"
+						Param "=140|misc\halloween\spell_meteor_cast.wav"
+						Delay 2
+						Repeats 3
+						Cooldown 4
+					}
+					FireInput
+                    {
+                        Target "player"
+                        Action "$playsoundtoself"
+                        Param  "vo\mvm\mght\taunts\soldier_mvm_m_taunts05.mp3"
+                        Delay  0
+						 Repeats 1
+                        Cooldown 99
+                    }
+                    FireInput
+                    {
+                        Target "player"
+                        Action "$playsoundtoself"
+                        Param  "vo\mvm\mght\taunts\soldier_mvm_m_taunts05.mp3"
+                        Delay  0
+						 Repeats 1
+                        Cooldown 99
+                    }
+					HomingRockets   
+					{
+						IgnoreDisguisedSpies 1 
+						IgnoreStealthedSpies 1 
+						RocketSpeed 0.1
+						TurnPower 360
+						MaxAimError 360
+						AimTime 2.5
+						Acceleration 9999
+						AccelerationTime 9999
+						AccelerationStartTime 2.5
+					}
+					ItemAttributes
+					{
+						ItemName "The Original"
+						"add cond when active" 36
+						"clip size upgrade atomic" 12
+						"fire rate bonus" 0.001
+						"damage bonus" 0.7
+						"faster reload rate" -1
+						"projectile spread angle penalty" 180
+						"ignores other projectiles" 1
+						"projectile trail particle" "halloween_rockettrail"
+						"projectile no deflect" 1
+					}
+					 FireInput
+                    {
+                        Target "bossattack_trigger"
+                        Action "Trigger"
+                        Delay 12
+                        Repeats 0
+                        Cooldown 12.1
                     }
 				}
 			}
@@ -4041,18 +4367,18 @@ population
 			WaitForAllDead	Main1
 			Name	Main2
 			TotalCurrency	100
-			TotalCount	8
-			MaxActive	6
-			SpawnCount	2
+			TotalCount	4
+			MaxActive	4
+			SpawnCount	1
 			Where	spawnbot
 			Where 	spawnbot_aggr
 			Where 	spawnbot_right
 			WaitBeforeStarting	0
-			WaitBetweenSpawns	10
+			WaitBetweenSpawns	13
 			RandomSpawn 1
 			TFBot
 			{
-				Template	T_TFBot_Giant_Scout_FAN
+				Template	T_TFBot_Giant_Scout_Baseball_Armored
 				Tag giant
 			}
 		}
@@ -4062,7 +4388,7 @@ population
 			Name	Main2b
 			TotalCurrency	50
 			TotalCount	20
-			MaxActive	8
+			MaxActive	10
 			SpawnCount	4
 			Where	spawnbot
 			WaitBeforeStarting	8
@@ -4077,22 +4403,41 @@ population
 		}
 		WaveSpawn
 		{
-			WaitForAllDead	Main1
-			Name	Main2b
+			WaitForAllSpawned	Main2b
+			Name	Main2ba
 			TotalCurrency	50
-			TotalCount	16
-			MaxActive	10
+			TotalCount	12
+			MaxActive	6
 			SpawnCount	2
 			Where	spawnbot
 			WaitBeforeStarting	0
-			WaitBetweenSpawns	6
+			WaitBetweenSpawns	7
 			RandomSpawn 1
 			Squad
 			{
 				TFBot
-				{
-					Template	T_TFBot_Demo_Burst
-				}
+                {
+                    Class Soldier
+                    Skill Hard
+                    ClassIcon soldier_burstfire_armored_yoovy
+                    Health 900
+                    Name "Armored Burst Fire Soldier"
+                    Scale 1.4
+                    Attributes HoldFireUntilFullReload
+                    NoBombUpgrades 1
+                    ItemAttributes
+                    {
+                        ItemName "TF_WEAPON_ROCKETLAUNCHER"
+                        "faster reload rate" 0.7
+                        "fire rate bonus" 0.2
+                        "clip size upgrade atomic" 2.0
+						"projectile speed increased" 0.6
+                    }
+                    CharacterAttributes
+                    {
+                        "head scale" 0.7
+                    } 
+                }
 				TFBot
 				{
 					Template	T_TFBot_Medic_BigHeal
@@ -4104,30 +4449,29 @@ population
 			WaitForAllSpawned	Main2
 			Name	Main3
 			TotalCurrency	200
-			TotalCount	4
-			MaxActive	4
-			SpawnCount	2
+			TotalCount	3
+			MaxActive	3
+			SpawnCount	1
 			Where	spawnbot
 			WaitBeforeStarting	0
 			WaitBetweenSpawns	15
 			RandomSpawn 1
 			TFBot
 			{
-				Template	T_TFBot_Giant_Soldier_Spammer
+				Template	T_TFBot_Giant_Heavyweapons
 				Tag giant
 			}
 		}
 		WaveSpawn
 		{
-			WaitForAllDead	Main1b
 			WaitForAllSpawned	Main2
 			Name	Main3b
 			TotalCurrency	100
-			TotalCount	12
-			MaxActive	6
+			TotalCount	30
+			MaxActive	10
 			SpawnCount	2
 			Where	spawnbot
-			WaitBeforeStarting	5
+			WaitBeforeStarting	20
 			WaitBetweenSpawns	4
 			RandomSpawn 1
 			Support	1
@@ -4138,6 +4482,7 @@ population
                 Skill Hard
                 Item "The Beggar's Bazooka"
                 ClassIcon 	soldier_bazooka
+				Tag flank
                 ItemAttributes
                 {
                     ItemName "The Beggar's Bazooka"
@@ -4296,17 +4641,16 @@ population
 			WaitForAllDead	Main1
 			Name	Main2b
 			TotalCurrency	100
-			TotalCount	40
+			TotalCount	32
 			MaxActive	12
 			SpawnCount	4
 			Where	spawnbot
 			Where	spawnbot
 			Where	spawnbot_aggr
 			Where	spawnbot_right
-			WaitBeforeStarting	20
+			WaitBeforeStarting	10
 			WaitBetweenSpawns	6
 			RandomSpawn 1
-			Support 1
 			RandomChoice
 			{
 				TFBot
@@ -4328,14 +4672,15 @@ population
 				Shuffle 1
 			}
 		}
+		
 		WaveSpawn
 		{
 			WaitForAllSpawned	Main2
 			Name	Main3
-			TotalCurrency	180
-			TotalCount	10
-			MaxActive	10
-			SpawnCount	5
+			TotalCurrency	90
+			TotalCount	2
+			MaxActive	2
+			SpawnCount	2
 			Where	spawnbot
 			WaitBeforeStarting	15
 			WaitBetweenSpawns	15
@@ -4360,7 +4705,7 @@ population
 				TFBot
                 {
                     Class Medic
-                    Name "Shield Basher"
+                    Name "Armored BigHeal Shield Medic"
                     Skill Expert
                     ClassIcon 	medic_quickfix_armored_shield
                     WeaponRestrictions SecondaryOnly
@@ -4383,8 +4728,9 @@ population
                     {
                         ItemName tf_weapon_medigun
                         "ubercharge rate penalty" -3
-                        "generate rage on heal" 1
+                        "generate rage on heal" 2
                         "increase buff duration" 999
+						"heal rate bonus" 10
                     }
                     CharacterAttributes
                     {
@@ -4393,38 +4739,55 @@ population
                         "mod soldier buff type" 5
                         "deploy time increased" 1.34
                     }
-                }
-				TFBot
-				{
-					Template T_TFBot_Medic
 				}
-				TFBot
+			}
+		}
+		WaveSpawn
+		{
+			Name ""
+			WaitForAllSpawned "Main3"
+			Where spawnbot_aggr
+			Where spawnbot_right
+			TotalCount 2
+			MaxActive 2
+			SpawnCount 1
+			WaitBeforeStarting 10
+			WaitBetweenSpawns 0
+		
+			TotalCurrency 90
+		
+			TFBot
+			{
+				Class Demoman
+				Name "Major Barrage"
+				Skill Expert
+				ClassIcon 		demo_scatter_giant
+				Health 4000
+				Attributes HoldFireUntilFullReload
+				Attributes MiniBoss
+				WeaponRestrictions PrimaryOnly
+				Item "Scotch Bonnet"
+				ItemAttributes
 				{
-					Name  "Kritzkrieg Medic"
-					Class  Medic
-					ClassIcon  medic_kritz
-					Skill  Expert
-					Attributes  SpawnWithFullCharge
-					Attributes IgnoreFlag
-					Item  "The Overdose"
-					Item  "The Kritzkrieg"
-					Item  "The Weather Master"
-					ItemAttributes
-					{
-						ItemName  "The Kritzkrieg"
-						"ubercharge rate bonus"  100
-						"uber duration bonus"  100
-					}
-					CharacterAttributes
-					{
-						"bot medic uber health threshold"  999
-						"heal rate bonus"  10
-					}
+					ItemName "TF_WEAPON_GRENADELAUNCHER"
+					"clip size upgrade atomic" 41.0
+					"damage bonus" 0.7
+					"fire rate bonus" 0.15
+					"Projectile speed increased" 0.88
+					"projectile spread angle penalty" 2.33
+					"faster reload rate" 0.09
+					"heal on hit for rapidfire" 3
+					"fuse bonus" 0.85
 				}
-				TFBot
+				
+				CharacterAttributes
 				{
-					Template T_TFBot_Medic
+					"move speed bonus"	0.5
+					"damage force reduction" 0.5
+					"airblast vulnerability multiplier" 0.5
+					"override footstep sound set" 4
 				}
+
 			}
 		}
 		WaveSpawn
@@ -4433,13 +4796,13 @@ population
 			Name	Main3b
 			TotalCurrency	100
 			TotalCount	30
-			MaxActive	6
-			SpawnCount	2
+			MaxActive	18
+			SpawnCount	4
 			Where	spawnbot
 			Where	spawnbot
 			Where	spawnbot_right
 			WaitBeforeStarting	5
-			WaitBetweenSpawns	6
+			WaitBetweenSpawns	4
 			RandomSpawn 1
 			Support 1
 			RandomChoice
@@ -4449,12 +4812,10 @@ population
 				{
 					Template	T_TFBot_Pyro
 					Skill	Easy
-					Attributes	AlwaysCrit
 				}
 				TFBot
 				{
 					Template	T_TFBot_Pyro
-					Attributes	AlwaysCrit
 					Skill	Easy
 					Tag flank
 				}
@@ -4512,7 +4873,7 @@ population
 			TotalCount 20
 			MaxActive 15
 			SpawnCount 5
-			WaitBeforeStarting 11
+			WaitBeforeStarting 8
 			WaitBetweenSpawns 9
 		
 			TotalCurrency 50
@@ -4573,7 +4934,7 @@ population
 			MaxActive 15
 			SpawnCount 5
 			WaitBeforeStarting 4.1
-			WaitBetweenSpawns 7
+			WaitBetweenSpawns 6.5
 		
 			TotalCurrency 50
 			RandomChoice
@@ -4590,8 +4951,8 @@ population
 					Scale 1.3
 					Attributes AirChargeOnly
 					Attributes AutoJump
-					AutoJumpMin 10
-					AutoJumpMax 10
+					AutoJumpMin 7
+					AutoJumpMax 7
 					ItemAttributes
 					{
 						ItemName "The Chargin' Targe"
@@ -4618,8 +4979,8 @@ population
 					Scale 1.3
 					Attributes AirChargeOnly
 					Attributes AutoJump
-					AutoJumpMin 10
-					AutoJumpMax 10
+					AutoJumpMin 7
+					AutoJumpMax 7
 					ItemAttributes
 					{
 						ItemName "The Chargin' Targe"
@@ -4642,9 +5003,9 @@ population
 			Name "w6b"
 			WaitForAllDead "w6a"
 			Where spawnbot
-			TotalCount 3
-			MaxActive 3
-			SpawnCount 3
+			TotalCount 4
+			MaxActive 4
+			SpawnCount 4
 			WaitBeforeStarting 5.5
 			WaitBetweenSpawns 0
 			FirstSpawnWarningSound "music/hl1_song17.mp3"
@@ -4697,7 +5058,7 @@ population
 						"paintkit_proto_def_index" 431 //Blackout
 						"clip size upgrade atomic" 26
 						"set_item_texture_wear" 0
-						"faster reload rate" 0.2
+						"faster reload rate" 0.15
 						"fire rate bonus" 0.05f
 					}
 
@@ -4763,18 +5124,19 @@ population
 			Name "w6bsupp"
 			WaitForAllDead "w6a"
 			Where spawnbot_aggr
+            Where spawnbot_right
 			TotalCount 40
 			MaxActive 16
 			SpawnCount 6
 			WaitBeforeStarting 10
-			WaitBetweenSpawns 8
+			WaitBetweenSpawns 7
 		
 			TotalCurrency 50
 		
 			TFBot
 			{ 
 				Class Scout
-				Skill Normal
+				Skill Hard
 			}
 		}
 		WaveSpawn
@@ -4782,11 +5144,11 @@ population
 			Name ""
 			WaitForAllDead "w6a"
 			Where spawnbot_right
-			TotalCount 9
-			MaxActive 9
+			TotalCount 12
+			MaxActive 12
 			SpawnCount 3
 			WaitBeforeStarting 10
-			WaitBetweenSpawns 25
+			WaitBetweenSpawns 18
 		
 			TotalCurrency 50
 			Squad
@@ -4817,11 +5179,11 @@ population
 			Where spawnbot
 			Where spawnbot_aggr
 			Where spawnbot_right
-			TotalCount 6
+			TotalCount 10
 			MaxActive 6
 			SpawnCount 1
 			WaitBeforeStarting 7
-			WaitBetweenSpawns 3
+			WaitBetweenSpawns 2.5
 		
 			TotalCurrency 25
 		
@@ -4835,8 +5197,8 @@ population
             Name ""
             WaitForAllDead "w6cs"
             Where spawnbot
-            TotalCount 5
-            MaxActive 5
+            TotalCount 8
+            MaxActive 8
             SpawnCount 1
             WaitBeforeStarting 0
             WaitBetweenSpawns 1.5
@@ -4923,7 +5285,7 @@ population
 			WaitForAllDead "w6b"
 			Where spawnbot
 			TotalCount 4
-			MaxActive 3
+			MaxActive 4
 			SpawnCount 1
 			WaitBeforeStarting 8
 			WaitBetweenSpawns 10
@@ -4957,7 +5319,7 @@ population
 				{
 					ItemName "TF_WEAPON_PIPEBOMBLAUNCHER"
 					"stickybomb charge rate" 0.0001
-					"faster reload rate" 0.6
+					"faster reload rate" 0.4
 					"fire rate bonus" 0.01
 					"Projectile range increased" 0.4
 					"projectile spread angle penalty" 5
@@ -4976,11 +5338,11 @@ population
 			Name "w6csupp"
 			WaitForAllDead "w6b"
 			Where spawnbot_right
-			TotalCount 12
+			TotalCount 18
 			MaxActive 12
 			SpawnCount 3
 			WaitBeforeStarting 0
-			WaitBetweenSpawns 7
+			WaitBetweenSpawns 5
 		
 			TotalCurrency 50
 			Squad
@@ -5089,7 +5451,7 @@ population
 		}
 		WaveSpawn
 		{
-			Support 1
+            Support 1
 		    Squad
 		    {
 		        TFBot
@@ -5115,10 +5477,6 @@ population
 				TFBot
 		        {
 		            ClassIcon soldier_rocketrain_giant
-		        }
-				TFBot
-		        {
-		            ClassIcon soldier_spammer
 		        }
 				TFBot
 		        {
