@@ -7196,9 +7196,9 @@ AddThinkToEnt(SeelRuntime.hBombTF, `Balls2BombsThink`)
 		{
 			Name "Icon For Supports So They Actually Show Up"
 			WaitForAllDead "Support"
-			TotalCount 3
-			MaxActive 3
-			SpawnCount 3
+			TotalCount 4
+			MaxActive 4
+			SpawnCount 4
 			Support Limited
 			Squad
 			{
@@ -7774,6 +7774,12 @@ SINS.ChangeIconFlags(`tf2_lite_crit`,17)"
 			Support Limited
 			Squad
 			{
+				TFBot
+				{
+					Class Scout
+					Health 5
+					ClassIcon scout_golden_lite
+				}
 				TFBot
 				{
 					Class Scout
