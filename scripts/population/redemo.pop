@@ -310,7 +310,7 @@ WaveSchedule
             Description "Reload more per hit"
             Cap 4
             Increment 1
-            Cost 300
+            Cost 250
 			AllowedWeapons
 			{
 				SimilarToItem "The Scottish Resistance"
@@ -433,7 +433,7 @@ WaveSchedule
 			Description "Drop red money instead green money"
 			Increment 1
 			Cap 1
-			Cost 250
+			Cost 200
 			AllowedWeapons
 			{
 				ItemName "The Scottish Resistance"
@@ -446,7 +446,7 @@ WaveSchedule
 			Attribute "mult credit collect range"
 			Increment 1
 			Cap 4
-			Cost 150
+			Cost 100
 			AllowedWeapons
 			{
 				ItemName "The Chargin' Targe"
@@ -458,11 +458,11 @@ WaveSchedule
 		
 		HealthFromMoney
 		{
-			Name "+20 Health on Money"
+			Name "+40 Health on Money"
 			Attribute "health from credits"
-			Increment 20
-			Cap 80
-			Cost 150
+			Increment 40
+			Cap 160
+			Cost 100
 			AllowedWeapons
 			{
 				ItemName "The Chargin' Targe"

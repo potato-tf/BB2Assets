@@ -1242,7 +1242,7 @@ WaveSchedule
 			"
 		}
 		
-		Explanation    //Displayed once the wave is initialized
+		Explanation [$SIGSEGV]  //Displayed once the wave is initialized
 		{
 			Line "{white}..."
 			Line "{white}..."
@@ -1279,11 +1279,11 @@ WaveSchedule
 			Line "{green}B.A.S.E Jumper - Steel Parachute (250$)"
 			Line "{green}Loose Cannon - Superdonk (400$)"
 			Line "{green}Stock Sticky, ScotRes, Quickie - Reload Primary On Hit (500$)"
-			Line "{green}Stock Sticky, ScotRes, Quickie - Reload More (300$)(need to upgrade Reload Primary On Hit first)"
-			Line "{green}ScotRes - Red Money (250$)"
+			Line "{green}Stock Sticky, ScotRes, Quickie - Reload More (250$)(need to upgrade Reload Primary On Hit first)"
+			Line "{green}ScotRes - Red Money (200$)"
 			Line "{green}Any Shield - Blast to Bullet (Price is Free)"
-			Line "{green}Any Shield - +100% Credit Collect Range (150$, Max 4)"
-			Line "{green}Any Shield - +20 Health on Money (150$, Max 4)"
+			Line "{green}Any Shield - +100% Credit Collect Range (100$, Max 4)"
+			Line "{green}Any Shield - +40 Health on Money (100$, Max 4)"
 		}
 		
 		SpawnTemplate
