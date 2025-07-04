@@ -1,5 +1,5 @@
 //My name is Edwin. I made the Mimic
-
+//POST-LAUNCH changes, July Fourth
 #base robot_giant.pop
 #base robot_standard.pop
 #base robot_gatebot.pop
@@ -1265,6 +1265,10 @@ population
 					Classicon demo_spammer
 					Health 3000
 					MaxVisionRange 1200
+CharacterAttributes
+					{
+					"move speed bonus" 0.4
+					}
             }
 		}
 		WaveSpawn
@@ -1343,7 +1347,7 @@ population
 					Classicon Scout_bat
 					CharacterAttributes
 					{
-					"move speed bonus" 0.67
+					"move speed bonus" 0.5
 					}
 				}
 		}
@@ -1368,7 +1372,7 @@ population
 					Classicon Scout_bat
 					CharacterAttributes
 					{
-					"move speed bonus" 0.67
+					"move speed bonus" 0.5
 					}
 				}
 		}
@@ -1492,7 +1496,7 @@ population
 			    TFBot
 				{
 					Template T_tindals_stand_in_But_with_added_stuff_thanks_tindal
-					health 10000
+					health 9000
 				}
 		}
 		WaveSpawn
@@ -1512,7 +1516,7 @@ population
 			    TFBot
 				{
 					Template T_tindals_stand_in_But_UBER_TANK
-					Health 7500
+					Health 6500
 				}
 		}
 		WaveSpawn
@@ -1669,10 +1673,10 @@ population
 			    TFBot
 				{
 					Template T_tindals_stand_in_But_with_added_stuff_thanks_tindal
-					Health 9000
+					Health 8000
 					CharacterAttributes
 					{
-					"move speed bonus"								0.419
+					"move speed bonus"								0.420
 					}
 				}
 		}
@@ -2074,17 +2078,17 @@ population
 		{
 		ItemName "The Big Earner"
 		"damage bonus" 1.5
-		//"fire rate bonus" 0.85
-				"dmg bonus vs buildings" 1.25
+		"fire rate bonus" 0.85
+				"dmg bonus vs buildings" 2
 		"killstreak tier" 1
 		}
 			    
 				CharacterAttributes
 				{
 				"add cond on kill" 9
-				"move speed as health decreases" 1.05
+				"move speed as health decreases" 1.2
 				"add cond on kill duration" 5
-				"move speed penalty" 0.9
+				//"move speed penalty" 0.9
 				"dmg pierces resists absorbs" 1
 				"hand scale" 1.5
 				"airblast vulnerability multiplier"	0.01
@@ -2126,7 +2130,7 @@ population
 			MaxActive	1
 			SpawnCount	1
 			WaitBeforeStarting 1
-			WaitBetweenSpawnsAfterDeath 3
+			//WaitBetweenSpawnsAfterDeath 3
 			Support 1
 			Where spawnbot_g0s1_alt
 		    Where spawnbot_g0s2_alt
@@ -2538,7 +2542,7 @@ population
 		{
 			TotalCount 60
 			MaxActive 9
-			SpawnCount 3
+			SpawnCount 1
 			Waitbeforestarting 1
 			WaitBetweenSpawns 0
 			Where spawnbot_g0s1_alt
@@ -2781,7 +2785,8 @@ population
 				"projectile spread angle penalty" 20
 				"projectile speed increased" 0.4
 				"fire rate bonus" 0.1
-				"faster reload rate" 0.15
+                                "damage bonus" 1.5
+				"faster reload rate" 0.123
 				//"override projectile type"	15
 			}
 			CharacterAttributes
@@ -3060,7 +3065,7 @@ population
 			TotalCount 12
 			MaxActive 4
 			SpawnCount 1
-			Waitbeforestarting 15
+			Waitbeforestarting 10
 			TotalCurrency 50
 			Where spawnbot_g0s1_alt
 		    Where spawnbot_g0s2_alt
@@ -3068,7 +3073,7 @@ population
 		    Where spawnbot_g1s1_alt
 		    Where spawnbot_g2s0_alt
 		    Where spawnbot_g2s1_alt
-			WaitBetweenSpawns 8.5
+			WaitBetweenSpawns 7.5
 			TFBot
 			{
 			Template T_TFBot_Giant_Scout_FAN
@@ -3179,7 +3184,7 @@ population
 			ItemAttributes
 			{
 				ItemName "The Killing Gloves of Boxing"
-				"fire rate penalty" 1.4
+				"fire rate penalty" 1.1
 				"killstreak tier" 1
 				"melee range multiplier" 43
 				"apply look velocity on damage" -1200
@@ -3539,7 +3544,7 @@ population
 		{
 		    Waitforalldead 61
 			TotalCount 12
-			MaxActive 6
+			MaxActive 3
 			SpawnCount 3
 			Waitbeforestarting 1
 			TotalCurrency 25
@@ -3561,7 +3566,7 @@ population
 		{
 		    Waitforallspawned 6-smalliepyroies
 			TotalCount 25
-			MaxActive 6
+			MaxActive 3
 			SpawnCount 1
 			Support 1
 			Waitbeforestarting 5
@@ -3599,7 +3604,7 @@ population
 		{
 		    Waitforalldead 6-smalliepyroies
 			TotalCount 25
-			MaxActive 6
+			MaxActive 2
 			SpawnCount 1
 			Support 1
 			Waitbeforestarting 20
