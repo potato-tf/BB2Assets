@@ -80,7 +80,7 @@ const SLOT_COUNT = 7
 const EFL_USER = 1048576 // EFL_IS_BEING_LIFTED_BY_BARNACLE
 const EFL_USER2 = 1073741824 //EFL_NO_PHYSCANNON_INTERACTION
 const SINGLE_TICK = 0.015
-const DMG_NO_BULLET_FALLOFF = 2097152 
+const DMG_NO_BULLET_FALLOFF = 2097152
 
 PrecacheSound("ambient/energy/weld1.wav")
 PrecacheSound("ambient/energy/weld2.wav")
@@ -112,11 +112,11 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
 
 // we love shitscripting
 
-::crocBossScript <- 
+::crocBossScript <-
 {
-    IsWaveStarted = false 
+    IsWaveStarted = false
 
-    IsAlive = function(player) 
+    IsAlive = function(player)
     {
 		return GetPropInt(player, "m_lifeState") == 0
 	}
@@ -129,7 +129,7 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
             AddThinkToEnt(player, null)
             player.SetScriptOverlayMaterial("")
         }
-        
+
         // keep this at the end
         delete ::crocBossScript
     }
@@ -148,38 +148,38 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
                 ////printl("killing: "+ent)
                 ent.Kill()
             }
-            // else 
+            // else
             // {
             //     //printl("we found "+ent+" but it doesnt match our stuff")
             // }
         }
     }
-    
+
     // mandatory events
-    OnGameEvent_recalculate_holidays = function(_) 
-    { 
-        if (GetRoundState() == 3) 
+    OnGameEvent_recalculate_holidays = function(_)
+    {
+        if (GetRoundState() == 3)
         {
             Cleanup()
-        } 
+        }
     }
-    OnGameEvent_mvm_wave_complete = function(_) 
+    OnGameEvent_mvm_wave_complete = function(_)
     {
         CleanTargets()
-        Cleanup() 
-    } 
-    
-    OnGameEvent_mvm_wave_failed = function(params) 
-    { 
+        Cleanup()
+    }
+
+    OnGameEvent_mvm_wave_failed = function(params)
+    {
         CleanTargets()
     }
 
-    OnGameEvent_mvm_reset_stats = function(params) 
-    { 
+    OnGameEvent_mvm_reset_stats = function(params)
+    {
         CleanTargets()
-    } 
+    }
 
-    OnGameEvent_player_death = function(params) 
+    OnGameEvent_player_death = function(params)
     {
         local player = GetPlayerFromUserID(params.userid);
         local attacker = GetPlayerFromUserID(params.attacker);
@@ -204,10 +204,10 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
         }
     }
 
-    OnGameEvent_mvm_pickup_currency = function(params) 
+    OnGameEvent_mvm_pickup_currency = function(params)
     {
-        local player = params.player 
-        local currency = params.currency 
+        local player = params.player
+        local currency = params.currency
 
         local player_entity = EntIndexToHScript(player)
 
@@ -217,9 +217,9 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
         }
     }
 
-    OnGameEvent_player_used_powerup_bottle = function(params) 
+    OnGameEvent_player_used_powerup_bottle = function(params)
     {
-        local player = params.player 
+        local player = params.player
         local canteen = params.type
 
         local player_ent = EntIndexToHScript(player)
@@ -233,10 +233,10 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
         }
     }
 
-    OnGameEvent_player_healed = function(params) 
-    { 
-        local patient = params.patient 
-        local healer = params.healer 
+    OnGameEvent_player_healed = function(params)
+    {
+        local patient = params.patient
+        local healer = params.healer
         // local amount = params.amount
 
         local entity = GetPlayerFromUserID(params.patient)
@@ -256,7 +256,7 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
             ////printl("healer is player: "+healer_entity)
             CureVirus(entity, false)
         }
-    } 
+    }
 
     OnGameEvent_player_spawn = function(params)
     {
@@ -321,7 +321,7 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
                     {
                         enemy.TakeDamageCustom(null, WORLD_SPAWN, null, Vector(0, 0, 0), enemy.GetOrigin(), 750, 8192, 81)
                     }
-                    else 
+                    else
                     {
                         enemy.TakeDamageCustom(null, WORLD_SPAWN, null, Vector(0, 0, 0), enemy.GetOrigin(), 99999, 8192, 81)
                     }
@@ -376,7 +376,7 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
                 local average = Vector(average_origin_x, average_origin_y, average_origin_z)
 
                 local nav_table_average = {}
-                NavMesh.GetNavAreasInRadius(average, 2000, nav_table_average) 
+                NavMesh.GetNavAreasInRadius(average, 2000, nav_table_average)
 
                 foreach(id, nav in nav_table_average)
                 {
@@ -385,7 +385,7 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
                         spots.append(nav)
                     }
                 }
-                
+
                 local nav = spots[RandomInt(0, spots.len() - 1)]
                 local spot = nav.FindRandomSpot()
 
@@ -403,8 +403,8 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
                 ({
                     sound_name = "ambient/lair/crocs_swim_burst.wav",
                     origin = spot,
-                    sound_level = soundlevel 
-                }); 
+                    sound_level = soundlevel
+                });
                 EntFireByHandle(self, "RunScriptCode", "DispatchParticleEffect(`target_break_initial_dust`, activator.GetOrigin(), Vector(-90, 0, 0))", 0, warning, warning)
                 EntFireByHandle(self, "RunScriptCode", "DispatchParticleEffect(`target_break_initial_dust`, activator.GetOrigin(), Vector(-90, 0, 0))", 0.5, warning, warning)
                 EntFireByHandle(self, "RunScriptCode", "DispatchParticleEffect(`target_break_initial_dust`, activator.GetOrigin(), Vector(-90, 0, 0))", 1, warning, warning)
@@ -423,7 +423,7 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
             return -1
         }
 
-        local CrocodileEventDummy = SpawnEntityFromTable("info_target", 
+        local CrocodileEventDummy = SpawnEntityFromTable("info_target",
         {
             targetname = "crocodile_event"
             origin = "0 0 0"
@@ -438,7 +438,7 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
         DummyScope.iSuccessAttackCount <- 0
         DummyScope.InitiateCrocodileAttack <- InitiateCrocodileAttack
         DummyScope.DispatchParticleEffectEx <- DispatchParticleEffectEx
-        
+
         AddThinkToEnt(CrocodileEventDummy, "CrocodileEventThink")
 
         EntFireByHandle(CrocodileEventDummy, "Kill", "", iCrocCount + 2, CrocodileEventDummy, CrocodileEventDummy)
@@ -532,7 +532,7 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
                 }
             }
 
-            foreach (key, entry in tPlayersToRegenerate)    
+            foreach (key, entry in tPlayersToRegenerate)
             {
                 local victim = entry.victim
                 local attacker = entry.attacker
@@ -548,7 +548,7 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
 
             if ((flVirusTime + 0.75) <= cur_time)
             {
-                foreach (key, entry in tPlayersToRegenerate)    
+                foreach (key, entry in tPlayersToRegenerate)
                 {
                     local victim = entry.victim
                     local attacker = entry.attacker
@@ -593,7 +593,7 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
                             {
                                 victim.AddCustomAttribute("dmg penalty vs players", sniper_dmg_penalty - 0.05, -1)
                             }
-                            else 
+                            else
                             {
                                 victim.AddCustomAttribute("damage penalty", dmg_penalty - 0.05, -1)
                             }
@@ -606,15 +606,16 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
                             sound_name = "physics/flesh/flesh_bloody_break.wav",
                             origin = victim.GetOrigin(),
                             volume = 1
-                            sound_level = sound_range 
-                            entity = victim 
+                            sound_level = sound_range
+                            entity = victim
                             filter = RECIPIENT_FILTER_SINGLE_PLAYER
                         });
 
-                        SendGlobalGameEvent("player_healonhit", 
+                        SendGlobalGameEvent("player_healonhit",
                         {
                             entindex = victim.entindex(),
-                            amount = -3
+                            amount = -3,
+                            weapon_def_index = 65535 // INVALID_ITEM_DEF_INDEX
                         });
 
                         // for some reason if sethealth goes below 0, the player lives
@@ -623,7 +624,7 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
                         {
                             victim.SetHealth(victim.GetHealth() - 3)
                         }
-                        else 
+                        else
                         {
                             victim.SetScriptOverlayMaterial("")
                             victim.TakeDamageCustom(null, attacker, attacker.GetActiveWeapon(), Vector(0, 0, 0), victim.GetOrigin(), 99999, 4096 + 131072, 16)
@@ -657,7 +658,7 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
 
         for (local ent; ent = FindByClassname(ent, "info_target");)
         {
-            local found_ent = false 
+            local found_ent = false
 
             if (ent.GetName() == "crocodile_virus")
             {
@@ -676,7 +677,7 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
             return
         }
 
-        local VirusDummy = SpawnEntityFromTable("info_target", 
+        local VirusDummy = SpawnEntityFromTable("info_target",
         {
             targetname = "crocodile_virus"
             origin = "0 0 0"
@@ -687,7 +688,7 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
 
         DummyScope.tPlayersToRegenerate <- []
         DummyScope.flVirusTime <- 0
-        
+
         AddThinkToEnt(VirusDummy, "VirusThink")
     }
 
@@ -711,7 +712,7 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
                 local VirusArray = VirusScope.tPlayersToRegenerate
                 //PrintTable(VirusArray)
 
-                for (local i = VirusArray.len() - 1; i >= 0; i--) 
+                for (local i = VirusArray.len() - 1; i >= 0; i--)
                 {
                     local victim = VirusArray[i].victim
                     local boolean = VirusArray[i].bCured
@@ -722,7 +723,7 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
                         ////printl("curing: "+victim)
                         VirusArray.remove(i)
                         //printl(boolean)
-                        boolean = true 
+                        boolean = true
                         //printl(boolean)
                         player.SetScriptOverlayMaterial("")
                         player.AddCondEx(121, 5, null)
@@ -737,25 +738,26 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
                         {
                             victim.RemoveCustomAttribute("dmg penalty vs players")
                         }
-                        else 
+                        else
                         {
                             victim.RemoveCustomAttribute("damage penalty")
                         }
-                        
+
                         if (death_boolean == false)
                         {
                             ClientPrint(player, 4, "You're cured! You cannot be infected for 5 seconds!")
                         }
 
-                        for (local child = player.FirstMoveChild(); child != null; child = child.NextMovePeer())
+                        for (local next, child = player.FirstMoveChild(); child; child = next)
                         {
-                            if (child.IsValid() && child.GetName() == "skulls_sickness")
+                            next = child.NextMovePeer()
+                            if (child.GetName() == "skulls_sickness")
                             {
-                                child.Destroy()
+                                child.Kill()
                             }
                         }
                     }
-                    else 
+                    else
                     {
                         continue
                     }
@@ -773,13 +775,13 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
             //printl("WARNING: Start delay is slower then end delay! Particle may not spawn!")
         }
 
-        local particle = SpawnEntityFromTable("info_particle_system", 
+        local particle = SpawnEntityFromTable("info_particle_system",
         {
-            effect_name = name, 
+            effect_name = name,
             targetname = "temporary"
             origin = origin
             angles = angles
-        })  
+        })
 
         if (will_parent == true)
         {
@@ -787,7 +789,7 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
         }
 
         if (ent_attachment != null)
-        {   
+        {
             SetPropEntityArray(particle, "m_hControlPointEnts", ent_attachment, 0);
         }
 
@@ -795,7 +797,7 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
         {
             particle.AcceptInput("Start", "", null, null)
         }
-        else 
+        else
         {
             EntFireByHandle(particle, "Start", "", delay_start, null, null);
         }
@@ -811,7 +813,7 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
 
     InitiateCrocodileAttack = function(origin, ent)
     {
-        local enemy_classnames = 
+        local enemy_classnames =
         {
             "player" : 1
             "obj_teleporter" : 1
@@ -896,25 +898,25 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
                     if (check_croc == null)
                     {
                         //use trace so we can find the exact spot rather then doing weird ass .length shit that hurts my brain
-                        local trace = 
+                        local trace =
                         {
                             start = found_origin,  // Starting point of the line
                             end = found_origin + Vector(0, 0, -125),  // Ending point of the line
                             hullmin = Vector(-1, -1, -1),  // Min hull extents
                             hullmax = Vector(1, 1, 1)  // Max hull extents
-                            mask = (CONTENTS_SOLID|CONTENTS_MOVEABLE|CONTENTS_WINDOW|CONTENTS_GRATE),    
-                            ignore = self           
+                            mask = (CONTENTS_SOLID|CONTENTS_MOVEABLE|CONTENTS_WINDOW|CONTENTS_GRATE),
+                            ignore = self
                         }
-                        
+
                         TraceHull(trace)
-                        
-                        if (trace.hit) 
+
+                        if (trace.hit)
                         {
                            // //printl("Hit at: " + trace.pos)  // This will be the closest point on the line that was hit
                             area_to_use = trace.pos
                         }
                     }
-                    else 
+                    else
                     {
                         area_to_use = found_origin
                     }
@@ -941,8 +943,8 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
                     ({
                         sound_name = "ambient/lair/crocs_swim_burst.wav",
                         origin = area_to_use,
-                        sound_level = soundlevel 
-                    }); 
+                        sound_level = soundlevel
+                    });
                     EntFireByHandle(self, "RunScriptCode", "DispatchParticleEffect(`target_break_initial_dust`, activator.GetOrigin(), Vector(-90, 0, 0))", 0, warning, warning)
                     EntFireByHandle(self, "RunScriptCode", "DispatchParticleEffect(`target_break_initial_dust`, activator.GetOrigin(), Vector(-90, 0, 0))", 0.5, warning, warning)
                     EntFireByHandle(self, "RunScriptCode", "DispatchParticleEffect(`target_break_initial_dust`, activator.GetOrigin(), Vector(-90, 0, 0))", 1, warning, warning)
@@ -1027,7 +1029,7 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
         AddThinkToEnt(ent, "SwarmerThink")
     }
 
-    function PrintTable(table) 
+    function PrintTable(table)
     {
         if (table == null) return;
 
@@ -1105,7 +1107,7 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
         local weapon = params.weapon
         local special_dmgtype = params.damage_stats
 
-        local enemy_classnames = 
+        local enemy_classnames =
         {
             "player" : 1
             "obj_teleporter" : 1
@@ -1114,14 +1116,14 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
         }
 
         // REGULAR CROCODILES
-        local damage_type_list = 
+        local damage_type_list =
         [
             DMG_BLAST,
             DMG_MELEE,
             DMG_BULLET,
             DMG_BURN
         ]
-        
+
         // Check if attacker is a valid player bot with the right tag
         if (attacker != null && attacker.GetClassname() == "player" && attacker.IsBotOfType(TF_BOT_FAKE_CLIENT) && attacker.HasBotTag("bot_crocodile"))
         {
@@ -1213,7 +1215,7 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
             if (spitter != 0 && params.damage > 0 && special_dmgtype != 16)
             {
                 ////printl("spit on")
-                
+
                 crocBossScript.BeginVirusEvent()
 
                 for (local ent; ent = FindByClassname(ent, "info_target");)
@@ -1242,13 +1244,13 @@ if (!("ConstantNamingConvention" in ROOT)) // make sure folding is only done onc
                             victim.SetScriptOverlayMaterial("models/props_combine/portalball001_sheet")
                             //utaunt_poison_fadingskulls_g
 
-                            local particle = SpawnEntityFromTable("info_particle_system", 
+                            local particle = SpawnEntityFromTable("info_particle_system",
                             {
-                                effect_name = "utaunt_poison_fadingskulls_g", 
+                                effect_name = "utaunt_poison_fadingskulls_g",
                                 targetname = "skulls_sickness"
                                 origin = victim.GetOrigin()
                                 angles = Vector(0, 0, 0)
-                            }) 
+                            })
                             EntFireByHandle(particle, "SetParent", "!activator", -1, victim, victim)
                             particle.AcceptInput("Start", "", null, null)
 
