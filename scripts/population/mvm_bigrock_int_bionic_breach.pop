@@ -13,6 +13,8 @@ WaveSchedule
 	AddSentryBusterWhenDamageDealtExceeds	3000
 	AddSentryBusterWhenKillCountExceeds		15
 
+	PrecacheModel "models/bots/boss_bot/boss_tank_ubered.mdl" [$SIGSEGV]
+
 	Templates
 	{
 		// T_TFBot_Giant_Demoman_PrinceTavish_NoCharge
