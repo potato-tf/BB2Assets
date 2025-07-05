@@ -2104,7 +2104,7 @@ WaveSchedule
             Name "a2"
             WaitForAllSpawned "a1"
             Where spawnbot_invasion
-            TotalCount 77
+            TotalCount 78
             MaxActive 6
             SpawnCount 3
             WaitBeforeStarting 15
