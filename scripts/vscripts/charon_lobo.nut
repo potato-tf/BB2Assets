@@ -840,6 +840,7 @@ PopExt.AddRobotTag("lobo_mangler", { OnSpawn = function(bot, tag)
 		{
 			bot.Weapon_Switch(banner)
 			banner.PrimaryAttack()
+			SetPropFloat(bot, "m_flNextAttack", 0.0)
 			return
 		}
 		// no banner: do nothing
