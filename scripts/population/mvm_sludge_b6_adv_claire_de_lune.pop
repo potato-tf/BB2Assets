@@ -1017,7 +1017,7 @@ PrecacheGeneric     "materials/sprites/explosive_res.vmt"
 			TFBot
 			{
 				Class Soldier
-				Skill hard
+				Skill easy
 			}
 		}
 		WaveSpawn
@@ -1805,7 +1805,7 @@ Waitbeforestarting 20
 			Skill Expert
 			TeleportWhere spawnbot
 			Health 12500
-			Scale 1.2
+			Scale 1
 			item "The Razorback"
 			FastUpdate 1
 			//Attributes TeleportToHint
@@ -1849,10 +1849,10 @@ Waitbeforestarting 20
 				"mult stun resistance" 0.15
 			"mult debuff duration" 0.8
 				"killstreak tier" 1
-				"move speed bonus" 1.2
+				"move speed bonus" 1.15
 				"override footstep sound set" 3
 				"airblast vertical vulnerability multiplier" 0.1		
-"move speed as health decreases" 1.5				
+"move speed as health decreases" 1.35				
 			}
 			CustomEyeGlowColor "71 25 255"
 			}
@@ -2572,6 +2572,12 @@ Tag antistuck
 			Target wave_finished_relay
 			Action trigger
 		}
+
+Explanation    //Dispayed once the wave is initialized
+		{
+			Line "{green}An armada of Vaccinator blimps approaches..."
+		}
+
 		WaveSpawn
 		{
 		   // Name gigatons
@@ -2623,8 +2629,8 @@ Tag antistuck
 		{
 			Where spawnbot
 			TotalCount 10
-			MaxActive 6
-			SpawnCount 3
+			MaxActive 4
+			SpawnCount 2
 			WaitBetweenSpawns 10
 			Waitbeforestarting 8.5
 			TotalCurrency 25
@@ -2814,7 +2820,7 @@ Tag antistuck
 
 			Tank
             {
-                Health 4500
+                Health 2500
 				Speed 90
 				DisableSmokestack 1  
                 //ClassIcon blimp2_vac_melee_lite
