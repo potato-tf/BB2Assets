@@ -119,7 +119,8 @@ PrecacheSound("weapons/medi_shield_deploy.wav")
 			
 			hBot.RemoveCond(6)
 			hBot.AddBotAttribute(SUPPRESS_FIRE)
-			EntFireByHandle(hBot, "RunScriptCode", "self.RemoveBotAttribute(SUPPRESS_FIRE)", 1.5, null, null)
+			hBot.AddBotAttribute(IGNORE_FLAG)
+			EntFireByHandle(hBot, "RunScriptCode", "self.RemoveBotAttribute(SUPPRESS_FIRE);self.RemoveBotAttribute(IGNORE_FLAG)", 1.5, null, null)
 			
 			EntFireByHandle(hBot, "RunScriptCode", "AddThinkToEnt(self,null)", 3, null, null)
 		}
@@ -224,7 +225,7 @@ PrecacheSound("weapons/medi_shield_deploy.wav")
 	// Animates the sentry.
 	NextAnimation = function(hProp)
 	{
-		printl(hProp.GetModelName())
+		// printl(hProp.GetModelName())
 		if (hProp.GetModelName() == "models/buildables/sentry1_heavy.mdl")
 			hProp.SetModel("models/buildables/sentry2_heavy.mdl")
 			
@@ -235,6 +236,25 @@ PrecacheSound("weapons/medi_shield_deploy.wav")
 		{
 			// printl(hProp.GetScriptScope().hSentry)
 			local hSentry = hProp.GetScriptScope().hSentry
+			if (hSentry == null)
+			{
+				for (local hSentryB; hSentryB = Entities.FindByClassname(hSentryB, "obj_sentrygun"); )
+				{
+					if (hSentryB.GetTeam() != TF_TEAM_BLUE)
+						continue;
+					
+					local iDist = Length(hSentryB.GetOrigin() - hProp.GetOrigin())
+					
+					if (iDist > 72) //approximation of "far enough". Sort of. Probably.
+						continue;
+					
+					if ( !( GetPropBool(hSentryB,"m_bDisabled") ) )
+						continue;
+					
+					hSentry = hSentryB
+					break;
+				}
+			}
 			
 			hSentry.KeyValueFromInt("effects",0)
 			

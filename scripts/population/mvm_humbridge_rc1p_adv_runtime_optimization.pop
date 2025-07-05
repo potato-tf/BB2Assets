@@ -1481,6 +1481,7 @@ RunFastEatAss,OrSomething
 				
 				"mult projectile scale" 0.001
 				"arrow hit kill time" 0.1
+				"projectile trail particle" "dxhr_lightningball_parent_blue"
 			}
 			ItemAttributes
 			{
@@ -3859,7 +3860,11 @@ RunFastEatAss,OrSomething
 			{
 				Target "sentry_box"
 				Action "RunScriptCode"
-				Param "local hProj = self.GetMoveParent();
+				Param "
+//PrecacheEntityFromTable({ classname = `info_particle_system`, effect_name = `flaregun_energyfield_blue` })
+local hProj = self.GetMoveParent();
+if (hProj != null)
+{
 hProj.SetCollisionGroup(23)
 for (local hChild = hProj.FirstMoveChild(); hChild != null; hChild = hChild.NextMovePeer())
 {
@@ -3869,6 +3874,12 @@ for (local hChild = hProj.FirstMoveChild(); hChild != null; hChild = hChild.Next
 		self.GetScriptScope().hSentry <- hChild;
 		break;
 	}
+}
+}
+else
+{
+	self.ValidateScriptScope();
+	self.GetScriptScope().hSentry <- null;
 }"
 				Delay 0.015
 			}
@@ -7801,133 +7812,4 @@ SINS.ChangeIconFlags(`tf2_lite_crit`,17)"
 			}
 		}
 	}
-	
-	// TEST WAVE 
-	// Wave
-	// {
-		// SpawnTemplate PT_SecondBomb
-		// SpawnTemplate PT_Bonch
-		// InitWaveOutput
-		// {
-			// Target "bignet"
-			// Action "RunScriptCode"
-			// Param "
-			// IncludeScript(`seel_runtime.nut`,getroottable())
-			// SINS.ChangeIconFlags(`scout_golden_lite`,1)
-			// "
-		// }
-		// StartWaveOutput
-		// {
-			// Target wave_start_relay
-			// Action Trigger
-		// }
-		// DoneOutput
-		// {
-			// Target wave_finished_relay
-			// Action trigger
-		// }
-		// WaveSpawn
-		// {
-			// Name "TEST"
-			// Where spawnbot
-			// WaitBetweenSpawns 2.5
-			// TotalCount 1
-			// MaxActive 1
-			// SpawnCount 1
-			// TotalCurrency 0
-			// TFBot
-			// {
-				// Class Scout
-				// Attributes IgnoreEnemies
-				// Attributes MiniBoss
-				// Health 5
-				// CharacterAttributes
-				// {
-					// "health regen" -5
-				// }
-			// }
-		// }
-		// WaveSpawn
-		// {
-			// Name "TEST"
-			// Where spawnbot_hatch
-			// WaitBeforeStarting 1
-			// WaitBetweenSpawns 3
-			// TotalCount 1
-			// MaxActive 1
-			// SpawnCount 1
-			// TotalCurrency 0
-			// TFBot
-			// {
-				// Template T_TFBot_Scout_Bonch
-				// Attributes IgnoreFlag
-				// Health 5
-				// CharacterAttributes
-				// {
-					// "damage penalty" 0
-				// }
-			// }
-		// }
-		// WaveSpawn
-		// {
-			// Name "TEST"
-			// Where spawnbot_hatch
-			// WaitBeforeStarting 1
-			// WaitBetweenSpawns 3
-			// TotalCount 1
-			// MaxActive 1
-			// SpawnCount 1
-			// TotalCurrency 0
-			// TFBot
-			// {
-				// Class Scout
-				// Attributes IgnoreFlag
-				// Health 5
-				// CharacterAttributes
-				// {
-					// "damage penalty" 0
-				// }
-			// }
-		// }
-		// WaveSpawn
-		// {
-			// Name "TEST2"
-			// WaitForAllDead "TEST"
-			// Where spawnbot_chief
-			// WaitBeforeStarting 1
-			// WaitBetweenSpawns 2.5
-			// TotalCount 1
-			// MaxActive 1
-			// SpawnCount 1
-			// TotalCurrency 0
-			// TFBot
-			// {
-				// Template T_TFBot_Giant_Scout
-				// Tag telebot
-				// Attributes IgnoreFlag
-				// Attributes IgnoreEnemies
-				// Health 5
-				// CharacterAttributes
-				// {
-					// "damage penalty" 0
-				// }
-			// }
-		// }
-		// WaveSpawn
-		// {
-			// Name "TEST3"
-			// WaitForAllDead "TEST"
-			// WaitBeforeStarting 5
-			// Where spawnbot_hatch
-			// WaitBetweenSpawns 2.5
-			// TotalCount 3
-			// MaxActive 1
-			// SpawnCount 1
-			// TotalCurrency 10
-			// TFBot
-			// {
-				// Template T_TFBot_Scout_Bonch
-			// }
-		// }
-	// }
 }
