@@ -1,5 +1,7 @@
 // this file is courtesy entirely to lite
 
+const DEG2RAD = 0.0174532924
+
 local Params = {}
 if("HomingParams" in this)
 	foreach(Key, Value in HomingParams)
@@ -32,7 +34,7 @@ local FindTarget = function()
 	local iTeamNum = self.GetTeam()
 	local flDist = 8192
 	foreach(sClassname in [ "player", "obj_sentrygun", "obj_dispenser", "obj_teleporter", "tank_boss", "merasmus", "headless_hatman", "eyeball_boss", "tf_zombie" ])
-		for(local hEnt; hEnt = FindByClassnameWithin(hEnt, sClassname, vecOrigin, flDist);)
+		for(local hEnt; hEnt = Entities.FindByClassnameWithin(hEnt, sClassname, vecOrigin, flDist);)
 		{
 			local vecCenter    = hEnt.GetCenter()
 			local bCenterTrace = TraceLine(vecCenter, vecOrigin, self) == 1
@@ -91,4 +93,4 @@ function HomingThink()
 	}
 	return -1
 }
-PopExtUtil.AddThinkToEnt(self, "HomingThink")
+AddThinkToEnt(self, "HomingThink")
