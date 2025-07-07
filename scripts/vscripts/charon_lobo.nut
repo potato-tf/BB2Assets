@@ -403,16 +403,27 @@ LOBO.AddHookedTag( "mangler",
 		if ( banner.GetClassname() != "tf_weapon_buff_item" )
 			banner = null
 
+		local max_banner_retry_time = Time() + 1
+
 		scope.ManglerThink <- function() // i think to charge my mangler
 		{
 			// in the spawn room, try to use the banner if there is one
 			if ( bot.InCond( TF_COND_INVULNERABLE_HIDE_UNLESS_DAMAGED ) && banner != null )
 			{
-				bot.Weapon_Switch( banner )
-				NetProps.SetPropFloat( bot, "m_flNextAttack", 0.0 )
-				banner.PrimaryAttack()
-				return
+				if ( Time() < max_banner_retry_time )
+				{
+					bot.Weapon_Switch( banner )
+					NetProps.SetPropFloat( bot, "m_flNextAttack", 0.0 )
+					banner.PrimaryAttack()
+					return
+				}
+				else
+				{
+					bot.Weapon_Switch( mangler )
+					return
+				}
 			}
+
 			// no banner: do nothing
 			if ( bot.InCond( TF_COND_INVULNERABLE_HIDE_UNLESS_DAMAGED ) && banner == null )
 				return
