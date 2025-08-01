@@ -842,9 +842,11 @@ WaveSchedule
 				TFBot
 				{
 					Template T_TFBot_Soldier_Extended_Buff_Banner
-					CharacterAttributes
+					ItemAttributes
 					{
-						"deploy time increased"		1.34
+						ItemName "The Buff Banner"
+						"single wep holster time increased" 0.35
+						"single wep deploy time increased" 0.35
 					}
 				}
 			}
@@ -1041,7 +1043,7 @@ WaveSchedule
 			Where spawnbot_flank0
 			Where spawnbot_flank1
 			Where spawnbot_flank2
-			TotalCount 10
+			TotalCount 8
 			MaxActive 2
 			SpawnCount 1
 			WaitBeforeStarting 5
@@ -1269,9 +1271,11 @@ WaveSchedule
 			TFBot
 			{
 				Template T_TFGateBot_Soldier_Extended_Battalion_Hard
-				CharacterAttributes
+				ItemAttributes
 				{
-					"deploy time increased"		1.34
+					ItemName "The Battalion's Backup"
+					"single wep holster time increased" 0.35
+					"single wep deploy time increased" 0.35
 				}
 			}
 		}
@@ -1350,9 +1354,11 @@ WaveSchedule
 			{
 				Template T_TFBot_Soldier_Extended_Buff_Banner
 				Skill Hard
-				CharacterAttributes
+				ItemAttributes
 				{
-					"deploy time increased"		1.34
+					ItemName "The Buff Banner"
+					"single wep holster time increased" 0.35
+					"single wep deploy time increased" 0.35
 				}
 			}
 		}

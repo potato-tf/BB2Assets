@@ -382,6 +382,12 @@ WaveSchedule
 					Skill Expert
 					Tag bot_giant
 					Item "The Buff Banner"
+					ItemAttributes
+					{
+						ItemName "The Buff Banner"
+						"single wep holster time increased" 0.35
+						"single wep deploy time increased" 0.35
+					}
 					CharacterAttributes
 					{
 						"move speed bonus"	0.5
@@ -389,7 +395,6 @@ WaveSchedule
 						"airblast vulnerability multiplier" 0.4
 						"override footstep sound set" 3
 						"increase buff duration"	9.0
-						"deploy time increased"		1.34
 					}
 				}
 				RevertGateBotsBehavior
@@ -407,6 +412,12 @@ WaveSchedule
 					Skill Expert
 					Tag bot_giant
 					Item "The Buff Banner"
+					ItemAttributes
+					{
+						ItemName "The Buff Banner"
+						"single wep holster time increased" 0.35
+						"single wep deploy time increased" 0.35
+					}
 					CharacterAttributes
 					{
 						"move speed bonus"	0.5
@@ -414,7 +425,6 @@ WaveSchedule
 						"airblast vulnerability multiplier" 0.4
 						"override footstep sound set" 3
 						"increase buff duration"	9.0
-						"deploy time increased"		1.34
 					}
 				}
 			}
@@ -443,6 +453,12 @@ WaveSchedule
 					Skill Expert
 					Tag bot_giant
 					Item "The Battalion's Backup"
+					ItemAttributes
+					{
+						ItemName "The Battalion's Backup"
+						"single wep holster time increased" 0.35
+						"single wep deploy time increased" 0.35
+					}
 					CharacterAttributes
 					{
 						"move speed bonus"	0.5
@@ -450,7 +466,6 @@ WaveSchedule
 						"airblast vulnerability multiplier" 0.4
 						"override footstep sound set" 3
 						"increase buff duration"	9.0
-						"deploy time increased"		1.34
 					}
 				}
 				RevertGateBotsBehavior
@@ -468,6 +483,12 @@ WaveSchedule
 					Skill Expert
 					Tag bot_giant
 					Item "The Battalion's Backup"
+					ItemAttributes
+					{
+						ItemName "The Battalion's Backup"
+						"single wep holster time increased" 0.35
+						"single wep deploy time increased" 0.35
+					}
 					CharacterAttributes
 					{
 						"move speed bonus"	0.5
@@ -475,7 +496,6 @@ WaveSchedule
 						"airblast vulnerability multiplier" 0.4
 						"override footstep sound set" 3
 						"increase buff duration"	9.0
-						"deploy time increased"		1.34
 					}
 				}
 			}
@@ -504,6 +524,12 @@ WaveSchedule
 					Skill Expert
 					Tag bot_giant
 					Item "The Concheror"
+					ItemAttributes
+					{
+						ItemName "The Concheror"
+						"single wep holster time increased" 0.35
+						"single wep deploy time increased" 0.35
+					}
 					CharacterAttributes
 					{
 						"move speed bonus"	0.5
@@ -511,7 +537,6 @@ WaveSchedule
 						"airblast vulnerability multiplier" 0.4
 						"override footstep sound set" 3
 						"increase buff duration"	9.0
-						"deploy time increased"		1.34
 					}
 				}
 				RevertGateBotsBehavior
@@ -529,6 +554,12 @@ WaveSchedule
 					Skill Expert
 					Tag bot_giant
 					Item "The Concheror"
+					ItemAttributes
+					{
+						ItemName "The Concheror"
+						"single wep holster time increased" 0.35
+						"single wep deploy time increased" 0.35
+					}
 					CharacterAttributes
 					{
 						"move speed bonus"	0.5
@@ -536,7 +567,6 @@ WaveSchedule
 						"airblast vulnerability multiplier" 0.4
 						"override footstep sound set" 3
 						"increase buff duration"	9.0
-						"deploy time increased"		1.34
 					}
 				}
 			}
@@ -1389,13 +1419,18 @@ WaveSchedule
 
 					Item "The Buff Banner"
 					Item "MvM GateBot Light Soldier"
+					ItemAttributes
+					{
+						ItemName "The Buff Banner"
+						"single wep holster time increased" 0.35
+						"single wep deploy time increased" 0.35
+					}
 					Skill Normal
 					Attributes SpawnWithFullCharge
 					Attributes HoldFireUntilFullReload
 					CharacterAttributes
 					{
 						"increase buff duration"	9.0
-						"deploy time increased"		1.34
 					}
 				}
 				RevertGateBotsBehavior
@@ -1407,13 +1442,18 @@ WaveSchedule
 						ItemName "MvM GateBot Light Soldier"
 						"item style override" 1
 					}
+					ItemAttributes
+					{
+						ItemName "The Buff Banner"
+						"single wep holster time increased" 0.35
+						"single wep deploy time increased" 0.35
+					}
 					Skill Normal
 					Attributes SpawnWithFullCharge
 					Attributes HoldFireUntilFullReload
 					CharacterAttributes
 					{
 						"increase buff duration"	9.0
-						"deploy time increased"		1.34
 					}
 				}
 			}
@@ -1436,13 +1476,18 @@ WaveSchedule
 					Item "The Concheror"
 					Item "The Black Box"
 					Item "MvM GateBot Light Soldier"
+					ItemAttributes
+					{
+						ItemName "The Concheror"
+						"single wep holster time increased" 0.35
+						"single wep deploy time increased" 0.35
+					}
 					Skill Normal
 					Attributes SpawnWithFullCharge
 					Attributes HoldFireUntilFullReload
 					CharacterAttributes
 					{
 						"increase buff duration"	9.0
-						"deploy time increased"		1.34
 					}
 				}
 				RevertGateBotsBehavior
@@ -1455,13 +1500,18 @@ WaveSchedule
 						ItemName "MvM GateBot Light Soldier"
 						"item style override" 1
 					}
+					ItemAttributes
+					{
+						ItemName "The Concheror"
+						"single wep holster time increased" 0.35
+						"single wep deploy time increased" 0.35
+					}
 					Skill Normal
 					Attributes SpawnWithFullCharge
 					Attributes HoldFireUntilFullReload
 					CharacterAttributes
 					{
 						"increase buff duration"	9.0
-						"deploy time increased"		1.34
 					}
 				}
 			}
@@ -1484,6 +1534,12 @@ WaveSchedule
 					Item "The Concheror"
 					Item "The Black Box"
 					Item "MvM GateBot Light Soldier"
+					ItemAttributes
+					{
+						ItemName "The Concheror"
+						"single wep holster time increased" 0.35
+						"single wep deploy time increased" 0.35
+					}
 					Skill Normal
 					Attributes AlwaysCrit
 					Attributes SpawnWithFullCharge
@@ -1491,7 +1547,6 @@ WaveSchedule
 					CharacterAttributes
 					{
 						"increase buff duration"	9.0
-						"deploy time increased"		1.34
 					}
 				}
 				RevertGateBotsBehavior
@@ -1504,6 +1559,12 @@ WaveSchedule
 						ItemName "MvM GateBot Light Soldier"
 						"item style override" 1
 					}
+					ItemAttributes
+					{
+						ItemName "The Concheror"
+						"single wep holster time increased" 0.35
+						"single wep deploy time increased" 0.35
+					}
 					Skill Normal
 					Attributes AlwaysCrit
 					Attributes SpawnWithFullCharge
@@ -1511,7 +1572,6 @@ WaveSchedule
 					CharacterAttributes
 					{
 						"increase buff duration"	9.0
-						"deploy time increased"		1.34
 					}
 				}
 			}
