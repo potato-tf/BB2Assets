@@ -70,6 +70,30 @@ WaveSchedule // 事实上这里可以是任何内容
     AddSentryBusterWhenKillCountExceeds 15 // 步哨的击杀数超过该阈值时，生成步哨毁灭者
     Advanced 1 // 开启高级难度，用于游戏的成绩统计
 
+	// Combat tank precache
+	PrecacheModel "models/bots/boss_bot/combat_tank_mk2/mk2_combat_tank_chassis.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/combat_tank_mk2/mk2_minigun.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/combat_tank_mk2/mk2_railgun.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/combat_tank/railgun_case.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/combat_tank_mk2/mk2_rocket_dumbfire.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/combat_tank_mk2/mk2_rocket_seeker.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/combat_tank_mk2/mk2_rocket_pod.mdl" [$SIGSEGV]
+
+	// Drill tank precache
+	PrecacheModel "models/bots/boss_bot/tank_drill.mdl" [$SIGSEGV]
+
+	// Sticky tank precache
+	PrecacheModel "models/props_mvm/stickytankturret.mdl" [$SIGSEGV]
+
+	// Tele tank precache
+	PrecacheModel "models/bots/boss_bot/boss_tank_building.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/boss_tank_building_damage1.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/boss_tank_building_damage2.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/boss_tank_building_damage3.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/tank_track_l_building.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/tank_track_r_building.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/bomb_mechanism_building.mdl" [$SIGSEGV]
+
     // JUDGE
     //WaveStartCountdown 3
     //MaxRedPlayers 5

@@ -20,7 +20,7 @@ TankExt.NewTankType("jumptank", {
 			if(hChild.GetModelName().find("track_"))
 				hTracks.append(hChild)
 
-		local hParticle = SpawnEntityFromTable("info_particle_system", {
+		local hParticle = SpawnEntityFromTableSafe("info_particle_system", {
 			origin      = "0 0 64"
 			angles      = "-90 0 0"
 			effect_name = "rockettrail_burst_doomsday"
@@ -35,8 +35,8 @@ TankExt.NewTankType("jumptank", {
 		local bPreparing      = false
 		local bJumping        = false
 		local bFalling        = false
-		local bDeploying      = false
 
+		local JumpScope = this
 		local function Jump()
 		{
 			if(bPreparing) return
@@ -58,12 +58,12 @@ TankExt.NewTankType("jumptank", {
 					entity      = self
 					filter_type = RECIPIENT_FILTER_GLOBAL
 				})
-				TankExt.DelayFunction(self, this, 0.75, function()
+				TankExt.DelayFunction(self, JumpScope, 0.75, function()
 				{
 					local vecOrigin = self.GetOrigin()
 					bJumping        = true
 					vecFakeOrigin   = vecOrigin
-					vecFakeVelocity = self.GetForwardVector() * GetPropFloat(self, "m_speed") + Vector(0, 0, 1024) * pow(Trace.fraction, 0.65)
+					vecFakeVelocity = (!bDeploying ? self.GetForwardVector() * GetPropFloat(self, "m_speed") : Vector()) + Vector(0, 0, 1024) * pow(Trace.fraction, 0.65)
 					ValidPlayers.clear()
 					for(local i = 1; i <= MAX_CLIENTS; i++)
 					{
@@ -86,16 +86,6 @@ TankExt.NewTankType("jumptank", {
 
 		function Think()
 		{
-			if(!bDeploying && self.GetSequenceName(self.GetSequence()) == "deploy")
-			{
-				bDeploying = true
-				if(JUMPTANK_USE_SPECIAL_DEPLOY) TankExt.DelayFunction(self, this, 3.5, Jump)
-				else if(bJumping)
-				{
-					vecFakeVelocity.x = 0
-					vecFakeVelocity.y = 0
-				}
-			}
 			if(!bPreparing && !bDeploying && JUMPTANK_JUMP_COOLDOWN >= 0 && flTime >= flTimeNext) Jump()
 			if(bJumping)
 			{
@@ -142,7 +132,7 @@ TankExt.NewTankType("jumptank", {
 
 						if(bDeploying && JUMPTANK_USE_SPECIAL_DEPLOY)
 						{
-							SpawnEntityFromTable("info_particle_system", {
+							SpawnEntityFromTableSafe("info_particle_system", {
 								origin       = vecOrigin
 								angles       = "-90 0 0"
 								effect_name  = "fireSmoke_collumnP"
@@ -226,6 +216,16 @@ TankExt.NewTankType("jumptank", {
 								else hPlayer.SetAbsOrigin(vecPlayer + vecDisplace)
 						}
 				}
+			}
+		}
+		function OnStartDeploy()
+		{
+			bDeploying = true
+			if(JUMPTANK_USE_SPECIAL_DEPLOY) TankExt.DelayFunction(self, this, 3.5, Jump)
+			else if(bJumping)
+			{
+				vecFakeVelocity.x = 0
+				vecFakeVelocity.y = 0
 			}
 		}
 	}

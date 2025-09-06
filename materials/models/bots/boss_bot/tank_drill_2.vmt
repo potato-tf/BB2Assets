@@ -1,6 +1,6 @@
 "VertexLitGeneric"
 {
-	"$basetexture" "models/bots/boss_bot/tank_drill_2"
+	"$basetexture"	"models/bots/boss_bot/tank_drill_2"
 	"$surfaceprop"	"default"
 	"$basemapalphaphongmask" 1
 

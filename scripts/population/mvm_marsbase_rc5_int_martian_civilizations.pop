@@ -2356,7 +2356,7 @@ WaveSchedule
 					ClientPrint(null,3,`\x0799CCFFTank deployed with (2000)*(A) HP!`)
 					ClientPrint(null,3,`\x0799CCFFFind A from 3A³ - 8A - 10000 = 5`)
 					ClientPrint(null,3,`\x0799CCFFA must be Positive Integer`)
-					ClientPrint(null,3,`\x0799CCFFHints: use depressed cubic formula (A³ + pA + q = 0) to solved it!`)
+					ClientPrint(null,3,`\x0799CCFFHint: use depressed cubic formula (A³ + pA + q = 0) to solve it!`)
 				"
 			}
 			

@@ -1,6 +1,8 @@
 //vscript by stardustspy
 //do not use without my credit PLEASE!!!!!!!!!
 
+::ROOT <- getroottable()
+
 if (!("ConstantNamingConvention" in ROOT))
 	foreach(a, b in Constants)
 		foreach(k, v in b)
@@ -1273,5 +1275,6 @@ for (local i = 1, player; i <= MaxClients(); i++)
         crocBossScript.CureVirus(player, true)
     }
 }
+
 
 __CollectGameEventCallbacks(crocBossScript)

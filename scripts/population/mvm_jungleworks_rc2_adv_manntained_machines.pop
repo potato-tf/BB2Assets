@@ -10,6 +10,9 @@ population
 	NoRomevisionCosmetics 1   //If set, robots will not wear romevision cosmetics unless forced to (default: 0)
 	//RedPlayersAreRobots 1   //If set, red players use robot models
 	//PlayerRobotsUsePlayerAnimation 1   //Use player animations instead of robot ones
+
+	PrecacheModel "models/props_mvm/stickytankturret.mdl" [$SIGSEGV]
+
 	//CustomWeapon   //Allows you to use an alias for items with custom attributes
 	//{
 		//"The Pepp Gun" // The name you would use in Item key in TFBot

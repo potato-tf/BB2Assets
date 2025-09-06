@@ -1,6 +1,6 @@
 "VertexLitGeneric"
 {
-	"$basetexture" "models/bots/boss_bot/tankredbody1_damage2"
+	"$basetexture"	"models/bots/boss_bot/tankredbody1_damage2"
 	"$surfaceprop"	"default"
 //	"$selfillum" 1
 	"$basemapalphaphongmask" 1

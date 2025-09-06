@@ -66,6 +66,8 @@ WaveSchedule
     FixedRespawnWaveTime                  Yes // If this is set to 'No', then the RespawnWaveTime can vary slightly
     Advanced                              1 // Only enable for Advanced/Expert missions (for achievements)
 
+	PrecacheModel "models/props_tumb/mvm/tank_shield.mdl"
+
     //Rafmod
     PointTemplates
     {

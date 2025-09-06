@@ -40,11 +40,11 @@ local BANNER_BACKUP = 1 << 3
 		local hAttacker  = params.attacker
 		local hVictim    = params.const_entity
 		local hInflictor = params.inflictor
-		if(hAttacker && hVictim)
+		if(hAttacker && hVictim && hVictim.IsAlive() && hAttacker.GetTeam() != hVictim.GetTeam())
 		{
 			local BannerCheck = function(hEnt, iBannerType)
 			{
-				if(hEnt.GetClassname() == "tank_boss" && hAttacker.GetTeam() != hVictim.GetTeam())
+				if(hEnt.GetClassname() == "tank_boss")
 				{
 					local BannerScope = TankExt.GetMultiScopeTable(hEnt.GetScriptScope(), "bannertank")
 					if(BannerScope && !BannerScope.bNoSelfEffect && BannerScope.iActiveBanners & iBannerType)
@@ -54,11 +54,16 @@ local BANNER_BACKUP = 1 << 3
 				}
 			}
 			if(BannerCheck(hAttacker, BANNER_BUFF) && !(params.damage_type & DMG_CRITICAL)) params.crit_type = CRIT_MINI
-			if(BannerCheck(hAttacker, BANNER_CONCH)) // cannot get the tank entity in player_hurt
+			if(hVictim.IsPlayer() && BannerCheck(hAttacker, BANNER_CONCH))
 			{
 				local flAmount = params.damage * BANNERTANK_CONCH_SELF_HEAL_MULT
 				if(params.damage_type & DMG_CRITICAL) flAmount * 3
 				else if(params.crit_type == CRIT_MINI) flAmount * 1.35
+				flAmount *= BANNERTANK_CONCH_SELF_HEAL_MULT
+
+				local iMaxHealth = hVictim.GetMaxHealth()
+				if(flAmount > iMaxHealth) flAmount = iMaxHealth
+
 				hAttacker.AcceptInput("AddHealth", format("%f", flAmount), null, null)
 				hAttacker.TakeDamage(0, DMG_GENERIC, First()) // refresh healthbar, attacker needs to not be the same team as the tank
 				DispatchParticleEffect(hAttacker.GetTeam() == TF_TEAM_BLUE ? "healthgained_blu_giant" : "healthgained_red_giant", hAttacker.GetOrigin() + hAttacker.GetUpVector() * hAttacker.GetBoundingMaxs().z, Vector(1))
@@ -81,7 +86,7 @@ TankExt.NewTankType("bannertank*", {
 	{
 		local bBlueTeam = self.GetTeam() == TF_TEAM_BLUE
 
-		local hPackBuff = TankExt.SpawnEntityFromTableFast("prop_dynamic", {
+		local hPackBuff = SpawnEntityFromTableSafe("prop_dynamic", {
 			origin        = "-48 -19 40"
 			angles        = "0 90 0"
 			model         = "models/weapons/c_models/c_buffpack/c_buffpack.mdl"
@@ -91,7 +96,7 @@ TankExt.NewTankType("bannertank*", {
 			rendermode    = 1
 			renderamt     = 0
 		})
-		local hBannerBuff = TankExt.SpawnEntityFromTableFast("prop_dynamic", {
+		local hBannerBuff = SpawnEntityFromTableSafe("prop_dynamic", {
 			origin        = "-57 -33 78"
 			angles        = "0 90 0"
 			model         = "models/weapons/c_models/c_buffbanner/c_buffbanner.mdl"
@@ -99,7 +104,7 @@ TankExt.NewTankType("bannertank*", {
 			startdisabled = 1
 		})
 
-		local hPackConch = TankExt.SpawnEntityFromTableFast("prop_dynamic", {
+		local hPackConch = SpawnEntityFromTableSafe("prop_dynamic", {
 			origin        = "-60 -18 40"
 			angles        = "0 0 0"
 			model         = "models/weapons/c_models/c_shogun_warpack/c_shogun_warpack.mdl"
@@ -109,7 +114,7 @@ TankExt.NewTankType("bannertank*", {
 			rendermode    = 1
 			renderamt     = 0
 		})
-		local hBannerConch = TankExt.SpawnEntityFromTableFast("prop_dynamic", {
+		local hBannerConch = SpawnEntityFromTableSafe("prop_dynamic", {
 			origin        = "-74 -10 78"
 			angles        = "0 0 0"
 			model         = "models/weapons/c_models/c_shogun_warbanner/c_shogun_warbanner.mdl"
@@ -117,7 +122,7 @@ TankExt.NewTankType("bannertank*", {
 			startdisabled = 1
 		})
 
-		local hPackBackup = TankExt.SpawnEntityFromTableFast("prop_dynamic", {
+		local hPackBackup = SpawnEntityFromTableSafe("prop_dynamic", {
 			origin        = "-48 19 40"
 			angles        = "0 270 0"
 			model         = "models/workshop/weapons/c_models/c_battalion_buffpack/c_battalion_buffpack.mdl"
@@ -127,7 +132,7 @@ TankExt.NewTankType("bannertank*", {
 			rendermode    = 1
 			renderamt     = 0
 		})
-		local hBannerBackup = TankExt.SpawnEntityFromTableFast("prop_dynamic", {
+		local hBannerBackup = SpawnEntityFromTableSafe("prop_dynamic", {
 			origin        = "-37 33 78"
 			angles        = "0 270 0"
 			model         = "models/weapons/c_models/c_battalion_buffbanner/c_batt_buffbanner.mdl"
@@ -187,7 +192,6 @@ TankExt.NewTankType("bannertank*", {
 			{
 				if(iActiveBanners & BANNER_BUFF && iRemove & BANNER_BUFF)
 				{
-					printl((GetPropInt(hPackBuff, "m_clrRender") >> 24) & 0xFF)
 					hBannerBuff.AcceptInput("Disable", null, null, null)
 					SetPropInt(hPackBuff, "m_nRenderFX", kRenderFxFadeFast)
 					TankExt.DelayFunction(self, this, 0.15, function() { hPackBuff.AcceptInput("Disable", null, null, null) })

@@ -8,7 +8,10 @@ WaveSchedule
 	RespawnWaveTime 		4
 	CanBotsAttackWhileInSpawnRoom no
 	
-	PrecacheModel "models/bots/boss_bot/boss_blimp_pure.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_blimp/boss_blimp.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_blimp/boss_blimp_damage1.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_blimp/boss_blimp_damage2.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_blimp/boss_blimp_damage3.mdl" [$SIGSEGV]
 	
 	Templates
 	{

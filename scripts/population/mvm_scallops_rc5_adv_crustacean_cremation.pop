@@ -27,6 +27,15 @@ WaveSchedule
     Advanced                              1
     BotTeleportUberDuration               2  
 
+	// Teletank
+	PrecacheModel "models/bots/boss_bot/boss_tank_building.mdl"
+	PrecacheModel "models/bots/boss_bot/boss_tank_building_damage1.mdl"
+	PrecacheModel "models/bots/boss_bot/boss_tank_building_damage2.mdl"
+	PrecacheModel "models/bots/boss_bot/boss_tank_building_damage3.mdl"
+	PrecacheModel "models/bots/boss_bot/tank_track_l_building.mdl"
+	PrecacheModel "models/bots/boss_bot/tank_track_r_building.mdl"
+	PrecacheModel "models/bots/boss_bot/bomb_mechanism_building.mdl"
+
     Mission
     {
         Objective           DestroySentries

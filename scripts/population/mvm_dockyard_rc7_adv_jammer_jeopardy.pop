@@ -13,6 +13,14 @@ WaveSchedule
 	RespawnWaveTime	3
 	CanBotsAttackWhileInSpawnRoom	no
 	Advanced	1
+
+	PrecacheModel "models/bots/boss_bot/boss_tank_building.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/boss_tank_building_damage1.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/boss_tank_building_damage2.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/boss_tank_building_damage3.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/tank_track_l_building.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/tank_track_r_building.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/bomb_mechanism_building.mdl" [$SIGSEGV]
 	
     //Custom Bot Templates
 	Templates

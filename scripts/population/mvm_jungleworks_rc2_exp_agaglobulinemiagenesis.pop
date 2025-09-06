@@ -17,6 +17,7 @@ WaveSchedule
 	RespawnWaveTime					4
 	Advanced						1
 	PrecacheModel					models/mentrillum/bots/demo/bot_sentry_buster.mdl
+	PrecacheModel					models/props_tumb/mvm/tank_shield.mdl
 
 	Templates
 	{

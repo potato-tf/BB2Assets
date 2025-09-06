@@ -163,7 +163,30 @@ WaveSchedule
 				"holdtime" "4.8"
 			}
 		}
+
+		detect_copter
+		{
+			NoFixup 1
+			filter_tf_bot_has_tag
+			{
+				"targetname" "filter_helicopter"
+				"tags" "helicopter_boss"
+				"negated" "0"
+			}
+
+			trigger_multiple
+			{
+				"origin" "-3 -1906 343"
+				"targetname" "helicopter_detection"
+				"filtername" "filter_helicopter"
+				"spawnflags" "1"
+				"mins" "-350 -350 -350"
+				"maxs" "350 350 350"
+				"OnStartTouch" "!activator,$ChangeAttributes,A,0.1,-1"
+			}
+		}
 	}
+	SpawnTemplate detect_copter
 	Templates
 	{
 		T_TFBot_Helicopter_Base //Special Royal Helecopter
@@ -245,6 +268,52 @@ WaveSchedule
 				"crit mod disabled" 0
 				"player gravity ballon head" 0.13
 				"cannot pick up intelligence" 1
+			}
+			EventChangeAttributes // Make sure this works.
+			{
+				"A"
+				{
+					InterruptAction [$SIGSEGV] // Stop current bot ai and force the bot to move to a location
+					{
+						Target "-271 -2147 362"
+						Delay 0.1
+                    	Cooldown 6
+						Duration 0.1
+						WaitUntilDone 1 
+						Distance 50
+						AddToQueue 1 
+					}
+					InterruptAction [$SIGSEGV] // Stop current bot ai and force the bot to move to a location
+					{
+						Target "-251 -1683 355"
+						Delay 1.1
+                    	Cooldown 6
+						Duration 0.1
+						WaitUntilDone 1 
+						Distance 50
+						AddToQueue 1 
+					}
+					InterruptAction [$SIGSEGV] // Stop current bot ai and force the bot to move to a location
+					{
+						Target "218 -1698 356"
+						Delay 2.1
+                    	Cooldown 6
+						Duration 0.1
+						WaitUntilDone 1 
+						Distance 50
+						AddToQueue 1 
+					}
+					InterruptAction [$SIGSEGV] // Stop current bot ai and force the bot to move to a location
+					{
+						Target "275 -2155 360"
+						Delay 3.1
+                    	Cooldown 6
+						Duration 0.1
+						WaitUntilDone 1 
+						Distance 50
+						AddToQueue 1 
+					}
+				}
 			}
 		}
 		T_TFBot_Large_Soldier_Shotgun
@@ -1653,6 +1722,7 @@ WaveSchedule
 				Name "Soda Popper Scout"
 				ClassIcon scout_popper2
 				Item "The Soda Popper"
+				AimTrackingInterval 0.6
 			}
 		}
 
@@ -1726,6 +1796,7 @@ WaveSchedule
 				Name "Direct Miss Soldier"
 				Item "The Direct Hit"
 				ClassIcon soldier_directhit_lite
+				AimTrackingInterval 0.6
 			}
 		}
 
@@ -1817,6 +1888,7 @@ WaveSchedule
 			TFBot
 			{
 				Class Pyro
+				AimTrackingInterval 0.6
 			}
 		}
 
@@ -1898,6 +1970,7 @@ WaveSchedule
 			TFBot
 			{
 				Template T_TFBot_Sniper_SMG
+				AimTrackingInterval 0.6
 			}
 		}
 
@@ -1922,12 +1995,10 @@ WaveSchedule
 		}
 
 		WaveSpawn // Support many heavy shotguns, heavies and fastchamps (100)
-		{
-			Name "E"
-			
+		{		
 			Where spawnbot_invasion
 			TotalCount 70
-			MaxActive 17
+			MaxActive 18
 			SpawnCount 4
 			WaitBeforeStarting 8
 			WaitBetweenSpawns 1
@@ -1950,6 +2021,41 @@ WaveSchedule
 				TFBot
 				{
 					Class Heavyweapons
+					AimTrackingInterval 0.7
+				}
+			}
+		}
+
+		WaveSpawn // Support many heavy shotguns, heavies and fastchamps (100)
+		{
+			Name "F"
+			
+			Where spawnbot_invasion
+			TotalCount 10
+			MaxActive 1
+			SpawnCount 1
+			WaitBeforeStarting 8
+			WaitBetweenSpawns 1
+			TotalCurrency 0
+			RandomSpawn 1
+			WaitForAllSpawned "E"
+			Support 1
+			RandomChoice
+			{
+				Shuffle 1
+				TFBot
+				{
+					Template T_TFBot_Heavyweapons_Shotgun
+				}
+				TFBot
+				{
+					Template T_TFBot_Heavyweapons_Heavyweight_Champ_Fast
+					Attributes AlwaysCrit
+				}
+				TFBot
+				{
+					Class Heavyweapons
+					AimTrackingInterval 0.7
 				}
 			}
 		}
@@ -2096,7 +2202,7 @@ WaveSchedule
 				{
 					Class Pyro
 					Item "The Homewrecker"
-					Name "Homewreaker Pyro"
+					Name "Homewrecker Pyro"
 					WeaponRestrictions MeleeOnly
 					ClassIcon	pyro_homewrecker_lite
 				}

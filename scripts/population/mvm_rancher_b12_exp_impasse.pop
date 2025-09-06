@@ -51,9 +51,11 @@ WaveSchedule
     PrecacheModel models/bots/heavy_boss/bot_heavy_gray_boss.mdl
     PrecacheModel "models/bots/boss_bot/bomb_mechanism.mdl"
 
-    PrecacheModel "models/bots/boss_bot/combat_tank/combat_tank.mdl"
-    PrecacheModel "models/bots/boss_bot/combat_tank/combat_tank_rocket.mdl"
-    PrecacheModel "models/bots/boss_bot/combat_tank/combat_tank_rocketpod.mdl"
+	// Combat tank precache
+	PrecacheModel "models/bots/boss_bot/combat_tank_mk2/mk2_combat_tank_chassis.mdl"
+	PrecacheModel "models/bots/boss_bot/combat_tank_mk2/mk2_minigun.mdl"
+	PrecacheModel "models/bots/boss_bot/combat_tank_mk2/mk2_fireball.mdl"
+
     // PrecacheModel                                   models/weapons/c_models/new_zealium/c_blackbox.mdl
     PrecacheModel                                   models/rcat/rcat_level2.mdl
     PrecacheModel                                   models/props_mvm/robot_spawnpoint_warning.mdl
@@ -880,6 +882,18 @@ WaveSchedule
                 targetname      redteam
                 teamnum         2
             }
+			OnSpawnOutput
+			{
+				Target powerup_kill
+				Action Enable
+				Delay 0.5
+			}
+			logic_timer
+			{
+				targetname "powerup_kill"
+				RefireTime 0.1
+				"OnTimer" "item_powerup_rune,Kill,,0,-1"
+			}
         }
 
         // mechanics///////////////////////////////////////////////////////////////////////
@@ -5498,7 +5512,7 @@ WaveSchedule
             {
                 Health                      28000
                 ClassIcon                   tank_combine_harvester
-                Speed                       95
+                Speed                       90
                 Name                        tankboss_harvester
                 Skin                        2
                 StartingPathTrackNode       tank_start_harvester
@@ -5519,11 +5533,11 @@ WaveSchedule
         {
             Name                    NonFollowers
             WaitForAllDead          2a
-            TotalCount              6
-            MaxActive               6
+            TotalCount              4
+            MaxActive               4
             SpawnCount              2
             WaitBetweenSpawns       18
-            WaitBeforeStarting      15
+            WaitBeforeStarting      20
             TotalCurrency           50
             Where                   spawnbot_left
 

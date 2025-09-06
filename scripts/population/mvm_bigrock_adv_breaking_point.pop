@@ -11,6 +11,11 @@ WaveSchedule
 	CanBotsAttackWhileInSpawnRoom	no
 	FixedRespawnWaveTime	no
 	Advanced	1
+
+	PrecacheModel "models/bots/boss_bot/ubertank/boss_tank_uber.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/ubertank/tank_uber_track_l.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/ubertank/tank_uber_track_r.mdl" [$SIGSEGV]
+	PrecacheModel "models/bots/boss_bot/ubertank/bomb_mechanism_uber.mdl" [$SIGSEGV]
 	
 	//SpawnTemplate "Ubertank"    [$SIGSEGV]
 	

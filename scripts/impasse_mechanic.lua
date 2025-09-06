@@ -19,7 +19,6 @@ function OnWaveInit(wave)
         encoreCapable = 1
 
     elseif wave == 2 and encoreCapable == 1 then
-        ents.FindByName("capturezone_blue"):AddOutput("OnCapture popscript:$failedCondition")
 
         for _, player in pairs(ents.GetAllPlayers()) do
             player:AcceptInput("$DisplayTextChat", "{FFC0CB}?//agement : Data received. Intriguing results.")
@@ -255,6 +254,10 @@ function OnWaveFail(wave)
     encoreYes = 0
     encoreNo = 0
 
+	if wave ~= 1 and wave ~= 7 then
+		failedCondition()
+	end
+
     for _, player in pairs(ents.GetAllPlayers()) do
         if player:IsRealPlayer() then
             player.hasVoted = 0
@@ -274,7 +277,6 @@ function bombThem(_, activator)
     for _, player in pairs(ents.FindInSphere(activator:GetAbsOrigin(), 800, "player")) do
 
         if player:IsRealPlayer() and player:IsAlive() and player.m_iTeamNum == 2 and not player:InCond(6) then
-            print(player)
             local playerInfo = {
                         translation = player:GetAbsOrigin()
                     }
@@ -291,7 +293,6 @@ function bombThemVoid(_, activator)
     for _, player in pairs(ents.FindInSphere(activator:GetAbsOrigin(), 800, "player")) do
 
         if player:IsRealPlayer() and player:IsAlive() and player.m_iTeamNum == 2 and not player:InCond(6) then
-            print(player)
             local playerInfo = {
                         translation = player:GetAbsOrigin()
                     }
@@ -388,8 +389,6 @@ function VoteForEncore()
 
                 player:DisplayMenu(ResultMenu)
                 player:PlaySoundToSelf('ui/hint.wav')
-            else
-                print("not Real Player")
             end
         end
 
@@ -489,9 +488,6 @@ function setUpEncoreRequiremts()
                 alreadyTriggered = 1
             end
         end, 0)
-
-    else
-        print("you already lost.")
     end
 end
 
@@ -589,7 +585,6 @@ function encoreWaveCycler()
 
     if alreadyWaved ~= 1 then
         -- util.PrintToChatAll("timis")
-        PrintTable(cycleLogic)
 
         donavan = timer.Create(6, function() 
             encoreWaveCycler()
@@ -600,7 +595,9 @@ function encoreWaveCycler()
 end
 
 function killCycle()
-    timer.Stop(donavan)
+	if donavan then
+    	timer.Stop(donavan)
+	end
     alreadyWaved = 0
 end
 
@@ -613,7 +610,6 @@ function check(_, activator)
 end
 
 function laserOfDoom() --Simply put... fuck you beam
-    print("laser attack test")
     local beamEndPoint = ents.FindByName("beam_end_pos")
     local vision = ents.FindByName("rotator")
 
@@ -659,7 +655,6 @@ function StopWarTank(_, activator)
 
         else
             util.PrintToChatAll("This Is NOT A WAR TANK >:(")
-
         end
     end
 end
@@ -667,7 +662,6 @@ end
 function CustomBombDeploy(_, activator)
     local tankCheck = activator
     local bombdeployrelay = ents.FindByName("custom_bomb_deploy")
-
 
     if tankCheck:GetName("combattank|minigun|fireball") then 
         bombdeployrelay:AcceptInput("Trigger")
@@ -688,91 +682,70 @@ function fillchatwithspace()
 end
 
 function theEndofImpasse()
-
     for _, player in pairs(ents.GetAllPlayers()) do
-        if player:IsRealPlayer() then
-            local playername = player:GetPlayerName()
-            player:AcceptInput("RunScriptCode", "ClientPrint(null,3,`\x07eb2326"..playername.." \x078ff347LISTED FOR FUTURE INTERESTS.`)")
+        if IsTeamAssignedHuman(player) then
+			util.PrintToChatAll("\x07eb2326" .. player:GetPlayerName() .. " \x078ff347LISTED FOR FUTURE INTERESTS.")
         end
     end
 end
 
-local class = {
-    [1] = "Scout",
-    [3] = "Soldier",
-    [7] = "Pyro",
-    [4] = "Demoman",
-    [6] = "Heavyweapons",
-    [9] = "Engineer",
-    [5] = "Medic",
-    [2] = "Sniper",
-    [8] = "Spy"
-}
-local hype =
+local insults =
 {
-    Scout = {
+    [TF_CLASS_SCOUT] = {
         "Hell yeah, we're doing this!",
         "Got my buckets of chicken for the ride.",
         "Its time to end this robot war, fellas!"
     },
-    Soldier = {
+    [TF_CLASS_SOLDIER] = {
         "Men, It's time to kick some real robot ass.",
         "Time to put a boot on that tin-can Gray Mann!",
         "Last one alive lock the door!"
     },
-    Pyro = {
+    [TF_CLASS_PYRO] = {
         "hudda hudda hurr!",
         "hudda hudda hurr!",
         "i will fry the drying dying flesh of this pathetic leader of metal to ash."
     },
-    Demoman = {
+    [TF_CLASS_DEMOMAN] = {
         "Lads, I'm bringing us drinks for the ride!",
         "Oh I'm gonna beat that old man so hard he'll have a twitch!",
         "eeeeeugh *burp* LETS DO IT!"
     },
-    Heavyweapons = {
+    [TF_CLASS_HEAVYWEAPONS] = {
         "Da, we do this.",
         "Big contract pays well, yes? OHOHO!",
         "Big plans for Gray Mann."
     },
-    Engineer = {
+    [TF_CLASS_ENGINEER] = {
         "YEEHAW! I'm rattled with good 'ol adrenaline. Time to giddy up!",
         "That Gray Mann fellow has something The Administrator has been dying to obtain, I'm in.",
         "Let's finally put them sons of guns to robot hell!"
     },
-    Medic = {
+    [TF_CLASS_MEDIC] = {
         "Aha! I've been waiting to put a new invention to practical use!",
         "I must learn more about this australium they keep. WHO WILL JOIN ME?",
         "They shall be nothing but scrap after I have my new device utilized! Metal will cower."
     },
-    Sniper = {
+    [TF_CLASS_SNIPER] = {
         "ALRIGHT! Lets get that old fool!",
         "Got a good 'ol jar of piss ready for that annoying prick.",
         "Somebody wants somebody dead right? We're on it."
     },
-    Spy = {
+    [TF_CLASS_SPY] = {
         "A person of interest? Finally, I've been dying to draw blood once again.",
         "A good Mann is a dead Mann. We're on it.",
         "Time to wear my pristine tuxedo for this one, The contract will pay for the stains."
     }
 }
+
+function IsTeamAssignedHuman(player)
+	return player:IsRealPlayer() and player.m_iTeamNum == TEAM_RED and player.m_iClass ~= 0 
+end
+
 function itstimefortermination()
     for _, player in pairs(ents.GetAllPlayers()) do
-
-        if  player:IsRealPlayer() and player.m_iClass ~= 0 and player.m_iTeamNum == 2 then
-            print(player.m_iClass)
-            print(class[player.m_iClass])
-
-            local playername = player:GetPlayerName()
-            local allInsults = hype[class[player.m_iClass]]
-            local chosenInsult = allInsults[math.floor(math.random(1,3))]
-
-            player:AcceptInput("RunScriptCode", "ClientPrint(null,3,`\x07FF3F3F"..playername.."\x01 : "..chosenInsult.."`)")
-
-        else
-            print("invalid")
+        if IsTeamAssignedHuman(player) then
+			util.PrintToChatAll("\x07FF3F3F" .. player:GetPlayerName() .. "\x01 : " .. insults[player.m_iClass][math.random(3)])
         end
-
-            -- if player:IsRealPlayer() and player.m_iTeamNum == 2 then
     end
 end

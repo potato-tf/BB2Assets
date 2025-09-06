@@ -3,7 +3,7 @@ local COMBATTANK_VALUES_TABLE = {
 	COMBATTANK_FIREBALL_BURN_DURATION      = Convars.GetFloat("tf_fireball_burn_duration") // 2
 	COMBATTANK_FIREBALL_CONE_RADIUS        = 15
 	COMBATTANK_FIREBALL_DAMAGE             = Convars.GetFloat("tf_fireball_damage") // 25
-	COMBATTANK_FIREBALL_MODEL              = "models/bots/boss_bot/combat_tank/combat_tank_fireball.mdl"
+	COMBATTANK_FIREBALL_MODEL              = "models/bots/boss_bot/combat_tank_mk2/mk2_fireball.mdl"
 	COMBATTANK_FIREBALL_RECHARGE_TIME      = 0.8
 	COMBATTANK_FIREBALL_SND_FIRE           = "Weapon_DragonsFury.Single"
 }
@@ -51,8 +51,7 @@ TankExt.PrecacheParticle("projectile_fireball")
 					if(bBonusDamage) EmitSoundOnClient("Weapon_DragonsFury.BonusDamagePain", hVictim)
 
 					if(hVictim.GetPlayerClass() == TF_CLASS_PYRO) hVictim.AddCondEx(TF_COND_BURNING_PYRO, COMBATTANK_FIREBALL_BURN_DURATION * 0.5, hOwner)
-					local hIgniter = CreateByClassname("trigger_ignite")
-					SetPropBool(hIgniter, "m_bForcePurgeFixedupStrings", true)
+					local hIgniter = CreateByClassnameSafe("trigger_ignite")
 					hIgniter.KeyValueFromInt("spawnflags", 1)
 					hIgniter.KeyValueFromInt("burn_duration", COMBATTANK_FIREBALL_BURN_DURATION)
 					hIgniter.DispatchSpawn()
@@ -90,11 +89,12 @@ __CollectGameEventCallbacks(CombatTankFireballEvents)
 TankExt.CombatTankWeapons["fireball"] <- {
 	function SpawnModel()
 	{
-		local hFireball = CreateByClassname("funCBaseFlex")
+		local hFireball = CreateByClassnameSafe("funCBaseFlex")
 		hFireball.SetModel(COMBATTANK_FIREBALL_MODEL)
 		hFireball.SetPlaybackRate(1.0)
 		hFireball.DispatchSpawn()
 		hFireball.SetSequence(hFireball.LookupSequence("idle"))
+		hFireball.SetAbsAngles(QAngle(0, 90, 0))
 		return hFireball
 	}
 	function OnSpawn()
@@ -143,8 +143,7 @@ TankExt.CombatTankWeapons["fireball"] <- {
 				local vecDirection = hTank_scope.vecTarget - vecOrigin
 				vecDirection.Norm()
 
-				local hProj = CreateByClassname("func_rotating")
-				SetPropBool(hProj, "m_bForcePurgeFixedupStrings", true)
+				local hProj = CreateByClassnameSafe("func_rotating")
 
 				hProj.SetAbsOrigin(vecOrigin)
 				hProj.SetAbsVelocity(vecDirection * Convars.GetFloat("tf_fireball_speed"))

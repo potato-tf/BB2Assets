@@ -63,13 +63,10 @@ function sentry_Detection(_, activator)
         if activator:GetClassname() == "obj_sentrygun" then
             activator:AddOutput("$OnShootBullet popscript:$sentryPowerAttack::0:-1")
             activator:AddOutput("$OnShootRocket popscript:$sentryRocketAttack::0:-1")
-        else
-            print("no building found")
         end
 
         if activator:GetClassname() == "obj_sentrygun" or activator:GetClassname() == "obj_dispenser" or activator:GetClassname() == "obj_teleporter" then
             if activator.m_iHighestUpgradeLevel < 3 then
-                print("below max level building. Set to lvl 2")
 
                 activator.m_iHighestUpgradeLevel = 2
                 activator.alreadyLvl2 = 1
@@ -82,18 +79,13 @@ function sentry_Detection(_, activator)
                 --     end)
                 -- end
             elseif activator.m_iHighestUpgradeLevel == 3 then
-                print("level 3 building")
                 activator.m_iHighestUpgradeLevel = 3
                 activator.alreadyLvl2 = 1
                 -- activator.m_hBuilder:AcceptInput("$DisplayTextChat", "{green}Synchronized!")
-
-            else
-                print("already level 2")
             end
         end
     else
         activator.alreadyLvl2 = 1
-        print("already variable added")
     end
 end
 
@@ -183,7 +175,6 @@ function powerAttack(_, activator, caller)
 end
 function sentryPowerAttack(_, activator)
     local owner = activator.m_hBuilder
-    print(owner.poweringScale)
 
     if not activator.m_hEnemy:IsAlive() then
         owner.poweringScale = owner.poweringScale + 1
@@ -279,7 +270,7 @@ function tauntPowerUp(_, activator)
 --Time To Be Strong
     if activator.empowered == 0 then
         if activator.power == 0 then
-            print("not enough power")
+            -- print("not enough power")
             
         elseif activator.power == 1 then --<== Tier 1
             -- activator:AcceptInput("$PlaySoundToSelf", "weapons/vaccinator_heal.wav")
@@ -368,8 +359,6 @@ function tauntPowerUp(_, activator)
                 activator:SetAttributeValue("engy sentry fire rate increased", nil)
             end)
         end
-    else
-        print("already empowered")
     end
 end
 --////////////////////////////////////////////////
@@ -429,10 +418,11 @@ function setVariablesMedic(_, activator)
 end
 
 function brokenAttack(damage, activator)
+	local medigun = activator:GetPlayerItemBySlot(LOADOUT_POSITION_SECONDARY)
     activator.damageMeter = activator.damageMeter + damage
 
     function OnGameTick()
-        if  activator:InCond(57) then
+        if activator:InCond(57) and activator:GetConditionProvider(57) == activator then
             -- print("ubered. Not Getting Points")
             activator.damageMeter = 0
         end
@@ -446,10 +436,11 @@ function brokenAttack(damage, activator)
         activator.textDescriptor:AddOutput("message "..tostring(activator.damageMeter).."/200 [No Passives]")
         activator.textDescriptor:AcceptInput("Display", _,activator)
 
-        activator:SetAttributeValue("hidden maxhealth non buffed", nil)
-        activator:SetAttributeValue("mark for death", nil)
-        activator:SetAttributeValue("effect cond override", nil)
-        activator:SetAttributeValue("Set DamageType Ignite", nil)
+
+        medigun:SetAttributeValue("hidden maxhealth non buffed", nil)
+        medigun:SetAttributeValue("mark for death", nil)
+        medigun:SetAttributeValue("effect cond override", nil)
+        medigun:SetAttributeValue("Set DamageType Ignite", nil)
         activator:RemoveCond(32)
         activator:RemoveCond(46)
 
@@ -467,7 +458,7 @@ function brokenAttack(damage, activator)
         activator.textDescriptor:AddOutput("color 0 128 0")
         activator.textDescriptor:AcceptInput("Display", _,activator)
 
-        activator:SetAttributeValue("hidden maxhealth non buffed", 25)
+        medigun:SetAttributeValue("hidden maxhealth non buffed", 25)
         activator:AddCond(32, -1)
 
         activator.powerTier = 1
@@ -480,10 +471,10 @@ function brokenAttack(damage, activator)
         activator.textDescriptor:AddOutput("color 255 255 0")
         activator.textDescriptor:AcceptInput("Display", _,activator)
 
-        activator:SetAttributeValue("hidden maxhealth non buffed", 50)
+        medigun:SetAttributeValue("hidden maxhealth non buffed", 50)
         activator:AddCond(32, -1)
         activator:AddCond(46, -1)
-        activator:SetAttributeValue("mark for death", 1)
+        medigun:SetAttributeValue("mark for death", 1)
 
         activator.powerTier = 2
     elseif activator.damageMeter >= 2000 then
@@ -495,8 +486,8 @@ function brokenAttack(damage, activator)
         activator.textDescriptor:AddOutput("color 255 0 0")
         activator.textDescriptor:AcceptInput("Display", _,activator)
         activator.Uber = 0
-        activator:SetAttributeValue("effect cond override", 2873)
-        activator:SetAttributeValue("Set DamageType Ignite", 3)
+        medigun:SetAttributeValue("effect cond override", 8505)
+        medigun:SetAttributeValue("Set DamageType Ignite", 3)
 
         -- local UberEvent = AddEventCallback("player_chargedeployed", function(eventTable)
         --     -- PrintTable(eventTable)
@@ -659,7 +650,6 @@ function demoShieldVariables(_, activator)
         PT_list = PT_list + 1
         activator.req = 1
     else
-        print("already created")
         activator.req = 0
     end
 end
@@ -678,7 +668,6 @@ function blastBash(_, activator)
         if checkNetProps:GetAttributeValue("clip size upgrade atomic", true) ~= nil then
         activator.refillClip = (4 + (checkNetProps:GetAttributeValue("clip size upgrade atomic", true)))
         else
-            print("No Upgrades for Refill")
             activator.refillClip = 4
         end
     end
@@ -744,12 +733,10 @@ function blastBash(_, activator)
         activator.dashCount = 0
         
     elseif activator.dashCount == 0 then
-        print("no more dash")
         activator:SetAttributeValue("charge recharge rate increased", nil)
         -- activator:AcceptInput("$AddItemAttribute", "Fire Input On Kill|popscript^$fillUpMeter|0")
         -- activator:AcceptInput("$AddItemAttribute", "Fire Input On Kill|popscript^$fillUpMeterMelee|2")
     else
-        print("no more dash")
         activator:SetAttributeValue("charge recharge rate increased", nil)
         -- activator:AcceptInput("$AddItemAttribute", "Fire Input On Kill|popscript^$fillUpMeter|0")
         -- activator:AcceptInput("$AddItemAttribute", "Fire Input On Kill|popscript^$fillUpMeterMelee|2")
@@ -789,8 +776,6 @@ function fillUpMeter(_, activator, caller)
 
             activator.revertCount = 0
         end
-    else
-        print("filled up")
     end
 end
 function fillUpMeterMelee(_, activator, caller)
@@ -841,8 +826,6 @@ function sapperCopy(_, activator, caller)
     local isCrit = 0
     activator.hasDied = 0
 
-    print(caller.tag)
-
     if caller:InCond(34) then
         isCrit = 1
     end
@@ -853,9 +836,7 @@ function sapperCopy(_, activator, caller)
                 activator.alreadytriggered = 1
 
                 activator.copyItems = caller:GetAllItems()
-                PrintTable(activator.copyItems)
                 activator.copyTarget = caller
-                print(activator.copyTarget)
 
                 activator:AcceptInput("$DisplayTextChat", "{yellow}Marked!")
                 activator:AddCallback(ON_DEATH, function()
@@ -974,8 +955,6 @@ function sapperCopy(_, activator, caller)
                             end)
                         end)
                     end)
-                    print(revert)
-                    print(warn)
                     activator.id1 = revert
                     activator.id2 = warn
 

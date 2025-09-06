@@ -29,6 +29,7 @@ custom_mvm_hell
 	CanBotsAttackWhileInSpawnRoom no
 
 	PrecacheModel "models/bots/boss_bot/boss_tank_color.mdl"
+	PrecacheModel "models/bots/boss_bot/tank_drill.mdl"
     
     ExtraSpawnPoint
     {
