@@ -102,7 +102,7 @@ population
 		Where	spawnbot_left
 		Where	spawnbot_right
 		BeginAtWave	1
-		RunForThisManyWaves	5
+		RunForThisManyWaves	6
 		InitialCooldown	15
 		CooldownTime	25
 		DesiredCount	1
